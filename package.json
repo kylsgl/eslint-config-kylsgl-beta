@@ -1,0 +1,74 @@
+{
+	"name": "eslint-config-kylsgl",
+	"version": "1.0.0",
+	"description": "Rules for Typescript and React based on Airbnb",
+	"author": {
+		"name": "kylsgl",
+		"email": "hello@kylsgl.com",
+		"url": "https://github.com/kylsgl"
+	},
+	"license": "MIT",
+	"funding": [
+		{
+			"type": "ko-fi",
+			"url": "https://ko-fi.com/kylsgl"
+		}
+	],
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"./dist",
+		"./LICENSE"
+	],
+	"scripts": {
+		"build:eslint": "rollup --config ./config/eslint/rollup.config.mjs",
+		"build": "pnpm generate:configs && rollup --config ./rollup.config.mjs",
+		"format": "prettier --write .",
+		"generate:configs": "tsx ./scripts/generateConfigs.ts",
+		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"lint:fix": "pnpm lint --fix",
+		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
+		"test": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@stylistic/eslint-plugin": "^4.4.1",
+		"@vitest/eslint-plugin": "^1.2.1",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-import-resolver-typescript": "^4.4.2",
+		"eslint-plugin-import-x": "^4.15.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-n": "^17.19.0",
+		"eslint-plugin-perfectionist": "^4.14.0",
+		"eslint-plugin-promise": "^7.2.1",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-hooks": "6.0.0-rc.1",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"eslint-plugin-regexp": "^2.8.0",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"eslint-plugin-sonarjs": "^3.0.2",
+		"eslint-plugin-testing-library": "^7.4.0",
+		"eslint-plugin-tsdoc": "^0.4.0",
+		"eslint-plugin-unicorn": "^59.0.1",
+		"typescript-eslint": "^8.33.1"
+	},
+	"devDependencies": {
+		"@rollup/plugin-typescript": "^12.1.2",
+		"@types/node": "^22.15.29",
+		"eslint": "^9.28.0",
+		"husky": "^9.1.7",
+		"prettier": "^3.5.3",
+		"rollup": "^4.41.1",
+		"rollup-plugin-esbuild": "^6.2.1",
+		"tsx": "^4.19.4",
+		"typescript": "^5.8.3"
+	}
+}

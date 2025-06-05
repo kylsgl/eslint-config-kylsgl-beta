@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"lib": ["ES2024"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+
+		/* Bundler mode */
+		"moduleResolution": "Bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+
+		/* Linting */
+		"strict": true,
+		// TODO: "exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUncheckedSideEffectImports": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"useDefineForClassFields": true,
+
+		/**
+		 * https://github.com/microsoft/TypeScript/issues/56389
+		 */
+		"noUncheckedIndexedAccess": false
+	},
+	"exclude": ["./dist*"],
+	"include": ["./src/**/*.ts"]
+}

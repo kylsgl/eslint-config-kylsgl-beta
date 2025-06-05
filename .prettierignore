@@ -1,0 +1,7 @@
+/android
+/coverage
+/dist*
+/node_modules
+LICENSE.md
+eslint.config.mjs
+pnpm-lock.yaml
