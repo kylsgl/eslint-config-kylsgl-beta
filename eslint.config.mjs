@@ -326,7 +326,7 @@ const configs = {
         "consistent-return": "error",
         "consistent-this": "off",
         "constructor-super": "error",
-        curly: ["error", "multi-line"],
+        curly: ["error", "all"],
         "default-case": ["error", { commentPattern: "^no default$" }],
         "default-case-last": "error",
         "default-param-last": "error",
@@ -511,10 +511,7 @@ const configs = {
         "no-else-return": ["error", { allowElseIf: false }],
         "no-empty": "error",
         "no-empty-character-class": "off",
-        "no-empty-function": [
-          "error",
-          { allow: ["arrowFunctions", "functions", "methods"] }
-        ],
+        "no-empty-function": "error",
         "no-empty-pattern": "error",
         "no-empty-static-block": "error",
         "no-eq-null": "off",
@@ -940,14 +937,7 @@ const configs = {
           "error",
           { disallowArithmeticOperators: true }
         ],
-        "no-unused-expressions": [
-          "error",
-          {
-            allowShortCircuit: false,
-            allowTaggedTemplates: false,
-            allowTernary: false
-          }
-        ],
+        "no-unused-expressions": "error",
         "no-unused-labels": "error",
         "no-unused-private-class-members": "error",
         "no-unused-vars": [
@@ -1161,7 +1151,7 @@ const configs = {
         "regexp/strict": "error",
         "regexp/use-ignore-case": "error",
         "require-atomic-updates": "off",
-        "require-await": "off",
+        "require-await": "error",
         "require-unicode-regexp": "off",
         "require-yield": "error",
         "simple-import-sort/exports": "error",
@@ -2386,10 +2376,8 @@ var settings_default = settings;
 
 const ignoresConfig = {
   ignores: [
-    "coverage/*",
-    "dist*/*",
-    "node_modules/*",
-    "patches/*",
+    "dist",
+    "node_modules",
     "./eslint.config.mjs",
     "./src/generatedConfigs.ts",
     "**/*.{js,jsx,cjs,mjs}"

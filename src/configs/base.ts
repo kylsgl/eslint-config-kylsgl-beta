@@ -14,7 +14,9 @@ const baseConfig: Readonly<Linter.Config> = {
 	files: FILES_GLOB_JS_TS,
 	name: 'base',
 	rules: {
+		curly: ['error', 'all'],
 		'no-console': ['warn', { allow: ['error', 'info', 'warn'] }],
+		'no-empty-function': 'error',
 		'no-restricted-syntax': [
 			'error',
 			{
@@ -28,7 +30,9 @@ const baseConfig: Readonly<Linter.Config> = {
 				selector: 'WithStatement',
 			},
 		],
+		'no-unused-expressions': 'error',
 		'prefer-template': 'off',
+		'require-await': 'error',
 	},
 };
 

@@ -2,10 +2,8 @@ import { type Linter } from 'eslint';
 
 const ignoresConfig: Readonly<Linter.Config> = {
 	ignores: [
-		'coverage/*',
-		'dist*/*',
-		'node_modules/*',
-		'patches/*',
+		'dist',
+		'node_modules',
 		'./eslint.config.mjs',
 		'./src/generatedConfigs.ts',
 		'**/*.{js,jsx,cjs,mjs}',

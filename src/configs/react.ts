@@ -26,6 +26,10 @@ const baseConfig: Readonly<Linter.Config> = {
 				unnamedComponents: [],
 			},
 		],
+		'react/jsx-curly-brace-presence': [
+			'error',
+			{ children: 'always', propElementValues: 'always', props: 'never' },
+		],
 		'react/jsx-key': 'error',
 		'react/jsx-max-depth': ['error', { max: 5 }],
 		'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary'] }],
