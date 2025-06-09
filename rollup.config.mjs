@@ -1,10 +1,9 @@
-import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from 'rollup';
 
 import packageJSON from './package.json' with { type: 'json' };
 
-// eslint-disable-next-line no-unused-vars
-export default defineConfig((_args) => {
+export default defineConfig(() => {
 	const input = './src/index.ts';
 
 	const output = {

@@ -6,7 +6,6 @@ import { type Configs } from './types';
 const configs: Configs = {
 	base: [
 		{
-			name: 'base',
 			files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
 			rules: {
 				'@stylistic/array-bracket-newline': ['off', 'consistent'],
@@ -1628,7 +1627,6 @@ const configs: Configs = {
 			},
 		},
 		{
-			name: 'base',
 			files: ['**/{__tests__,tests}/**/*.test.{js,ts}'],
 			rules: {
 				'class-methods-use-this': 'off',
@@ -1643,7 +1641,6 @@ const configs: Configs = {
 			},
 		},
 		{
-			name: 'base',
 			files: [
 				'**/constants.ts',
 				'**/enums.ts',
@@ -1656,7 +1653,6 @@ const configs: Configs = {
 	],
 	prettier: [
 		{
-			name: 'prettier',
 			files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
 			rules: {
 				'@babel/object-curly-spacing': 'off',
@@ -2020,8 +2016,8 @@ const configs: Configs = {
 	],
 	react: [
 		{
-			name: 'react',
 			files: ['**/*.{jsx,tsx}'],
+			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			rules: {
 				'class-methods-use-this': [
 					'error',
@@ -2478,14 +2474,12 @@ const configs: Configs = {
 				'react/style-prop-object': 'error',
 				'react/void-dom-elements-no-children': 'error',
 			},
-			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			settings: {
 				propWrapperFunctions: ['exact', 'forbidExtraProps', 'Object.freeze'],
 				react: { pragma: 'React', version: 'detect' },
 			},
 		},
 		{
-			name: 'react',
 			files: ['**/{__tests__,tests}/**/*.test.{jsx,tsx}'],
 			rules: {
 				'jsx-a11y/control-has-associated-label': 'off',
@@ -2522,8 +2516,8 @@ const configs: Configs = {
 	],
 	reactTypescript: [
 		{
-			name: 'reactTypescript',
 			files: ['**/*.{jsx,tsx}'],
+			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			rules: {
 				'react/jsx-filename-extension': [
 					'error',
@@ -2532,7 +2526,6 @@ const configs: Configs = {
 				'react/prop-types': 'off',
 				'react/require-default-props': 'off',
 			},
-			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			settings: {
 				propWrapperFunctions: ['exact', 'forbidExtraProps', 'Object.freeze'],
 				react: { pragma: 'React', version: 'detect' },
@@ -2541,7 +2534,6 @@ const configs: Configs = {
 	],
 	typescript: [
 		{
-			name: 'typescript',
 			files: ['**/*.{ts,tsx,cts,mts}'],
 			rules: {
 				'@typescript-eslint/adjacent-overload-signatures': 'error',
@@ -2749,7 +2741,6 @@ const configs: Configs = {
 			},
 		},
 		{
-			name: 'typescript',
 			files: ['**/*.d.ts'],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'off',
@@ -2763,7 +2754,6 @@ const configs: Configs = {
 	],
 	typescriptTypeChecked: [
 		{
-			name: 'typescriptTypeChecked',
 			files: ['**/*.{ts,tsx,cts,mts}'],
 			rules: {
 				'@typescript-eslint/adjacent-overload-signatures': 'error',
@@ -3062,7 +3052,6 @@ const configs: Configs = {
 			},
 		},
 		{
-			name: 'typescriptTypeChecked',
 			files: ['**/*.d.ts'],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'off',

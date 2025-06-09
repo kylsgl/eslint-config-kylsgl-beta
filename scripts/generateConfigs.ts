@@ -1,86 +1,92 @@
 import { writeFile } from 'node:fs/promises';
-import { configs } from '../src/configs';
-import * as prettier from 'prettier';
-import { Linter } from 'eslint';
+import path from 'node:path';
 
-import { appDirResolve } from '../common';
+import { type Linter } from 'eslint';
+// eslint-disable-next-line import-x/no-extraneous-dependencies
+import * as prettier from 'prettier';
+
+import { configs } from '../src/configs';
 
 const FILE_NAME = 'generatedConfigs.ts';
 
 const SAVE_PATH = './src/';
 
-const configsValue: string = Object.entries(configs).reduce(
-	(accumulator: string, [key, value]): string => {
-		const valueCopy = JSON.parse(JSON.stringify(value)) as Readonly<
-			Linter.Config<Linter.RulesRecord>
-		>[];
+function mergeRules(
+	configArr: ReadonlyArray<Readonly<Linter.Config>>,
+): Linter.Config[] {
+	const valueCopy = structuredClone(configArr);
 
-		const withMergedRules: Linter.Config[] = Object.values(
-			valueCopy.reduce(
-				(
-					accumulator: Record<string, Linter.Config>,
-					{ files, languageOptions, rules, settings }: Linter.Config,
-				) => {
-					const configKey: string | undefined = files?.join('');
+	return Object.values(
+		valueCopy.reduce(
+			(
+				accumulator: Record<string, Linter.Config>,
+				{ files, languageOptions, rules, settings }: Linter.Config,
+			) => {
+				const configKey: string | undefined = files?.join('');
 
-					if (configKey !== undefined && configKey.length > 0) {
-						const configValue: Linter.Config = {
-							name: key,
-							files,
-							languageOptions,
-							rules,
-							settings,
+				if (configKey !== undefined && configKey.length > 0) {
+					const configValue: Linter.Config = {
+						files,
+						languageOptions,
+						rules,
+						settings,
+					};
+
+					if (configKey in accumulator) {
+						const existingConfigValue: Linter.Config = accumulator[configKey];
+
+						configValue.languageOptions = {
+							...existingConfigValue.languageOptions,
+							...languageOptions,
 						};
 
-						if (configKey in accumulator) {
-							const existingConfigValue: Linter.Config = accumulator[configKey];
+						configValue.rules = {
+							...existingConfigValue.rules,
+							...rules,
+						};
 
-							configValue.languageOptions = {
-								...existingConfigValue.languageOptions,
-								...languageOptions,
-							};
-
-							configValue.rules = {
-								...existingConfigValue.rules,
-								...rules,
-							};
-
-							configValue.settings = {
-								...existingConfigValue.settings,
-								...settings,
-							};
-						}
-
-						accumulator[configKey] = configValue;
+						configValue.settings = {
+							...existingConfigValue.settings,
+							...settings,
+						};
 					}
 
-					return accumulator;
-				},
-				{},
-			),
+					accumulator[configKey] = configValue;
+				}
+
+				return accumulator;
+			},
+			{},
+		),
+	);
+}
+
+const configsValue: string = Object.entries(configs).reduce(
+	(accumulator: string, [key, value]): string => {
+		const withMergedRules: Linter.Config[] = mergeRules(
+			value as ReadonlyArray<Readonly<Linter.Config>>,
 		);
 
-		const withSortedRules: Linter.Config<Linter.RulesRecord>[] =
-			withMergedRules.map(
-				({
-					name,
-					files,
-					languageOptions = {},
-					rules = {},
-					settings = {},
-				}: Linter.Config<Linter.RulesRecord>): Linter.Config<Linter.RulesRecord> => ({
-					name,
-					files,
-					rules: Object.fromEntries(
-						Object.entries(rules).sort(([a], [b]) => a.localeCompare(b)),
-					),
-					languageOptions:
-						Object.values(languageOptions).length > 0
-							? languageOptions
-							: undefined,
-					settings: Object.values(settings).length > 0 ? settings : undefined,
-				}),
-			);
+		const withSortedRules: Linter.Config[] = withMergedRules.map(
+			({
+				files,
+				languageOptions = {},
+				name,
+				rules = {},
+				settings = {},
+			}: Linter.Config): Linter.Config => ({
+				files,
+				languageOptions:
+					Object.values(languageOptions).length > 0
+						? languageOptions
+						: undefined,
+				name,
+				rules: Object.fromEntries(
+					Object.entries(rules).sort(([a], [b]) => a.localeCompare(b)),
+				),
+				settings: Object.values(settings).length > 0 ? settings : undefined,
+			}),
+		);
 
 		return accumulator + `${key}:${JSON.stringify(withSortedRules)},`;
 	},
@@ -102,4 +108,10 @@ const formattedResult: string = await prettier.format(result, {
 	parser: 'typescript',
 });
 
-await writeFile(appDirResolve(SAVE_PATH, FILE_NAME), formattedResult);
+await writeFile(
+	path.resolve(
+		path.resolve(import.meta.dirname, '..'),
+		path.join(SAVE_PATH, FILE_NAME),
+	),
+	formattedResult,
+);

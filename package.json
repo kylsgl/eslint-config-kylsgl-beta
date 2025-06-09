@@ -34,7 +34,7 @@
 		"build": "pnpm generate:configs && rollup --config ./rollup.config.mjs",
 		"format": "prettier --write .",
 		"generate:configs": "tsx ./scripts/generateConfigs.ts",
-		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
 		"lint:fix": "pnpm lint --fix",
 		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
 		"test": "tsc --noEmit"
@@ -68,7 +68,7 @@
 		"husky": "^9.1.7",
 		"prettier": "^3.5.3",
 		"rollup": "^4.42.0",
-		"rollup-plugin-esbuild": "^6.2.1",
+		"tslib": "^2.8.1",
 		"tsx": "^4.19.4",
 		"typescript": "^5.8.3"
 	}
