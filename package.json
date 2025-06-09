@@ -1,6 +1,6 @@
 {
 	"name": "eslint-config-kylsgl",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Rules for Typescript and React based on Airbnb",
 	"author": {
 		"name": "kylsgl",
@@ -61,6 +61,7 @@
 		"typescript-eslint": "^8.34.0"
 	},
 	"devDependencies": {
+		"@changesets/changelog-github": "^0.5.1",
 		"@changesets/cli": "^2.29.4",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@types/node": "^22.15.30",
