@@ -2038,7 +2038,6 @@ const configs: Configs = {
 	react: [
 		{
 			files: ['**/*.{jsx,tsx}'],
-			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			rules: {
 				'class-methods-use-this': [
 					'error',
@@ -2495,10 +2494,6 @@ const configs: Configs = {
 				'react/style-prop-object': 'error',
 				'react/void-dom-elements-no-children': 'error',
 			},
-			settings: {
-				propWrapperFunctions: ['exact', 'forbidExtraProps', 'Object.freeze'],
-				react: { pragma: 'React', version: 'detect' },
-			},
 		},
 		{
 			files: ['**/{__tests__,tests}/**/*.test.{jsx,tsx}'],
@@ -2538,7 +2533,6 @@ const configs: Configs = {
 	reactTypescript: [
 		{
 			files: ['**/*.{jsx,tsx}'],
-			languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
 			rules: {
 				'react/jsx-filename-extension': [
 					'error',
@@ -2546,10 +2540,6 @@ const configs: Configs = {
 				],
 				'react/prop-types': 'off',
 				'react/require-default-props': 'off',
-			},
-			settings: {
-				propWrapperFunctions: ['exact', 'forbidExtraProps', 'Object.freeze'],
-				react: { pragma: 'React', version: 'detect' },
 			},
 		},
 	],

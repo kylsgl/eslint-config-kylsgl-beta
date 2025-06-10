@@ -1,11 +1,9 @@
 import { type Linter } from 'eslint';
 
 import { FILES_GLOB_JSX } from '../../../constants';
-import { REACT_LANGUAGE_OPTIONS, REACT_SETTINGS } from './constants';
 
 const config: Linter.Config = {
 	files: FILES_GLOB_JSX,
-	languageOptions: REACT_LANGUAGE_OPTIONS,
 	name: 'airbnb/react-a11y',
 	rules: {
 		// ensure emoji are accessible
@@ -319,7 +317,6 @@ const config: Linter.Config = {
 		// https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
 		'jsx-a11y/tabindex-no-positive': 'error',
 	},
-	settings: REACT_SETTINGS,
 };
 
 export default config;

@@ -1,11 +1,9 @@
 import { type Linter } from 'eslint';
 
 import { FILES_GLOB_JSX } from '../../../constants';
-import { REACT_LANGUAGE_OPTIONS, REACT_SETTINGS } from './constants';
 
 const config: Linter.Config = {
 	files: FILES_GLOB_JSX,
-	languageOptions: REACT_LANGUAGE_OPTIONS,
 	name: 'airbnb/react-hooks',
 	rules: {
 		// Verify the list of the dependencies for Hooks like useEffect and similar
@@ -16,7 +14,6 @@ const config: Linter.Config = {
 		// https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
 		'react-hooks/rules-of-hooks': 'error',
 	},
-	settings: REACT_SETTINGS,
 };
 
 export default config;

@@ -1,11 +1,9 @@
 import { type Linter } from 'eslint';
 
 import { FILES_GLOB_JSX } from '../../../constants';
-import { REACT_LANGUAGE_OPTIONS, REACT_SETTINGS } from './constants';
 
 const config: Linter.Config = {
 	files: FILES_GLOB_JSX,
-	languageOptions: REACT_LANGUAGE_OPTIONS,
 	name: 'airbnb/react',
 	rules: {
 		'class-methods-use-this': [
@@ -666,7 +664,6 @@ const config: Linter.Config = {
 		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
 		'react/void-dom-elements-no-children': 'error',
 	},
-	settings: REACT_SETTINGS,
 };
 
 export default config;

@@ -12,7 +12,12 @@ const merdgeConfigs: Configs = {
 		...generatedConfigs.base,
 	],
 	prettier: generatedConfigs.prettier,
-	react: [...plugins.react, ...generatedConfigs.react],
+	react: [
+		...plugins.react,
+		...parsers.react,
+		...settings.react,
+		...generatedConfigs.react,
+	],
 	reactTypescript: generatedConfigs.reactTypescript,
 	typescript: [
 		...plugins.typescript,

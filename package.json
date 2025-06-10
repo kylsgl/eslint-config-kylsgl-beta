@@ -1,7 +1,7 @@
 {
 	"name": "eslint-config-kylsgl",
 	"version": "1.1.0",
-	"description": "My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide",
+	"description": "My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.",
 	"keywords": [
 		"eslint"
 	],
@@ -52,7 +52,7 @@
 	},
 	"dependencies": {
 		"@stylistic/eslint-plugin": "^4.4.1",
-		"@vitest/eslint-plugin": "^1.2.1",
+		"@vitest/eslint-plugin": "^1.2.2",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-import-resolver-typescript": "^4.4.3",
 		"eslint-plugin-import-x": "^4.15.1",
@@ -67,7 +67,7 @@
 		"eslint-plugin-regexp": "^2.9.0",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sonarjs": "^3.0.2",
-		"eslint-plugin-testing-library": "^7.5.0",
+		"eslint-plugin-testing-library": "^7.5.1",
 		"eslint-plugin-tsdoc": "^0.4.0",
 		"eslint-plugin-unicorn": "^59.0.1",
 		"typescript-eslint": "^8.34.0"

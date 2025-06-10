@@ -2,7 +2,7 @@
 
 <p align="center">
 	My personal ESLint rules for JavaScript, TypeScript, and React, based on the
-	Airbnb JavaScript Style Guide
+	Airbnb JavaScript Style Guide.
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@
 ## Installation
 
 ```shell
-npm install eslint-config-kylsgl --save-dev
+npm install --save-dev eslint-config-kylsgl
 ```
 
 > **Requirements**
@@ -37,6 +37,7 @@ npm install eslint-config-kylsgl --save-dev
 
 ```js
 // eslint.config.mjs
+
 import { configs } from 'eslint-config-kylsgl';
 
 export default [
@@ -46,14 +47,6 @@ export default [
 	...configs.reactTypescript,
 	...configs.prettier,
 	{
-		files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
-		languageOptions: {
-			ecmaVersion: 'latest',
-			parserOptions: {
-				ecmaVersion: 'latest',
-			},
-			sourceType: 'module',
-		},
 		rules: {
 			// Your custom rules
 		},
