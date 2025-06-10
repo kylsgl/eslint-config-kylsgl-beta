@@ -2445,6 +2445,22 @@ const settings = {
   ]
 };
 
+const merdgeConfigs = {
+  base: [
+    ...plugins.base,
+    ...parsers.base,
+    ...settings.base,
+    ...configs.base
+  ],
+  prettier: configs.prettier,
+  typescriptTypeChecked: [
+    ...plugins.typescript,
+    ...parsers.typescript,
+    ...settings.typescript,
+    ...configs.typescriptTypeChecked
+  ]
+};
+
 const ignoresConfig = {
   ignores: [
     "dist",
@@ -2468,15 +2484,9 @@ const config = [
       sourceType: "module"
     }
   },
-  ...plugins.base,
-  ...plugins.typescript,
-  ...parsers.base,
-  ...parsers.typescript,
-  ...settings.base,
-  ...settings.typescript,
-  ...configs.base,
-  ...configs.typescriptTypeChecked,
-  ...configs.prettier,
+  ...merdgeConfigs.base,
+  ...merdgeConfigs.typescriptTypeChecked,
+  ...merdgeConfigs.prettier,
   ...ignoresConfig$1
 ];
 

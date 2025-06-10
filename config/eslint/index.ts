@@ -1,9 +1,9 @@
 import { type Linter } from 'eslint';
 
-import { configs, parsers, plugins, settings } from '../../src';
+import { configs } from '../../src';
 import ignoresConfig from './ignores';
 
-const config: ReadonlyArray<Readonly<Linter.Config>> = [
+const config: readonly Linter.Config[] = [
 	{
 		files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
 		languageOptions: {
@@ -14,12 +14,6 @@ const config: ReadonlyArray<Readonly<Linter.Config>> = [
 			sourceType: 'module',
 		},
 	},
-	...plugins.base,
-	...plugins.typescript,
-	...parsers.base,
-	...parsers.typescript,
-	...settings.base,
-	...settings.typescript,
 	...configs.base,
 	...configs.typescriptTypeChecked,
 	...configs.prettier,

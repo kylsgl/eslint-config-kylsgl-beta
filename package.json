@@ -1,8 +1,14 @@
 {
 	"name": "eslint-config-kylsgl",
 	"version": "1.0.2",
-	"description": "Custom ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide",
-	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl-beta",
+	"description": "My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide",
+	"keywords": [
+		"eslint"
+	],
+	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl-beta#readme",
+	"bugs": {
+		"url": "https://github.com/kylsgl/eslint-config-kylsgl-beta/issues"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kylsgl/eslint-config-kylsgl-beta"
@@ -31,7 +37,8 @@
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [
-		"./dist"
+		"./dist",
+		"./CHANGELOG.md"
 	],
 	"scripts": {
 		"build": "pnpm generate:configs && rollup --config ./rollup.config.mjs",
@@ -77,5 +84,9 @@
 		"rollup-plugin-esbuild": "^6.2.1",
 		"tsx": "^4.19.4",
 		"typescript": "^5.8.3"
+	},
+	"engines": {
+		"node": ">=22",
+		"pnpm": ">=10"
 	}
 }
