@@ -1,24 +1,25 @@
 {
 	"name": "eslint-config-kylsgl",
 	"version": "1.0.2",
-	"description": "Rules for Typescript and React based on Airbnb",
-	"author": {
-		"name": "kylsgl",
-		"email": "hello@kylsgl.com",
-		"url": "https://github.com/kylsgl"
+	"description": "Custom ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide",
+	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl-beta",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kylsgl/eslint-config-kylsgl-beta"
 	},
-	"license": "MIT",
 	"funding": [
 		{
 			"type": "ko-fi",
 			"url": "https://ko-fi.com/kylsgl"
 		}
 	],
-	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl",
+	"license": "MIT",
+	"author": {
+		"name": "kylsgl",
+		"email": "hello@kylsgl.com",
+		"url": "https://github.com/kylsgl"
+	},
 	"type": "module",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"require": "./dist/index.js",
@@ -26,16 +27,18 @@
 			"types": "./dist/index.d.ts"
 		}
 	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
-		"./dist",
-		"./LICENSE"
+		"./dist"
 	],
 	"scripts": {
-		"build:eslint": "rollup --config ./config/eslint/rollup.config.mjs",
 		"build": "pnpm generate:configs && rollup --config ./rollup.config.mjs",
+		"build:eslint": "rollup --config ./config/eslint/rollup.config.mjs",
 		"format": "prettier --write .",
 		"generate:configs": "tsx ./scripts/generateConfigs.ts",
-		"lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
+		"lint": "eslint . --report-unused-disable-directives --max-warnings 0",
 		"lint:fix": "pnpm lint --fix",
 		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
 		"test": "tsc --noEmit"
@@ -48,6 +51,7 @@
 		"eslint-plugin-import-x": "^4.15.1",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-n": "^17.19.0",
+		"eslint-plugin-package-json": "^0.33.2",
 		"eslint-plugin-perfectionist": "^4.14.0",
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-react": "^7.37.5",

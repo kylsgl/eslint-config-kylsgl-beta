@@ -1,5 +1,6 @@
 import vitest from '@vitest/eslint-plugin';
 import { type Linter } from 'eslint';
+import packageJSON from 'eslint-plugin-package-json';
 import perfectionist from 'eslint-plugin-perfectionist';
 // @ts-expect-error - no types
 import promise from 'eslint-plugin-promise';
@@ -7,7 +8,11 @@ import * as regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 
-import { FILES_GLOB_JS_TS } from '../constants';
+import {
+	FILES_GLOB_JS_TS,
+	FILES_GLOB_JS_TS_TEST,
+	FILES_GLOB_PACKAGE_JSON,
+} from '../constants';
 import { airbnbConfig, airbnbStylisticConfig } from './airbnb';
 
 const baseConfig: Readonly<Linter.Config> = {
@@ -41,6 +46,16 @@ const kylsglConfig: Readonly<Linter.Config> = {
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
+	},
+};
+
+const packageJSONConfig: Readonly<Linter.Config> = {
+	files: FILES_GLOB_PACKAGE_JSON,
+	name: 'packageJSON/base',
+	rules: {
+		...packageJSON.configs.recommended.rules,
+		'package-json/no-redundant-files': 'error',
+		'package-json/require-author': 'error',
 	},
 };
 
@@ -150,7 +165,7 @@ const sonarJsConfig: Readonly<Linter.Config> = {
 };
 
 const testsConfig: Readonly<Linter.Config> = {
-	files: ['**/{__tests__,tests}/**/*.test.{js,ts}'],
+	files: FILES_GLOB_JS_TS_TEST,
 	name: 'tests/base',
 	rules: {
 		...vitest.configs.recommended.rules,
@@ -189,6 +204,7 @@ export default [
 	...airbnbStylisticConfig,
 	baseConfig,
 	kylsglConfig,
+	packageJSONConfig,
 	perfectionistConfig,
 	promiseConfig,
 	regexpConfig,

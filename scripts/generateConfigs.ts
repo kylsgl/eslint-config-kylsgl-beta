@@ -14,10 +14,11 @@ const SAVE_PATH = './src/';
 function mergeRules(
 	configArr: ReadonlyArray<Readonly<Linter.Config>>,
 ): Linter.Config[] {
-	const valueCopy = structuredClone(configArr);
+	const configsArrCopy: ReadonlyArray<Readonly<Linter.Config>> =
+		structuredClone(configArr);
 
 	return Object.values(
-		valueCopy.reduce(
+		configsArrCopy.reduce(
 			(
 				accumulator: Record<string, Linter.Config>,
 				{ files, languageOptions, rules, settings }: Linter.Config,

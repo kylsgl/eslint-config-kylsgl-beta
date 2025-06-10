@@ -1627,6 +1627,27 @@ const configs: Configs = {
 			},
 		},
 		{
+			files: ['**/package.json'],
+			rules: {
+				'package-json/no-empty-fields': 'error',
+				'package-json/no-redundant-files': 'error',
+				'package-json/order-properties': 'error',
+				'package-json/repository-shorthand': 'error',
+				'package-json/require-author': 'error',
+				'package-json/require-description': 'error',
+				'package-json/require-name': 'error',
+				'package-json/require-type': 'error',
+				'package-json/require-version': 'error',
+				'package-json/sort-collections': 'error',
+				'package-json/unique-dependencies': 'error',
+				'package-json/valid-local-dependency': 'error',
+				'package-json/valid-name': 'error',
+				'package-json/valid-package-definition': 'error',
+				'package-json/valid-repository-directory': 'error',
+				'package-json/valid-version': 'error',
+			},
+		},
+		{
 			files: ['**/{__tests__,tests}/**/*.test.{js,ts}'],
 			rules: {
 				'class-methods-use-this': 'off',

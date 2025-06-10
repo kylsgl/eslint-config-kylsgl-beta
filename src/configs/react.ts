@@ -1,7 +1,7 @@
 import { type Linter } from 'eslint';
 import testingLibrary from 'eslint-plugin-testing-library';
 
-import { FILES_GLOB_JSX } from '../constants';
+import { FILES_GLOB_JSX, FILES_GLOB_JSX_TEST } from '../constants';
 import { airbnbReactConfig } from './airbnb';
 
 const baseConfig: Readonly<Linter.Config> = {
@@ -52,7 +52,7 @@ const reactRefreshConfig: Readonly<Linter.Config> = {
 };
 
 const reactTestsConfig: Readonly<Linter.Config> = {
-	files: ['**/{__tests__,tests}/**/*.test.{jsx,tsx}'],
+	files: FILES_GLOB_JSX_TEST,
 	name: 'react/tests',
 	rules: {
 		...testingLibrary.configs['flat/react'].rules,

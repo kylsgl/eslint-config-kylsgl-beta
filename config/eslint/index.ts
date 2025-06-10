@@ -5,25 +5,21 @@ import ignoresConfig from './ignores';
 
 const config: ReadonlyArray<Readonly<Linter.Config>> = [
 	{
+		files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
 		languageOptions: {
 			ecmaVersion: 'latest',
-			parser: parsers.typescript,
 			parserOptions: {
 				ecmaVersion: 'latest',
-				projectService: true,
-				tsconfigRootDir: import.meta.dirname,
 			},
 			sourceType: 'module',
 		},
-		plugins: {
-			...plugins.base,
-			...plugins.typescript,
-		},
-		settings: {
-			...settings.base,
-			...settings.typescript,
-		},
 	},
+	...plugins.base,
+	...plugins.typescript,
+	...parsers.base,
+	...parsers.typescript,
+	...settings.base,
+	...settings.typescript,
 	...configs.base,
 	...configs.typescriptTypeChecked,
 	...configs.prettier,
