@@ -1,18 +1,9 @@
-import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup';
+import esbuild from 'rollup-plugin-esbuild';
 
 import packageJSON from '../../package.json' with { type: 'json' };
 
 export default defineConfig(() => {
-	const plugins = [
-		typescript({
-			allowImportingTsExtensions: false,
-			noEmit: false,
-			declaration: false,
-			tsconfig: './config/tsconfig.json',
-		}),
-	];
-
 	return {
 		external: [
 			...Object.keys(packageJSON.dependencies),
@@ -20,11 +11,17 @@ export default defineConfig(() => {
 		],
 		input: './config/eslint/index.ts',
 		output: {
-			dir: './',
-			entryFileNames: 'eslint.config.mjs',
+			file: './eslint.config.mjs',
 			format: 'esm',
 			strict: true,
 		},
-		plugins,
+		plugins: esbuild({
+			minify: true,
+			platform: 'node',
+			supported: {
+				'node-colon-prefix-import': true,
+			},
+			target: ['es2024', 'node22'],
+		}),
 	};
 });

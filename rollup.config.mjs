@@ -1,5 +1,6 @@
-import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup';
+import { dts } from 'rollup-plugin-dts';
+import esbuild from 'rollup-plugin-esbuild';
 
 import packageJSON from './package.json' with { type: 'json' };
 
@@ -9,8 +10,6 @@ export default defineConfig(() => {
 	const output = {
 		exports: 'named',
 		strict: true,
-		preserveModules: true,
-		dir: './dist',
 	};
 
 	const external = [
@@ -19,23 +18,32 @@ export default defineConfig(() => {
 	];
 
 	const plugins = [
-		typescript({
-			allowImportingTsExtensions: false,
-			emitDeclarationOnly: true,
-			declaration: true,
-			declarationDir: output.dir,
-			// exclude: './src/configs',
+		esbuild({
+			minify: true,
+			platform: 'node',
+			supported: {
+				'node-colon-prefix-import': true,
+			},
+			target: ['es2024', 'node22'],
 		}),
 	];
 
 	return [
 		{
+			input,
+			output: {
+				file: './dist/index.d.ts',
+				format: 'esm',
+			},
+			plugins: [dts()],
+		},
+		{
 			external,
 			input,
 			output: {
 				...output,
+				file: './dist/index.mjs',
 				format: 'esm',
-				entryFileNames: '[name].mjs',
 			},
 			plugins,
 		},
@@ -44,7 +52,7 @@ export default defineConfig(() => {
 			input,
 			output: {
 				...output,
-				entryFileNames: '[name].js',
+				file: './dist/index.js',
 				format: 'commonjs',
 			},
 			plugins,
