@@ -14,7 +14,7 @@
 			"url": "https://ko-fi.com/kylsgl"
 		}
 	],
-	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl-beta",
+	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",

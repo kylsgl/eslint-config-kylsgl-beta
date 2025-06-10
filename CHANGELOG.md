@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.0.2
+
+### Patch Changes
+
+- [`4c2f982`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/4c2f982d51039f162cb4091facc20122f48a00eb) Thanks [@kylsgl](https://github.com/kylsgl)! - refactor rollup build script for slimmer output
+
 ## 1.0.1
 
 ### Patch Changes
