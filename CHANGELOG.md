@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 1.1.1
+
+### Patch Changes
+
+- [`dbd80e5`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/dbd80e53a2c8e7e2b458269990a1cbea37a00274) Thanks [@kylsgl](https://github.com/kylsgl)! - rename config to rules
+
+- [`bfd4b7c`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/bfd4b7c0b1eb9767164570c3d2662123264e00bf) Thanks [@kylsgl](https://github.com/kylsgl)! - move react settings and parsers to the settings and parser files
+
 ## 1.1.0
 
 ### Minor Changes
