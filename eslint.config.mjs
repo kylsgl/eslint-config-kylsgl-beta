@@ -18,16 +18,7 @@ import tsdoc from 'eslint-plugin-tsdoc';
 import unicorn from 'eslint-plugin-unicorn';
 import * as typescriptImportResolver from 'eslint-import-resolver-typescript';
 
-const FILES_GLOB_TS = ["**/*.{ts,tsx,cts,mts}"];
-const FILES_GLOB_JS_TS = [
-  "**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"
-];
-const FILES_GLOB_JS_TS_TEST = [
-  "**/{__tests__,tests}/**/*.test.{js,ts}"
-];
-const FILES_GLOB_PACKAGE_JSON = ["**/package.json"];
-
-const configs = {
+const rules = {
   base: [
     {
       files: ["**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"],
@@ -395,7 +386,7 @@ const configs = {
         "import-x/no-cycle": ["error", { maxDepth: "\u221E" }],
         "import-x/no-default-export": "off",
         "import-x/no-deprecated": "off",
-        "import-x/no-duplicates": "error",
+        "import-x/no-duplicates": ["error", { "prefer-inline": true }],
         "import-x/no-dynamic-require": "error",
         "import-x/no-empty-named-blocks": "error",
         "import-x/no-extraneous-dependencies": [
@@ -478,6 +469,16 @@ const configs = {
         "max-nested-callbacks": "off",
         "max-params": ["off", 3],
         "max-statements": ["off", 10],
+        "n/callback-return": "off",
+        "n/global-require": "error",
+        "n/handle-callback-err": "off",
+        "n/no-mixed-requires": ["off", false],
+        "n/no-new-require": "error",
+        "n/no-path-concat": "error",
+        "n/no-process-env": "off",
+        "n/no-process-exit": "off",
+        "n/no-restricted-modules": "off",
+        "n/no-sync": "off",
         "new-cap": [
           "error",
           {
@@ -1447,6 +1448,7 @@ const configs = {
         ],
         "sort-keys": ["off", "asc", { caseSensitive: false, natural: true }],
         "sort-vars": "off",
+        strict: ["error", "never"],
         "symbol-description": "error",
         "unicode-bom": ["error", "never"],
         "unicorn/better-regex": "off",
@@ -2309,6 +2311,15 @@ const configs = {
   ]
 };
 
+const FILES_GLOB_TS = ["**/*.{ts,tsx,cts,mts}"];
+const FILES_GLOB_JS_TS = [
+  "**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"
+];
+const FILES_GLOB_JS_TS_TEST = [
+  "**/{__tests__,tests}/**/*.test.{js,ts}"
+];
+const FILES_GLOB_PACKAGE_JSON = ["**/package.json"];
+
 const parsers = {
   base: [
     {
@@ -2445,19 +2456,19 @@ const settings = {
   ]
 };
 
-const merdgeConfigs = {
+const configs = {
   base: [
     ...plugins.base,
     ...parsers.base,
     ...settings.base,
-    ...configs.base
+    ...rules.base
   ],
-  prettier: configs.prettier,
+  prettier: rules.prettier,
   typescriptTypeChecked: [
     ...plugins.typescript,
     ...parsers.typescript,
     ...settings.typescript,
-    ...configs.typescriptTypeChecked
+    ...rules.typescriptTypeChecked
   ]
 };
 
@@ -2466,7 +2477,7 @@ const ignoresConfig = {
     "dist",
     "node_modules",
     "./eslint.config.mjs",
-    "./src/generatedConfigs.ts",
+    "./src/generatedRules.ts",
     "**/*.{js,jsx,cjs,mjs}"
   ],
   name: "base/ignores"
@@ -2484,9 +2495,9 @@ const config = [
       sourceType: "module"
     }
   },
-  ...merdgeConfigs.base,
-  ...merdgeConfigs.typescriptTypeChecked,
-  ...merdgeConfigs.prettier,
+  ...configs.base,
+  ...configs.typescriptTypeChecked,
+  ...configs.prettier,
   ...ignoresConfig$1
 ];
 

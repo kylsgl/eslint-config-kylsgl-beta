@@ -5,7 +5,7 @@ const ignoresConfig: Readonly<Linter.Config> = {
 		'dist',
 		'node_modules',
 		'./eslint.config.mjs',
-		'./src/generatedConfigs.ts',
+		'./src/generatedRules.ts',
 		'**/*.{js,jsx,cjs,mjs}',
 	],
 	name: 'base/ignores',

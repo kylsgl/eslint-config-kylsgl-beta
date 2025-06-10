@@ -5,7 +5,7 @@
 	Airbnb JavaScript Style Guide.
 </p>
 
-<p align="center">
+<div align="center">
 	<a href="https://www.npmjs.com/package/eslint-config-kylsgl">
 		<img
 			alt="NPM Version"
@@ -20,7 +20,7 @@
 			src="https://img.shields.io/github/license/kylsgl/eslint-config-kylsgl-beta"
 		/>
 	</a>
-</p>
+</div>
 
 ## Installation
 
