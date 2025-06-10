@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 1.1.0
+
+### Minor Changes
+
+- [`f340903`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/f340903f2bee494a0333e5051f5a529f497fb889) Thanks [@kylsgl](https://github.com/kylsgl)! - add package.json linter
+
+### Patch Changes
+
+- [`c26478a`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/c26478ab7285025a6ae03f76a8856256f8fc3365) Thanks [@kylsgl](https://github.com/kylsgl)! - chore(docs): add README.md
+
 ## 1.0.2
 
 ### Patch Changes
