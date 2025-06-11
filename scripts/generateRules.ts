@@ -5,7 +5,7 @@ import { type Linter } from 'eslint';
 // eslint-disable-next-line import-x/no-extraneous-dependencies
 import * as prettier from 'prettier';
 
-import { rules as rulesa } from '../src/rules';
+import { rules } from '../src/rules';
 
 const FILE_NAME = 'generatedRules.ts';
 
@@ -21,7 +21,7 @@ function mergeRules(
 		configsArrCopy.reduce(
 			(
 				accumulator: Record<string, Linter.Config>,
-				{ files, languageOptions, rules, settings }: Linter.Config,
+				{ files, languageOptions, rules: configRules, settings }: Linter.Config,
 			) => {
 				const configKey: string | undefined = files?.join('');
 
@@ -29,7 +29,7 @@ function mergeRules(
 					const configValue: Linter.Config = {
 						files,
 						languageOptions,
-						rules,
+						rules: configRules,
 						settings,
 					};
 
@@ -43,7 +43,7 @@ function mergeRules(
 
 						configValue.rules = {
 							...existingConfigValue.rules,
-							...rules,
+							...configRules,
 						};
 
 						configValue.settings = {
@@ -62,7 +62,7 @@ function mergeRules(
 	);
 }
 
-const rulesValue: string = Object.entries(rulesa).reduce(
+const rulesValue: string = Object.entries(rules).reduce(
 	(accumulator: string, [key, value]): string => {
 		const withMergedRules: Linter.Config[] = mergeRules(
 			value as ReadonlyArray<Readonly<Linter.Config>>,
@@ -73,7 +73,7 @@ const rulesValue: string = Object.entries(rulesa).reduce(
 				files,
 				languageOptions = {},
 				name,
-				rules = {},
+				rules: configRules = {},
 				settings = {},
 			}: Linter.Config): Linter.Config => ({
 				files,
@@ -83,7 +83,7 @@ const rulesValue: string = Object.entries(rulesa).reduce(
 						: undefined,
 				name,
 				rules: Object.fromEntries(
-					Object.entries(rules).sort(([a], [b]) => a.localeCompare(b)),
+					Object.entries(configRules).sort(([a], [b]) => a.localeCompare(b)),
 				),
 				settings: Object.values(settings).length > 0 ? settings : undefined,
 			}),

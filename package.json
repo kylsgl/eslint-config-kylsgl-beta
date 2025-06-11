@@ -3,7 +3,9 @@
 	"version": "1.1.1",
 	"description": "My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.",
 	"keywords": [
-		"eslint"
+		"eslint",
+		"eslintconfig",
+		"eslint-config"
 	],
 	"homepage": "https://github.com/kylsgl/eslint-config-kylsgl-beta#readme",
 	"bugs": {
@@ -48,6 +50,7 @@
 		"lint": "eslint . --report-unused-disable-directives --max-warnings 0",
 		"lint:fix": "pnpm lint --fix",
 		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
+		"release": "pnpm build && changeset publish",
 		"test": "tsc --noEmit"
 	},
 	"dependencies": {
@@ -58,7 +61,7 @@
 		"eslint-plugin-import-x": "^4.15.1",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-n": "^17.19.0",
-		"eslint-plugin-package-json": "^0.33.2",
+		"eslint-plugin-package-json": "^0.35.1",
 		"eslint-plugin-perfectionist": "^4.14.0",
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-react": "^7.37.5",
@@ -79,10 +82,10 @@
 		"eslint": "^9.28.0",
 		"husky": "^9.1.7",
 		"prettier": "^3.5.3",
-		"rollup": "^4.42.0",
+		"rollup": "^4.43.0",
 		"rollup-plugin-dts": "^6.2.1",
 		"rollup-plugin-esbuild": "^6.2.1",
-		"tsx": "^4.19.4",
+		"tsx": "^4.20.1",
 		"typescript": "^5.8.3"
 	},
 	"engines": {

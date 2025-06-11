@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # Run if the commit is tagged with a version (e.g. "v1.0.0")
+    if: ${{ startsWith(github.ref_name, 'v') }}
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Github - Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: PNPM - Setup
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+          version: 10
+
+      - name: Node.js - Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
+      - name: PNPM - Hoist dependencies
+        run: |
+          echo "node-linker=hoisted" >> .npmrc
+          echo "public-hoist-pattern=*" >> .npmrc
+          echo "shamefully-hoist=true" >> .npmrc
+
+      - name: PNPM - Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Changesets - Create release pull request and publish to npm
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
