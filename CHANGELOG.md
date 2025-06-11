@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.2.0
+
+### Minor Changes
+
+- [`417ca83`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/417ca838543f3b64880b9687f6e28e13f7662d79) Thanks [@kylsgl](https://github.com/kylsgl)! - add new rule no-default-params that forbids assigning default value on parameters
+
 ## 1.1.2
 
 ### Patch Changes
