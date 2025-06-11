@@ -2,16 +2,17 @@ name: Release
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   release:
     # Run if the commit is tagged with a version (e.g. "v1.0.0")
-    if: ${{ startsWith(github.ref_name, 'v') }}
+    # if: ${{ startsWith(github.ref_name, 'v') }}
 
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -33,12 +34,6 @@ jobs:
         with:
           node-version-file: 'package.json'
           cache: 'pnpm'
-
-      - name: PNPM - Hoist dependencies
-        run: |
-          echo "node-linker=hoisted" >> .npmrc
-          echo "public-hoist-pattern=*" >> .npmrc
-          echo "shamefully-hoist=true" >> .npmrc
 
       - name: PNPM - Install dependencies
         run: pnpm install --frozen-lockfile
