@@ -16,6 +16,7 @@ export default defineConfig(() => {
 			strict: true,
 		},
 		plugins: esbuild({
+			minify: true,
 			platform: 'node',
 			supported: {
 				'node-colon-prefix-import': true,

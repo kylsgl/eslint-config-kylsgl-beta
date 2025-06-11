@@ -1,4 +1,4 @@
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 import { FILES_GLOB_JS_TS } from '../constants';
 import { type RuleConfig } from '../types';

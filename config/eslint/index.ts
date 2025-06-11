@@ -4,8 +4,12 @@ import { configs } from '../../src';
 import ignoresConfig from './ignores';
 
 const config: readonly Linter.Config[] = [
+	...configs.base,
+	...configs.typescriptTypeChecked,
+	...configs.prettier,
+	...ignoresConfig,
 	{
-		files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
+		files: ['**/*.{js,jsx,mjs,ts,tsx,mts}'],
 		languageOptions: {
 			ecmaVersion: 'latest',
 			parserOptions: {
@@ -14,10 +18,6 @@ const config: readonly Linter.Config[] = [
 			sourceType: 'module',
 		},
 	},
-	...configs.base,
-	...configs.typescriptTypeChecked,
-	...configs.prettier,
-	...ignoresConfig,
 ];
 
 export default config;
