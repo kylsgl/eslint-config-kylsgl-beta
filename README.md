@@ -30,6 +30,8 @@ npm install --save-dev eslint-config-kylsgl
 
 > [!IMPORTANT]
 >
+> **Requirements**
+>
 > - ESLint v9.25.0 and above
 > - Node.js v22.x and above
 

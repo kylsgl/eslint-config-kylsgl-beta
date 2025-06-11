@@ -1,4 +1,5 @@
 import { type Rule, type Scope } from 'eslint';
+import { type VariableDeclarator } from 'estree';
 
 const noTopLevelFunctionExpression: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
@@ -13,10 +14,10 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 			context.languageOptions.parserOptions?.ecmaFeatures?.globalReturn ===
 			true;
 
-		const messageId = 'noTopLevelExpression';
-
 		return {
-			VariableDeclarator: (node): void => {
+			VariableDeclarator: (
+				node: Rule.NodeParentExtension & VariableDeclarator,
+			): void => {
 				const nodeType: Rule.NodeTypes | undefined = node.init?.type;
 
 				if (nodeType === undefined || !nodeTypes.has(nodeType)) {
@@ -37,7 +38,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 				}
 
 				context.report({
-					messageId,
+					messageId: 'noTopLevelExpression',
 					node: node.parent,
 				});
 			},
@@ -46,7 +47,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 	meta: {
 		messages: {
 			noTopLevelExpression:
-				'Top-level function expressions are not allowed. Use function declarations instead.',
+				'Top-level function expressions are forbidden. Use function declarations instead.',
 		},
 		type: 'suggestion',
 	},
