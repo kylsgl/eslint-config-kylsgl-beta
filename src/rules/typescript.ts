@@ -25,6 +25,13 @@ const typescriptRulesObj: RuleConfig['rules'] = {
 		'error',
 		{ allowInterfaces: 'with-single-extends' },
 	],
+	'@typescript-eslint/no-inferrable-types': [
+		'error',
+		{
+			ignoreParameters: true,
+			ignoreProperties: true,
+		},
+	],
 	'@typescript-eslint/no-unnecessary-parameter-property-assignment': 'error',
 	'@typescript-eslint/no-unused-vars': [
 		'error',

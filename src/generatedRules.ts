@@ -2618,7 +2618,10 @@ const rules: Rules = {
 				'@typescript-eslint/no-extra-non-null-assertion': 'error',
 				'@typescript-eslint/no-extraneous-class': 'error',
 				'@typescript-eslint/no-implied-eval': 'error',
-				'@typescript-eslint/no-inferrable-types': 'error',
+				'@typescript-eslint/no-inferrable-types': [
+					'error',
+					{ ignoreParameters: true, ignoreProperties: true },
+				],
 				'@typescript-eslint/no-invalid-void-type': 'error',
 				'@typescript-eslint/no-loop-func': 'error',
 				'@typescript-eslint/no-magic-numbers': [
@@ -2850,7 +2853,10 @@ const rules: Rules = {
 				'@typescript-eslint/no-floating-promises': 'error',
 				'@typescript-eslint/no-for-in-array': 'error',
 				'@typescript-eslint/no-implied-eval': 'error',
-				'@typescript-eslint/no-inferrable-types': 'error',
+				'@typescript-eslint/no-inferrable-types': [
+					'error',
+					{ ignoreParameters: true, ignoreProperties: true },
+				],
 				'@typescript-eslint/no-invalid-void-type': 'error',
 				'@typescript-eslint/no-loop-func': 'error',
 				'@typescript-eslint/no-magic-numbers': [
