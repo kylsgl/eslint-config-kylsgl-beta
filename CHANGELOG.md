@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 1.1.2
+
+### Patch Changes
+
+- [`dd9cd6d`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/dd9cd6d491c4f11ac9044d2ebbe65d65458bac7d) Thanks [@kylsgl](https://github.com/kylsgl)! - allow parameters and class properties to be typed
+
+- [`0c486ab`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/0c486ab79aef4a91fd5290cffa788076334aa8e3) Thanks [@kylsgl](https://github.com/kylsgl)! - add changest publish action workflow
+
+- [`482125b`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/482125b9fbcd736d86133486808ccebc0243c3a9) Thanks [@kylsgl](https://github.com/kylsgl)! - update prod dependencies
+
 ## 1.1.1
 
 ### Patch Changes
