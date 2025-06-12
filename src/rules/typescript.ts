@@ -8,6 +8,7 @@ import { airbnbTypescriptConfig } from './airbnb';
 
 const typescriptRulesObj: RuleConfig['rules'] = {
 	'@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+	'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 	'@typescript-eslint/consistent-type-imports': [
 		'error',
 		{
@@ -16,7 +17,10 @@ const typescriptRulesObj: RuleConfig['rules'] = {
 			prefer: 'type-imports',
 		},
 	],
-	'@typescript-eslint/explicit-function-return-type': 'error',
+	'@typescript-eslint/explicit-function-return-type': [
+		'error',
+		{ allowExpressions: false },
+	],
 	'@typescript-eslint/explicit-member-accessibility': 'error',
 	'@typescript-eslint/explicit-module-boundary-types': 'error',
 	'@typescript-eslint/member-ordering': 'error',
@@ -148,11 +152,12 @@ const sonarJsConfig: RuleConfig = {
 	files: FILES_GLOB_TS,
 	name: 'sonarjs/typescript',
 	rules: {
-		// Rules that are already covered or causes conflitcs in the typescript config
+		// Rules that are already covered or causes conflitcs in the Typescript config
 		'sonarjs/argument-type': 'off',
 		'sonarjs/bitwise-operators': 'off',
 		'sonarjs/class-name': 'off',
 		'sonarjs/deprecation': 'off',
+		'sonarjs/function-return-type': 'off',
 		'sonarjs/future-reserved-words': 'off',
 		'sonarjs/in-operator-type-error': 'off',
 		'sonarjs/inconsistent-function-call': 'off',
@@ -171,6 +176,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-unused-vars': 'off',
 		'sonarjs/no-use-of-empty-return-value': 'off',
 		'sonarjs/null-dereference': 'off',
+		'sonarjs/prefer-read-only-props': 'off',
 		'sonarjs/unused-import': 'off',
 		'sonarjs/updated-const-var': 'off',
 	},

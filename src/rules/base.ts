@@ -37,6 +37,7 @@ const baseConfig: RuleConfig = {
 			},
 		],
 		'no-unused-expressions': 'error',
+		'no-unused-labels': 'off',
 		'prefer-template': 'off',
 		'require-await': 'error',
 	},
@@ -121,7 +122,7 @@ const sonarJsConfig: RuleConfig = {
 	name: 'sonarjs/base',
 	rules: {
 		...sonarjs.configs.recommended.rules,
-		// Rules that are already covered or causes conflitcs in the airbnb config
+		// Rules that are already covered or causes conflitcs in the Airbnb config
 		'sonarjs/array-callback-without-return': 'off',
 		'sonarjs/block-scoped-var': 'off',
 		'sonarjs/call-argument-line': 'off',
@@ -129,7 +130,6 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/constructor-for-side-effects': 'off',
 		'sonarjs/different-types-comparison': 'off',
 		'sonarjs/for-loop-increment-sign': 'off',
-		'sonarjs/function-return-type': 'off',
 		'sonarjs/jsx-no-leaked-render': 'off',
 		'sonarjs/label-position': 'off',
 		'sonarjs/mouse-events-a11y': 'off',
@@ -157,8 +157,6 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-useless-increment': 'off',
 		'sonarjs/non-existent-operator': 'off',
 		'sonarjs/prefer-default-last': 'off',
-		'sonarjs/prefer-immediate-return': 'error',
-		'sonarjs/prefer-read-only-props': 'off',
 		'sonarjs/pseudo-random': 'off',
 		'sonarjs/todo-tag': 'off',
 		'sonarjs/void-use': 'off',

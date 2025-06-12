@@ -5,13 +5,13 @@ export const FILES_GLOB_JS_TS: string[] = [
 ];
 
 export const FILES_GLOB_JS_TS_TEST: string[] = [
-	'**/{__tests__,tests}/**/*.test.{js,ts}',
+	'**/{__tests__,tests}/**/*.{js,ts}',
 ];
 
 export const FILES_GLOB_JSX: string[] = ['**/*.{jsx,tsx}'];
 
 export const FILES_GLOB_JSX_TEST: string[] = [
-	'**/{__tests__,tests}/**/*.test.{jsx,tsx}',
+	'**/{__tests__,tests}/**/*.{jsx,tsx}',
 ];
 
 export const FILES_GLOB_PACKAGE_JSON: string[] = ['**/package.json'];

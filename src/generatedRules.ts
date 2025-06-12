@@ -995,7 +995,7 @@ const rules: Rules = {
 					{ disallowArithmeticOperators: true },
 				],
 				'no-unused-expressions': 'error',
-				'no-unused-labels': 'error',
+				'no-unused-labels': 'off',
 				'no-unused-private-class-members': 'error',
 				'no-unused-vars': [
 					'error',
@@ -1289,7 +1289,7 @@ const rules: Rules = {
 				'sonarjs/frame-ancestors': 'error',
 				'sonarjs/function-inside-loop': 'error',
 				'sonarjs/function-name': 'off',
-				'sonarjs/function-return-type': 'off',
+				'sonarjs/function-return-type': 'error',
 				'sonarjs/future-reserved-words': 'error',
 				'sonarjs/generator-without-yield': 'error',
 				'sonarjs/hashing': 'error',
@@ -1432,10 +1432,10 @@ const rules: Rules = {
 				'sonarjs/os-command': 'error',
 				'sonarjs/post-message': 'error',
 				'sonarjs/prefer-default-last': 'off',
-				'sonarjs/prefer-immediate-return': 'error',
+				'sonarjs/prefer-immediate-return': 'off',
 				'sonarjs/prefer-object-literal': 'off',
 				'sonarjs/prefer-promise-shorthand': 'error',
-				'sonarjs/prefer-read-only-props': 'off',
+				'sonarjs/prefer-read-only-props': 'error',
 				'sonarjs/prefer-regexp-exec': 'error',
 				'sonarjs/prefer-single-boolean-return': 'error',
 				'sonarjs/prefer-type-guard': 'error',
@@ -1669,7 +1669,7 @@ const rules: Rules = {
 			},
 		},
 		{
-			files: ['**/{__tests__,tests}/**/*.test.{js,ts}'],
+			files: ['**/{__tests__,tests}/**/*.{js,ts}'],
 			rules: {
 				'class-methods-use-this': 'off',
 				'vitest/expect-expect': 'error',
@@ -2517,7 +2517,7 @@ const rules: Rules = {
 			},
 		},
 		{
-			files: ['**/{__tests__,tests}/**/*.test.{jsx,tsx}'],
+			files: ['**/{__tests__,tests}/**/*.{jsx,tsx}'],
 			rules: {
 				'jsx-a11y/control-has-associated-label': 'off',
 				'testing-library/await-async-events': [
@@ -2580,7 +2580,10 @@ const rules: Rules = {
 				'@typescript-eslint/consistent-indexed-object-style': 'error',
 				'@typescript-eslint/consistent-return': 'off',
 				'@typescript-eslint/consistent-type-assertions': 'error',
-				'@typescript-eslint/consistent-type-definitions': 'error',
+				'@typescript-eslint/consistent-type-definitions': [
+					'error',
+					'interface',
+				],
 				'@typescript-eslint/consistent-type-imports': [
 					'error',
 					{
@@ -2591,7 +2594,10 @@ const rules: Rules = {
 				],
 				'@typescript-eslint/default-param-last': 'error',
 				'@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
-				'@typescript-eslint/explicit-function-return-type': 'error',
+				'@typescript-eslint/explicit-function-return-type': [
+					'error',
+					{ allowExpressions: false },
+				],
 				'@typescript-eslint/explicit-member-accessibility': 'error',
 				'@typescript-eslint/explicit-module-boundary-types': 'error',
 				'@typescript-eslint/member-ordering': 'error',
@@ -2751,6 +2757,7 @@ const rules: Rules = {
 				'sonarjs/bitwise-operators': 'off',
 				'sonarjs/class-name': 'off',
 				'sonarjs/deprecation': 'off',
+				'sonarjs/function-return-type': 'off',
 				'sonarjs/future-reserved-words': 'off',
 				'sonarjs/in-operator-type-error': 'off',
 				'sonarjs/inconsistent-function-call': 'off',
@@ -2769,6 +2776,7 @@ const rules: Rules = {
 				'sonarjs/no-unused-vars': 'off',
 				'sonarjs/no-use-of-empty-return-value': 'off',
 				'sonarjs/null-dereference': 'off',
+				'sonarjs/prefer-read-only-props': 'off',
 				'sonarjs/unused-import': 'off',
 				'sonarjs/updated-const-var': 'off',
 				'tsdoc/syntax': 'warn',
@@ -2804,7 +2812,10 @@ const rules: Rules = {
 				'@typescript-eslint/consistent-indexed-object-style': 'error',
 				'@typescript-eslint/consistent-return': 'off',
 				'@typescript-eslint/consistent-type-assertions': 'error',
-				'@typescript-eslint/consistent-type-definitions': 'error',
+				'@typescript-eslint/consistent-type-definitions': [
+					'error',
+					'interface',
+				],
 				'@typescript-eslint/consistent-type-exports': [
 					'error',
 					{ fixMixedExportsWithInlineTypeSpecifier: true },
@@ -2819,7 +2830,10 @@ const rules: Rules = {
 				],
 				'@typescript-eslint/default-param-last': 'error',
 				'@typescript-eslint/dot-notation': 'error',
-				'@typescript-eslint/explicit-function-return-type': 'error',
+				'@typescript-eslint/explicit-function-return-type': [
+					'error',
+					{ allowExpressions: false },
+				],
 				'@typescript-eslint/explicit-member-accessibility': 'error',
 				'@typescript-eslint/explicit-module-boundary-types': 'error',
 				'@typescript-eslint/member-ordering': 'error',
@@ -3065,6 +3079,7 @@ const rules: Rules = {
 				'sonarjs/bitwise-operators': 'off',
 				'sonarjs/class-name': 'off',
 				'sonarjs/deprecation': 'off',
+				'sonarjs/function-return-type': 'off',
 				'sonarjs/future-reserved-words': 'off',
 				'sonarjs/in-operator-type-error': 'off',
 				'sonarjs/inconsistent-function-call': 'off',
@@ -3083,6 +3098,7 @@ const rules: Rules = {
 				'sonarjs/no-unused-vars': 'off',
 				'sonarjs/no-use-of-empty-return-value': 'off',
 				'sonarjs/null-dereference': 'off',
+				'sonarjs/prefer-read-only-props': 'off',
 				'sonarjs/unused-import': 'off',
 				'sonarjs/updated-const-var': 'off',
 				'tsdoc/syntax': 'warn',
