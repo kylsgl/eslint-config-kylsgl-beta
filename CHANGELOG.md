@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 1.3.0
+
+### Minor Changes
+
+- [`86933a5`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/86933a546b57a3350e9e48b24d9aff7e8cfe3ecf) Thanks [@kylsgl](https://github.com/kylsgl)! - add new no-unsafe-division rule that test for possible division by zero
+
+### Patch Changes
+
+- [`eac2774`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/eac2774b1bf240f75c08de04669d5562a9019c75) Thanks [@kylsgl](https://github.com/kylsgl)! - rule adjustment and cleanups
+
 ## 1.2.0
 
 ### Minor Changes
