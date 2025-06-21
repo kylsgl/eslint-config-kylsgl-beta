@@ -48,12 +48,7 @@ const kylsglConfig: RuleConfig = {
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
-		'kylsgl/no-unsafe-division': [
-			'error',
-			{
-				ignoreScreamingSnakeCase: true,
-			},
-		],
+		'kylsgl/no-unsafe-division': 'error',
 	},
 };
 

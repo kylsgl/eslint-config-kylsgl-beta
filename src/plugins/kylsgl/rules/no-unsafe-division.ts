@@ -12,6 +12,8 @@ import {
 
 import { type NodeWithParent } from '../../../types';
 
+const PASCAL_CASE_REGEXP = /^[A-Z][a-zA-Z0-9]*$/;
+
 const SCREAMING_SNAKE_CASE_REGEXP = /^[A-Z0-9_]+$/;
 
 const VALID_GUARD_EARLY_OPERATORS: ReadonlySet<string> = new Set<string>([
@@ -198,6 +200,17 @@ function hasNonZeroInitializer(
 	return node.type === 'Identifier' && nonZeroInitializerNames.has(node.name);
 }
 
+function hasPascalCaseCasing(
+	node: Node,
+	ignorePascalCase: boolean = false,
+): boolean {
+	return (
+		ignorePascalCase &&
+		node.type === 'Identifier' &&
+		PASCAL_CASE_REGEXP.test(node.name)
+	);
+}
+
 function hasScreamingSnakeCasing(
 	node: Node,
 	ignoreScreamingSnakeCase: boolean = false,
@@ -212,10 +225,12 @@ function hasScreamingSnakeCasing(
 function isSafeDivision(
 	node: (AssignmentExpression | BinaryExpression) & Rule.NodeParentExtension,
 	nonZeroInitializerNames: Set<string>,
+	ignorePascalCase?: boolean,
 	ignoreScreamingSnakeCase?: boolean,
 ): boolean {
 	return (
 		(node.right.type === 'Literal' && node.right.value !== 0) ||
+		hasPascalCaseCasing(node.right, ignorePascalCase) ||
 		hasScreamingSnakeCasing(node.right, ignoreScreamingSnakeCase) ||
 		hasNonZeroInitializer(node.right, nonZeroInitializerNames) ||
 		hasGuardEarly(node, node.right) ||
@@ -224,6 +239,7 @@ function isSafeDivision(
 }
 
 interface NoUnsafeDivisionOptions {
+	readonly ignorePascalCase?: boolean;
 	readonly ignoreScreamingSnakeCase?: boolean;
 }
 
@@ -245,6 +261,7 @@ const noUnsafeDivision: Rule.RuleModule = {
 					isSafeDivision(
 						node,
 						nonZeroConstantVariableNames,
+						opts?.ignorePascalCase,
 						opts?.ignoreScreamingSnakeCase,
 					)
 				) {
@@ -264,6 +281,7 @@ const noUnsafeDivision: Rule.RuleModule = {
 					isSafeDivision(
 						node,
 						nonZeroConstantVariableNames,
+						opts?.ignorePascalCase,
 						opts?.ignoreScreamingSnakeCase,
 					)
 				) {
@@ -304,8 +322,12 @@ const noUnsafeDivision: Rule.RuleModule = {
 			{
 				additionalProperties: false,
 				properties: {
+					ignorePascalCase: {
+						default: true,
+						type: 'boolean',
+					},
 					ignoreScreamingSnakeCase: {
-						default: false,
+						default: true,
 						type: 'boolean',
 					},
 				},
