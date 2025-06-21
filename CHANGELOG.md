@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.3.2
+
+### Patch Changes
+
+- [`3dbb755`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/3dbb755677db948e89962e30fc83ad91f5de7fd9) Thanks [@kylsgl](https://github.com/kylsgl)! - add option to ignore pascal case
+
 ## 1.3.1
 
 ### Patch Changes
