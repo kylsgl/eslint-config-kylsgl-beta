@@ -2,7 +2,7 @@ import { defineConfig } from 'rollup';
 import { dts } from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 
-import packageJSON from './package.json' with { type: 'json' };
+import packageJSON from '../../package.json' with { type: 'json' };
 
 export default defineConfig(() => {
 	const input = './src/index.ts';

@@ -9,7 +9,7 @@ export default defineConfig(() => {
 			...Object.keys(packageJSON.dependencies),
 			...Object.keys(packageJSON.devDependencies),
 		],
-		input: './config/eslint/index.ts',
+		input: './configs/eslint/index.ts',
 		output: {
 			file: './eslint.config.mjs',
 			format: 'esm',
