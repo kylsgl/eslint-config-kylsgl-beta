@@ -1,77 +1,297 @@
-import { type Rule, type Scope } from 'eslint';
+import { type Rule } from 'eslint';
 import {
+	type AssignmentExpression,
 	type BinaryExpression,
-	type Expression,
+	type ConditionalExpression,
 	type IfStatement,
+	type Node,
+	type Statement,
+	type VariableDeclaration,
+	type VariableDeclarator,
 } from 'estree';
 
-function getValidDivisorIdentifierName({
-	left,
-	operator,
-	right,
-}: BinaryExpression): string | null {
-	const validTestOperator: boolean =
-		operator === '>' ||
-		operator === '<' ||
-		operator === '!==' ||
-		operator === '!=';
+import { type NodeWithParent } from '../../../types';
 
-	/**
-	 * This rule assumes that the literal value is on the right side of the operator
-	 */
-	const validTestValue: boolean = right.type === 'Literal' && right.value === 0;
+const SCREAMING_SNAKE_CASE_REGEXP = /^[A-Z0-9_]+$/;
 
-	return validTestOperator && validTestValue && left.type === 'Identifier'
-		? left.name
-		: null;
+const VALID_GUARD_EARLY_OPERATORS: ReadonlySet<string> = new Set<string>([
+	'<=',
+	'==',
+	'===',
+	'>=',
+]);
+
+const VALID_GUARD_OPERATORS: ReadonlySet<string> = new Set<string>([
+	'!=',
+	'!==',
+	'<',
+	'>',
+]);
+
+function hasValidExitStatement(statement: Statement): boolean {
+	return (
+		statement.type === 'ReturnStatement' || statement.type === 'ThrowStatement'
+	);
+}
+
+function hasEarlyExitStatement(ifNode: IfStatement): boolean {
+	return (
+		hasValidExitStatement(ifNode.consequent) ||
+		(ifNode.consequent.type === 'BlockStatement' &&
+			ifNode.consequent.body.some(hasValidExitStatement))
+	);
+}
+
+function isSameDivisorNode(node1: Node, node2: Node): boolean {
+	switch (node1.type) {
+		case 'Identifier': {
+			return node2.type === 'Identifier' && node1.name === node2.name;
+		}
+		case 'MemberExpression': {
+			return (
+				node2.type === 'MemberExpression' &&
+				isSameDivisorNode(node1.object, node2.object) &&
+				isSameDivisorNode(node1.property, node2.property)
+			);
+		}
+		default: {
+			return false;
+		}
+	}
+}
+
+function hasValidBinaryExpression(
+	testNode: BinaryExpression,
+	divisorNode: NodeWithParent,
+	earlyExitGuard: boolean,
+): boolean {
+	const isValidLeftNodeCheck: boolean =
+		isSameDivisorNode(testNode.right, divisorNode) &&
+		testNode.left.type === 'Literal' &&
+		testNode.left.value === 0;
+
+	const isValidRightNodeCheck: boolean =
+		isSameDivisorNode(testNode.left, divisorNode) &&
+		testNode.right.type === 'Literal' &&
+		testNode.right.value === 0;
+
+	const isValidOperator: boolean = (
+		earlyExitGuard ? VALID_GUARD_EARLY_OPERATORS : VALID_GUARD_OPERATORS
+	).has(testNode.operator);
+
+	return (isValidLeftNodeCheck || isValidRightNodeCheck) && isValidOperator;
+}
+
+// eslint-disable-next-line sonarjs/cognitive-complexity
+function hasValidIfStatement(
+	ifNode: ConditionalExpression | IfStatement,
+	testNode: Node,
+	divisorNode: NodeWithParent,
+	earlyExitGuard: boolean,
+	isElseBlock: boolean,
+): boolean {
+	switch (testNode.type) {
+		case 'BinaryExpression': {
+			const hasExit: boolean =
+				earlyExitGuard && ifNode.type === 'IfStatement'
+					? isElseBlock || hasEarlyExitStatement(ifNode)
+					: true;
+
+			return (
+				hasValidBinaryExpression(testNode, divisorNode, earlyExitGuard) &&
+				hasExit
+			);
+		}
+		case 'LogicalExpression': {
+			const isValidExpressionLeft: boolean = hasValidIfStatement(
+				ifNode,
+				testNode.left,
+				divisorNode,
+				earlyExitGuard,
+				isElseBlock,
+			);
+
+			const isValidExpressionRight: boolean = hasValidIfStatement(
+				ifNode,
+				testNode.right,
+				divisorNode,
+				earlyExitGuard,
+				isElseBlock,
+			);
+
+			if (testNode.operator === '&&') {
+				return earlyExitGuard
+					? isValidExpressionLeft && isValidExpressionRight
+					: isValidExpressionLeft || isValidExpressionRight;
+			}
+
+			if (testNode.operator === '||') {
+				return earlyExitGuard
+					? isValidExpressionLeft || isValidExpressionRight
+					: isValidExpressionLeft && isValidExpressionRight;
+			}
+
+			return false;
+		}
+		default: {
+			return false;
+		}
+	}
+}
+
+function hasGuardEarly(
+	node: NodeWithParent,
+	divisorNode: NodeWithParent,
+): boolean {
+	let currentNode: NodeWithParent = node;
+
+	while (currentNode.parent != null) {
+		if (currentNode.parent.type === 'BlockStatement') {
+			break;
+		}
+
+		currentNode = currentNode.parent;
+	}
+
+	if (currentNode.type !== 'BlockStatement' || currentNode.body.length <= 0) {
+		return false;
+	}
+
+	return currentNode.body.some((statement: Statement): boolean =>
+		statement.type === 'IfStatement'
+			? hasValidIfStatement(statement, statement.test, divisorNode, true, false)
+			: false,
+	);
+}
+
+/**
+ * Handle n
+ */
+function hasGuard(node: NodeWithParent, divisorNode: NodeWithParent): boolean {
+	let currentNode: NodeWithParent = node;
+
+	while (currentNode.parent != null) {
+		if (
+			(currentNode.parent.type === 'IfStatement' ||
+				currentNode.parent.type === 'ConditionalExpression') &&
+			hasValidIfStatement(
+				currentNode.parent,
+				currentNode.parent.test,
+				divisorNode,
+				currentNode.parent.alternate === currentNode,
+				currentNode.parent.alternate === currentNode,
+			)
+		) {
+			return true;
+		}
+
+		currentNode = currentNode.parent;
+	}
+
+	return false;
+}
+
+function hasNonZeroInitializer(
+	node: Node,
+	nonZeroInitializerNames: Set<string>,
+): boolean {
+	return node.type === 'Identifier' && nonZeroInitializerNames.has(node.name);
+}
+
+function hasScreamingSnakeCasing(
+	node: Node,
+	ignoreScreamingSnakeCase: boolean = false,
+): boolean {
+	return (
+		ignoreScreamingSnakeCase &&
+		node.type === 'Identifier' &&
+		SCREAMING_SNAKE_CASE_REGEXP.test(node.name)
+	);
+}
+
+function isSafeDivision(
+	node: (AssignmentExpression | BinaryExpression) & Rule.NodeParentExtension,
+	nonZeroInitializerNames: Set<string>,
+	ignoreScreamingSnakeCase?: boolean,
+): boolean {
+	return (
+		(node.right.type === 'Literal' && node.right.value !== 0) ||
+		hasScreamingSnakeCasing(node.right, ignoreScreamingSnakeCase) ||
+		hasNonZeroInitializer(node.right, nonZeroInitializerNames) ||
+		hasGuardEarly(node, node.right) ||
+		hasGuard(node, node.right)
+	);
+}
+
+interface NoUnsafeDivisionOptions {
+	readonly ignoreScreamingSnakeCase?: boolean;
 }
 
 const noUnsafeDivision: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
-		const validDivisorIdentifierNames = new Set<string>();
+		const opts = context.options.at(0) as NoUnsafeDivisionOptions | undefined;
+
+		/**
+		 * Constant variable names with values that are non-zero numbers
+		 */
+		const nonZeroConstantVariableNames = new Set<string>();
 
 		return {
-			BinaryExpression: (
-				node: BinaryExpression & Rule.NodeParentExtension,
+			AssignmentExpression: (
+				node: AssignmentExpression & Rule.NodeParentExtension,
 			): void => {
-				if (node.operator !== '/') {
-					return;
-				}
-
-				const divisor: Expression = node.right;
-
 				if (
-					(divisor.type !== 'Literal' || divisor.value !== 0) &&
-					(divisor.type !== 'Identifier' ||
-						validDivisorIdentifierNames.has(divisor.name))
+					(node.operator !== '/=' && node.operator !== '%=') ||
+					isSafeDivision(
+						node,
+						nonZeroConstantVariableNames,
+						opts?.ignoreScreamingSnakeCase,
+					)
 				) {
 					return;
 				}
 
 				context.report({
 					messageId: 'noUnsafeDivision',
-					node,
+					node: node.right,
 				});
 			},
-			IfStatement: (node: IfStatement & Rule.NodeParentExtension): void => {
-				if (node.test.type !== 'BinaryExpression') {
+			BinaryExpression: (
+				node: BinaryExpression & Rule.NodeParentExtension,
+			): void => {
+				if (
+					(node.operator !== '/' && node.operator !== '%') ||
+					isSafeDivision(
+						node,
+						nonZeroConstantVariableNames,
+						opts?.ignoreScreamingSnakeCase,
+					)
+				) {
 					return;
 				}
 
-				const validDivisorIdentifierName: string | null =
-					getValidDivisorIdentifierName(node.test);
-
-				if (validDivisorIdentifierName === null) {
+				context.report({
+					messageId: 'noUnsafeDivision',
+					node: node.right,
+				});
+			},
+			VariableDeclaration: (
+				node: Rule.NodeParentExtension & VariableDeclaration,
+			): void => {
+				if (node.kind !== 'const') {
 					return;
 				}
 
-				context.sourceCode
-					.getScope(node)
-					.variables.forEach(({ name }: Scope.Variable): void => {
-						if (name === validDivisorIdentifierName) {
-							validDivisorIdentifierNames.add(name);
-						}
-					});
+				node.declarations.forEach((variable: VariableDeclarator): void => {
+					if (
+						variable.id.type === 'Identifier' &&
+						variable.init?.type === 'Literal' &&
+						variable.init.value !== 0 &&
+						typeof variable.init.value === 'number'
+					) {
+						nonZeroConstantVariableNames.add(variable.id.name);
+					}
+				});
 			},
 		};
 	},
@@ -80,6 +300,18 @@ const noUnsafeDivision: Rule.RuleModule = {
 			noUnsafeDivision:
 				'Unsafe division is forbidden. Ensure that the divisor is non-zero.',
 		},
+		schema: [
+			{
+				additionalProperties: false,
+				properties: {
+					ignoreScreamingSnakeCase: {
+						default: false,
+						type: 'boolean',
+					},
+				},
+				type: 'object',
+			},
+		],
 		type: 'problem',
 	},
 };
