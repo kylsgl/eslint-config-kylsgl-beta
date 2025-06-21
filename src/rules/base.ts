@@ -48,7 +48,12 @@ const kylsglConfig: RuleConfig = {
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
-		'kylsgl/no-unsafe-division': 'error',
+		'kylsgl/no-unsafe-division': [
+			'error',
+			{
+				ignoreScreamingSnakeCase: true,
+			},
+		],
 	},
 };
 
@@ -143,6 +148,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-globals-shadowing': 'off',
 		'sonarjs/no-hook-setter-in-body': 'off',
 		'sonarjs/no-identical-conditions': 'off',
+		'sonarjs/no-invalid-await': 'off',
 		'sonarjs/no-labels': 'off',
 		'sonarjs/no-nested-assignment': 'off',
 		'sonarjs/no-nested-functions': 'off',

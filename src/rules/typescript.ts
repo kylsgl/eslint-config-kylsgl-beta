@@ -170,7 +170,6 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-global-this': 'off',
 		'sonarjs/no-gratuitous-expressions': 'off',
 		'sonarjs/no-implicit-global': 'off',
-		'sonarjs/no-invalid-await': 'off',
 		'sonarjs/no-literal-call': 'off',
 		'sonarjs/no-redundant-boolean': 'off',
 		'sonarjs/no-unused-vars': 'off',

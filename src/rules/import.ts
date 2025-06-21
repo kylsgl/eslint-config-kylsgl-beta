@@ -9,17 +9,23 @@ const baseConfig: RuleConfig = {
 	},
 };
 
-const preferDefaultExportExclusionConfig: RuleConfig = {
-	files: [
-		'**/constants.ts',
-		'**/enums.ts',
-		'**/index.{d.ts,ts}',
-		'**/schemas.ts',
-		'**/utils.ts',
-	],
+const noExtraneousDependenciesExclusionConfig: RuleConfig = {
+	files: FILES_GLOB_JS_TS,
 	name: 'import/prefer-default-export-exclusion',
 	rules: {
-		'import-x/prefer-default-export': 'off',
+		'import-x/no-extraneous-dependencies': [
+			'error',
+			{
+				devDependencies: [
+					'**/{__mocks__,__tests__,configs,spec,test,tests}/**',
+					'**/vue.config.{js,cjs,mjs}', // vue-cli config
+					'**/rollup.config{,.!*}.{js,cjs,mjs}', // rollup config
+					'**/eslint.config.{js,cjs,mjs}', // eslint config
+					'**/vitest.config.{js,cjs,mjs}', // vitest config
+				],
+				optionalDependencies: false,
+			},
+		],
 	},
 };
 
@@ -32,4 +38,8 @@ const sortConfig: RuleConfig = {
 	},
 };
 
-export default [baseConfig, preferDefaultExportExclusionConfig, sortConfig];
+export default [
+	baseConfig,
+	noExtraneousDependenciesExclusionConfig,
+	sortConfig,
+];
