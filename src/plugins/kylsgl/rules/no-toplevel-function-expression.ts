@@ -1,15 +1,15 @@
 import { type Rule, type Scope } from 'eslint';
 import { type VariableDeclarator } from 'estree';
 
+const NODE_TYPES: ReadonlySet<Rule.NodeTypes> = new Set([
+	'ArrowFunctionExpression',
+	'FunctionExpression',
+]);
+
+const SCOPE_TYPES: ReadonlySet<string> = new Set(['global', 'module']);
+
 const noTopLevelFunctionExpression: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
-		const nodeTypes: ReadonlySet<Rule.NodeTypes> = new Set([
-			'ArrowFunctionExpression',
-			'FunctionExpression',
-		]);
-
-		const scopeTypes: ReadonlySet<string> = new Set(['global', 'module']);
-
 		const hasGlobalReturn: boolean =
 			context.languageOptions.parserOptions?.ecmaFeatures?.globalReturn ===
 			true;
@@ -20,7 +20,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 			): void => {
 				const nodeType: Rule.NodeTypes | undefined = node.init?.type;
 
-				if (nodeType === undefined || !nodeTypes.has(nodeType)) {
+				if (nodeType === undefined || !NODE_TYPES.has(nodeType)) {
 					return;
 				}
 
@@ -31,14 +31,14 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 					: scope;
 
 				const isTopLevel: boolean =
-					currentScope != null && scopeTypes.has(currentScope.type);
+					currentScope != null && SCOPE_TYPES.has(currentScope.type);
 
 				if (!isTopLevel) {
 					return;
 				}
 
 				context.report({
-					messageId: 'noTopLevelExpression',
+					messageId: 'noTopLevelFunctionExpression',
 					node: node.parent,
 				});
 			},
@@ -46,7 +46,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 	},
 	meta: {
 		messages: {
-			noTopLevelExpression:
+			noTopLevelFunctionExpression:
 				'Top-level function expressions are forbidden. Use function declarations instead.',
 		},
 		type: 'suggestion',
