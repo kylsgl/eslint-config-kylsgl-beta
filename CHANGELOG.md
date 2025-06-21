@@ -1,5 +1,17 @@
 # eslint-config-kylsgl
 
+## 1.3.1
+
+### Patch Changes
+
+- [`fdaaaef`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/fdaaaefef32a9a2c7c1f6ccde401115f6ca1f702) Thanks [@kylsgl](https://github.com/kylsgl)! - remove conflicting rules
+
+- [`fc68596`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/fc68596234dd46d548b3047ba5d4deea70268ff5) Thanks [@kylsgl](https://github.com/kylsgl)! - add custom rules tests
+
+- [`85832a9`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/85832a932de8557024a22ce2f7071fabeaf11c46) Thanks [@kylsgl](https://github.com/kylsgl)! - update all dependencies
+
+- [`d017f99`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/d017f99f7aef617347ff3d66c8ee4d4811ca560d) Thanks [@kylsgl](https://github.com/kylsgl)! - rewrite no-unsafe-division rule
+
 ## 1.3.0
 
 ### Minor Changes
