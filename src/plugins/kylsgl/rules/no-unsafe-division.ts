@@ -145,25 +145,25 @@ function hasGuardEarly(
 	node: NodeWithParent,
 	divisorNode: NodeWithParent,
 ): boolean {
+	const handleIfStatement = (statement: Statement): boolean =>
+		statement.type === 'IfStatement'
+			? hasValidIfStatement(statement, statement.test, divisorNode, true, false)
+			: false;
+
 	let currentNode: NodeWithParent = node;
 
 	while (currentNode.parent != null) {
-		if (currentNode.parent.type === 'BlockStatement') {
-			break;
+		if (
+			currentNode.parent.type === 'BlockStatement' &&
+			currentNode.parent.body.some(handleIfStatement)
+		) {
+			return true;
 		}
 
 		currentNode = currentNode.parent;
 	}
 
-	if (currentNode.type !== 'BlockStatement' || currentNode.body.length <= 0) {
-		return false;
-	}
-
-	return currentNode.body.some((statement: Statement): boolean =>
-		statement.type === 'IfStatement'
-			? hasValidIfStatement(statement, statement.test, divisorNode, true, false)
-			: false,
-	);
+	return false;
 }
 
 /**
@@ -235,18 +235,45 @@ function hasScreamingSnakeCasing(
 }
 
 function isSafeDivision(
-	node: (AssignmentExpression | BinaryExpression) & Rule.NodeParentExtension,
+	node: AssignmentExpression | BinaryExpression,
 	nonZeroInitializerNames: Set<string>,
 	ignorePascalCase?: boolean,
 	ignoreScreamingSnakeCase?: boolean,
 ): boolean {
 	return (
 		(node.right.type === 'Literal' && node.right.value !== 0) ||
+		/**
+		 * Handle divisors with PascalCase
+		 */
 		hasPascalCaseCasing(node.right, ignorePascalCase) ||
+		/**
+		 * Handle divisors with SCREAMING_SNAKE_CASE
+		 */
 		hasScreamingSnakeCasing(node.right, ignoreScreamingSnakeCase) ||
+		/**
+		 * Handle constant variables initialized with a non-zero value
+		 */
 		hasNonZeroInitializer(node.right, nonZeroInitializerNames) ||
+		/**
+		 * Handle early guard if statements: if (divisor === 0) return; 1 / divisor
+		 */
 		hasGuardEarly(node, node.right) ||
-		hasGuard(node, node.right)
+		/**
+		 * Handle guard if statements:
+		 * if (divisor !== 0) 1 / divisor
+		 * if (divisor === 0) 0 else 1 / divisor
+		 */
+		hasGuard(node, node.right) ||
+		/**
+		 * Handle nested binary expression cases like: const result = 1 / (1 * 0)
+		 */
+		(node.right.type === 'BinaryExpression' &&
+			isSafeDivision(
+				node.right,
+				nonZeroInitializerNames,
+				ignorePascalCase,
+				ignoreScreamingSnakeCase,
+			))
 	);
 }
 
