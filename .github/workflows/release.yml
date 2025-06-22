@@ -41,10 +41,10 @@ jobs:
       - name: Changesets - Create release pull request and publish to npm
         uses: changesets/action@v1
         with:
-          commit: "chore: publish package"
+          commit: 'chore: publish package'
           commitMode: github-api
           publish: pnpm release
-          title: "chore: publish package"
+          title: 'chore: publish package'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

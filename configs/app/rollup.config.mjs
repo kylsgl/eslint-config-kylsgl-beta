@@ -47,15 +47,15 @@ export default defineConfig(() => {
 			},
 			plugins,
 		},
-		{
-			external,
-			input,
-			output: {
-				...output,
-				file: './dist/index.cjs',
-				format: 'commonjs',
-			},
-			plugins,
-		},
+		// {
+		// 	external,
+		// 	input,
+		// 	output: {
+		// 		...output,
+		// 		file: './dist/index.cjs',
+		// 		format: 'commonjs',
+		// 	},
+		// 	plugins,
+		// },
 	];
 });

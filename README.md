@@ -34,6 +34,7 @@ npm install --save-dev eslint-config-kylsgl
 >
 > - ESLint v9.25.0 and above
 > - Node.js v22.x and above
+> - ESM
 
 ## Usage
 
@@ -76,7 +77,7 @@ This config disables some rules in favor of TypeScript's own type checking.
 
 ## Rules
 
-`eslint-plugin-kylsgl` rules
+Rules for `eslint-plugin-kylsgl`
 
 💼 Configurations enabled in.\
 ✅ Set in the `base` configuration.\
@@ -85,7 +86,7 @@ This config disables some rules in favor of TypeScript's own type checking.
 
 | Name                            | Description                                                  | 💼  | 🔧  | 💡  |
 | ------------------------------- | ------------------------------------------------------------ | --- | --- | --- |
-| no-default-params               | Disallow assigning default values to function parameters     |     |     |     |
+| no-default-params               | Disallow assigning default value to function parameters      |     |     |     |
 | no-toplevel-function-expression | Disallow defining function expression at the top-level scope | ✅  |     |     |
 | no-unsafe-division              | Enforce divisor checks to prevent potential division by zero | ✅  |     |     |
 
