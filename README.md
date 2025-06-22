@@ -39,7 +39,6 @@ npm install --save-dev eslint-config-kylsgl
 
 ```js
 // eslint.config.mjs
-
 import { configs } from 'eslint-config-kylsgl';
 
 export default [
@@ -60,7 +59,6 @@ This config disables some rules in favor of TypeScript's own type checking.
 
 ```json
 // tsconfig.json
-
 {
 	"compilerOptions": {
 		"strict": true,
@@ -78,16 +76,18 @@ This config disables some rules in favor of TypeScript's own type checking.
 
 ## Rules
 
+`eslint-plugin-kylsgl` rules
+
 💼 Configurations enabled in.\
 ✅ Set in the `base` configuration.\
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/use/command-line-interface#--fix).\
 💡 Manually fixable by [editor suggestions](https://eslint.org/docs/latest/use/core-concepts#rule-suggestions).
 
-| Name                            | Description                                                  | 💼 | 🔧 | 💡 |
-|---------------------------------|--------------------------------------------------------------|---|---|---|
-| no-default-params               | Disallow assigning default values to function parameters     |   |   |   |
-| no-toplevel-function-expression | Disallow defining function expression at the top-level scope | ✅ |   |   |
-| no-unsafe-division              | Enforce divisor checks to prevent potential division by zero | ✅ |   |   |
+| Name                            | Description                                                  | 💼  | 🔧  | 💡  |
+| ------------------------------- | ------------------------------------------------------------ | --- | --- | --- |
+| no-default-params               | Disallow assigning default values to function parameters     |     |     |     |
+| no-toplevel-function-expression | Disallow defining function expression at the top-level scope | ✅  |     |     |
+| no-unsafe-division              | Enforce divisor checks to prevent potential division by zero | ✅  |     |     |
 
 ## License
 
