@@ -52,7 +52,7 @@ export default defineConfig(() => {
 			input,
 			output: {
 				...output,
-				file: './dist/index.js',
+				file: './dist/index.cjs',
 				format: 'commonjs',
 			},
 			plugins,

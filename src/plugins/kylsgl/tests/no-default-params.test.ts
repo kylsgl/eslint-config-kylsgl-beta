@@ -11,6 +11,14 @@ ruleTester.run('no-default-params', noDefaultParams, {
 			code: 'function test(param = 1){}',
 			errors,
 		},
+		{
+			code: 'function test(param1 = 1, param2){}',
+			errors,
+		},
+		{
+			code: 'function test(param1, param2 = 1){}',
+			errors,
+		},
 	],
-	valid: ['function test(param){}'],
+	valid: ['function test(param){}', 'function test(param1, param2){}'],
 });

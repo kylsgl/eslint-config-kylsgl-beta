@@ -18,9 +18,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 			VariableDeclarator: (
 				node: Rule.NodeParentExtension & VariableDeclarator,
 			): void => {
-				const nodeType: Rule.NodeTypes | undefined = node.init?.type;
-
-				if (nodeType === undefined || !NODE_TYPES.has(nodeType)) {
+				if (node.init?.type === undefined || !NODE_TYPES.has(node.init.type)) {
 					return;
 				}
 

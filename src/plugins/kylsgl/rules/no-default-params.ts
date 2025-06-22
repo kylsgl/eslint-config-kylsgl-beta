@@ -13,7 +13,9 @@ type FunctionNode =
 
 const noDefaultParams: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
-		const handler = (node: FunctionNode & Rule.NodeParentExtension): void => {
+		const handleDefaultParams = (
+			node: FunctionNode & Rule.NodeParentExtension,
+		): void => {
 			node.params.forEach((param: Pattern): void => {
 				if (param.type === 'AssignmentPattern') {
 					context.report({
@@ -25,9 +27,9 @@ const noDefaultParams: Rule.RuleModule = {
 		};
 
 		return {
-			ArrowFunctionExpression: handler,
-			FunctionDeclaration: handler,
-			FunctionExpression: handler,
+			ArrowFunctionExpression: handleDefaultParams,
+			FunctionDeclaration: handleDefaultParams,
+			FunctionExpression: handleDefaultParams,
 		};
 	},
 	meta: {
