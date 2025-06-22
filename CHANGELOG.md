@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.3.5
+
+### Patch Changes
+
+- prepare for stable release ([`e107e0c`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/e107e0c24ef55c849c1cd7c24fb36817799ab38e))
+
 ## 1.3.4
 
 ### Patch Changes
