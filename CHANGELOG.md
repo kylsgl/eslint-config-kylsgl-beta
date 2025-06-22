@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.3.4
+
+### Patch Changes
+
+- [`cbc9a50`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/cbc9a50ed37770a4330eb3b9620adb18facb306c) Thanks [@kylsgl](https://github.com/kylsgl)! - handle nested binary expressions
+
 ## 1.3.3
 
 ### Patch Changes
