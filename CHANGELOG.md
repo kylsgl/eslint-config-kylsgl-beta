@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.3.3
+
+### Patch Changes
+
+- [`9ef1911`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/9ef19118d239dc6e5b28719b0214faad5aaae283) Thanks [@kylsgl](https://github.com/kylsgl)! - add support for member expressions
+
 ## 1.3.2
 
 ### Patch Changes
