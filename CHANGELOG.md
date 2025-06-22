@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 1.3.6
+
+### Patch Changes
+
+- change index.js extension to .cjs ([`c20d839`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/c20d839dc778c7e552634557758f83778f4f3ecc))
+
 ## 1.3.5
 
 ### Patch Changes
