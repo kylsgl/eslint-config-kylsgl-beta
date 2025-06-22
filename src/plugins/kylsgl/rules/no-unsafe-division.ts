@@ -204,22 +204,34 @@ function hasPascalCaseCasing(
 	node: Node,
 	ignorePascalCase: boolean = false,
 ): boolean {
-	return (
-		ignorePascalCase &&
-		node.type === 'Identifier' &&
-		PASCAL_CASE_REGEXP.test(node.name)
-	);
+	if (ignorePascalCase) {
+		if (node.type === 'Identifier') {
+			return PASCAL_CASE_REGEXP.test(node.name);
+		}
+
+		if (node.type === 'MemberExpression' && node.object.type === 'Identifier') {
+			return PASCAL_CASE_REGEXP.test(node.object.name);
+		}
+	}
+
+	return false;
 }
 
 function hasScreamingSnakeCasing(
 	node: Node,
 	ignoreScreamingSnakeCase: boolean = false,
 ): boolean {
-	return (
-		ignoreScreamingSnakeCase &&
-		node.type === 'Identifier' &&
-		SCREAMING_SNAKE_CASE_REGEXP.test(node.name)
-	);
+	if (ignoreScreamingSnakeCase) {
+		if (node.type === 'Identifier') {
+			return SCREAMING_SNAKE_CASE_REGEXP.test(node.name);
+		}
+
+		if (node.type === 'MemberExpression' && node.object.type === 'Identifier') {
+			return SCREAMING_SNAKE_CASE_REGEXP.test(node.object.name);
+		}
+	}
+
+	return false;
 }
 
 function isSafeDivision(
@@ -323,11 +335,11 @@ const noUnsafeDivision: Rule.RuleModule = {
 				additionalProperties: false,
 				properties: {
 					ignorePascalCase: {
-						default: true,
+						default: false,
 						type: 'boolean',
 					},
 					ignoreScreamingSnakeCase: {
-						default: true,
+						default: false,
 						type: 'boolean',
 					},
 				},

@@ -419,7 +419,10 @@ const rules: Rules = {
 				'import-x/unambiguous': 'off',
 				'init-declarations': 'off',
 				'kylsgl/no-toplevel-function-expression': 'error',
-				'kylsgl/no-unsafe-division': 'error',
+				'kylsgl/no-unsafe-division': [
+					'error',
+					{ ignorePascalCase: true, ignoreScreamingSnakeCase: true },
+				],
 				'logical-assignment-operators': [
 					'off',
 					'always',
