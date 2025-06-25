@@ -6,22 +6,12 @@ const baseConfig: RuleConfig = {
 	name: 'import/base',
 	rules: {
 		'import-x/no-duplicates': ['error', { 'prefer-inline': true }],
-	},
-};
-
-const noExtraneousDependenciesExclusionConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
-	name: 'import/prefer-default-export-exclusion',
-	rules: {
 		'import-x/no-extraneous-dependencies': [
 			'error',
 			{
 				devDependencies: [
-					'**/{__mocks__,__tests__,configs,spec,test,tests}/**',
-					'**/vue.config.{js,cjs,mjs}', // vue-cli config
-					'**/rollup.config{,.!*}.{js,cjs,mjs}', // rollup config
-					'**/eslint.config.{js,cjs,mjs}', // eslint config
-					'**/vitest.config.{js,cjs,mjs}', // vitest config
+					'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+					'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
 				],
 				optionalDependencies: false,
 			},
@@ -38,8 +28,4 @@ const sortConfig: RuleConfig = {
 	},
 };
 
-export default [
-	baseConfig,
-	noExtraneousDependenciesExclusionConfig,
-	sortConfig,
-];
+export default [baseConfig, sortConfig];

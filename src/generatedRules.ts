@@ -378,11 +378,8 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{__mocks__,__tests__,configs,spec,test,tests}/**',
-							'**/vue.config.{js,cjs,mjs}',
-							'**/rollup.config{,.!*}.{js,cjs,mjs}',
-							'**/eslint.config.{js,cjs,mjs}',
-							'**/vitest.config.{js,cjs,mjs}',
+							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
 					},
@@ -1649,16 +1646,18 @@ const rules: Rules = {
 							'bin',
 							'name',
 							'repository-directory',
+							'type',
 							'version',
 						],
 					},
 				],
 				'package-json/valid-repository-directory': 'error',
+				'package-json/valid-type': 'error',
 				'package-json/valid-version': 'error',
 			},
 		},
 		{
-			files: ['**/{__tests__,tests}/**/*.{js,ts}'],
+			files: ['**/*.{spec,test}.{js,ts}'],
 			rules: {
 				'class-methods-use-this': 'off',
 				'vitest/expect-expect': 'error',
@@ -2496,7 +2495,7 @@ const rules: Rules = {
 			},
 		},
 		{
-			files: ['**/{__tests__,tests}/**/*.{jsx,tsx}'],
+			files: ['**/*.{spec,test}.{jsx,tsx}'],
 			rules: {
 				'jsx-a11y/control-has-associated-label': 'off',
 				'testing-library/await-async-events': [
@@ -2683,11 +2682,8 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{__mocks__,__tests__,configs,spec,test,tests}/**',
-							'**/vue.config.{ts,cts,mts}',
-							'**/rollup.config{,.!*}.{ts,cts,mts}',
-							'**/eslint.config.{ts,cts,mts}',
-							'**/vitest.config.{ts,cts,mts}',
+							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
 					},
@@ -3009,11 +3005,8 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{__mocks__,__tests__,configs,spec,test,tests}/**',
-							'**/vue.config.{ts,cts,mts}',
-							'**/rollup.config{,.!*}.{ts,cts,mts}',
-							'**/eslint.config.{ts,cts,mts}',
-							'**/vitest.config.{ts,cts,mts}',
+							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
 					},
