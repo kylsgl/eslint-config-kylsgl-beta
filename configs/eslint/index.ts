@@ -1,13 +1,11 @@
 import { type Linter } from 'eslint';
 
 import { configs } from '../../src';
-import ignoresConfig from './ignores';
 
 const config: readonly Linter.Config[] = [
 	...configs.base,
 	...configs.typescriptTypeChecked,
 	...configs.prettier,
-	...ignoresConfig,
 	{
 		files: ['**/*.{js,jsx,mjs,ts,tsx,mts}'],
 		languageOptions: {
@@ -17,6 +15,9 @@ const config: readonly Linter.Config[] = [
 			},
 			sourceType: 'module',
 		},
+	},
+	{
+		ignores: ['**/*.config.{js,jsx,mjs,ts,tsx,mts}', './src/generatedRules.ts'],
 	},
 ];
 

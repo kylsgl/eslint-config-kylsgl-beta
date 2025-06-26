@@ -1,11 +1,18 @@
 import rules from './generatedRules';
+import ignores from './ignores';
 import parsers from './parsers';
 import { plugins } from './plugins';
 import settings from './settings';
 import { type Configs } from './types';
 
 const configs: Configs = {
-	base: [...plugins.base, ...parsers.base, ...settings.base, ...rules.base],
+	base: [
+		...plugins.base,
+		...parsers.base,
+		...settings.base,
+		...rules.base,
+		ignores,
+	],
 	prettier: rules.prettier,
 	react: [
 		...plugins.react,

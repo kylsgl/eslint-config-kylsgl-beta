@@ -7,6 +7,10 @@ const rules: Rules = {
 	base: [
 		{
 			files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@stylistic/array-bracket-newline': ['off', 'consistent'],
 				'@stylistic/array-bracket-spacing': ['error', 'never'],
@@ -1623,6 +1627,10 @@ const rules: Rules = {
 		},
 		{
 			files: ['**/package.json'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'package-json/no-empty-fields': 'error',
 				'package-json/no-redundant-files': 'error',
@@ -1658,6 +1666,10 @@ const rules: Rules = {
 		},
 		{
 			files: ['**/*.{spec,test}.{js,ts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'class-methods-use-this': 'off',
 				'vitest/expect-expect': 'error',
@@ -1674,6 +1686,10 @@ const rules: Rules = {
 	prettier: [
 		{
 			files: ['**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@babel/object-curly-spacing': 'off',
 				'@babel/semi': 'off',
@@ -2037,6 +2053,10 @@ const rules: Rules = {
 	react: [
 		{
 			files: ['**/*.{jsx,tsx}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'class-methods-use-this': [
 					'error',
@@ -2496,6 +2516,10 @@ const rules: Rules = {
 		},
 		{
 			files: ['**/*.{spec,test}.{jsx,tsx}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'jsx-a11y/control-has-associated-label': 'off',
 				'testing-library/await-async-events': [
@@ -2532,6 +2556,10 @@ const rules: Rules = {
 	reactTypescript: [
 		{
 			files: ['**/*.{jsx,tsx}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'react/jsx-filename-extension': [
 					'error',
@@ -2545,6 +2573,10 @@ const rules: Rules = {
 	typescript: [
 		{
 			files: ['**/*.{ts,tsx,cts,mts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@typescript-eslint/adjacent-overload-signatures': 'error',
 				'@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
@@ -2756,6 +2788,10 @@ const rules: Rules = {
 		},
 		{
 			files: ['**/*.d.ts'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'off',
 				'@typescript-eslint/naming-convention': 'off',
@@ -2773,12 +2809,20 @@ const rules: Rules = {
 				'**/schemas.ts',
 				'**/utils.ts',
 			],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: { 'import-x/prefer-default-export': 'off' },
 		},
 	],
 	typescriptTypeChecked: [
 		{
 			files: ['**/*.{ts,tsx,cts,mts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@typescript-eslint/adjacent-overload-signatures': 'error',
 				'@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
@@ -3081,6 +3125,10 @@ const rules: Rules = {
 		},
 		{
 			files: ['**/*.d.ts'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
 			rules: {
 				'@typescript-eslint/consistent-type-imports': 'off',
 				'@typescript-eslint/naming-convention': 'off',
@@ -3097,6 +3145,10 @@ const rules: Rules = {
 				'**/index.{d.ts,ts}',
 				'**/schemas.ts',
 				'**/utils.ts',
+			],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
 			],
 			rules: { 'import-x/prefer-default-export': 'off' },
 		},

@@ -5,6 +5,7 @@ import { type Linter } from 'eslint';
 // eslint-disable-next-line import-x/no-extraneous-dependencies
 import * as prettier from 'prettier';
 
+import { FILES_GLOB_IGNORES } from '../src/constants';
 import { rules } from '../src/rules';
 
 const FILE_NAME = 'generatedRules.ts';
@@ -21,13 +22,20 @@ function mergeRules(
 		configsArrCopy.reduce(
 			(
 				accumulator: Record<string, Linter.Config>,
-				{ files, languageOptions, rules: configRules, settings }: Linter.Config,
+				{
+					files,
+					ignores = FILES_GLOB_IGNORES,
+					languageOptions,
+					rules: configRules,
+					settings,
+				}: Linter.Config,
 			) => {
 				const configKey: string | undefined = files?.join('');
 
 				if (configKey !== undefined && configKey.length > 0) {
 					const configValue: Linter.Config = {
 						files,
+						ignores,
 						languageOptions,
 						rules: configRules,
 						settings,
@@ -35,6 +43,13 @@ function mergeRules(
 
 					if (configKey in accumulator) {
 						const existingConfigValue: Linter.Config = accumulator[configKey];
+
+						configValue.ignores = [
+							...new Set<string>([
+								...(existingConfigValue.ignores ?? []),
+								...ignores,
+							]),
+						];
 
 						configValue.languageOptions = {
 							...existingConfigValue.languageOptions,
@@ -71,12 +86,14 @@ const rulesValue: string = Object.entries(rules).reduce(
 		const withSortedRules: Linter.Config[] = withMergedRules.map(
 			({
 				files,
+				ignores,
 				languageOptions = {},
 				name,
 				rules: configRules = {},
 				settings = {},
 			}: Linter.Config): Linter.Config => ({
 				files,
+				ignores,
 				languageOptions:
 					Object.values(languageOptions).length > 0
 						? languageOptions

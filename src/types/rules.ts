@@ -1,7 +1,8 @@
 import { type Linter } from 'eslint';
 
 export interface RuleConfig {
-	readonly files: Array<string | string[]>;
+	readonly files?: Array<string | string[]>;
+	readonly ignores?: string[];
 	readonly name?: string;
 	readonly rules: Partial<Linter.RulesRecord>;
 }
