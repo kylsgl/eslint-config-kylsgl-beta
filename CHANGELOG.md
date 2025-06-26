@@ -1,5 +1,17 @@
 # eslint-config-kylsgl
 
+## 2.0.0
+
+### Major Changes
+
+- deprecate commonjs ([`7ea426e`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/7ea426e5c7b619b0a8c3acdd4abe3fd88952245e))
+
+### Patch Changes
+
+- cleanup ([`efd9405`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/efd9405c4418aaea86f2c864aa3506443e3daa1c))
+
+- add ignores ([`ac015ee`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/ac015eeed32ab621fccb14ebd2b0c2e0de3ca0fd))
+
 ## 1.3.6
 
 ### Patch Changes
