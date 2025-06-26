@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 2.0.2
+
+### Patch Changes
+
+- add more test cases by [@kylsgl](https://github.com/kylsgl) ([`0395a6e`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/0395a6e4dd4d55f0ce1b656a12120fdd04014b67))
+
+- update deps by [@kylsgl](https://github.com/kylsgl) ([`9322a90`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/9322a905fa24eff4f737ff4e56453943f7f72b59))
+
+- replace changelog formatter by [@kylsgl](https://github.com/kylsgl) ([`4918c80`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/4918c807aed863adf5dc6b23769953be077e5b8d))
+
 ## 2.0.1
 
 ### Patch Changes
