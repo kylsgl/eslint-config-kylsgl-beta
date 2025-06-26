@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.1
+
+### Patch Changes
+
+- more tests ([`12e7cb2`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/12e7cb2705fb1e6848b4ae3c789899bb2b629c45))
+
 ## 2.0.0
 
 ### Major Changes
