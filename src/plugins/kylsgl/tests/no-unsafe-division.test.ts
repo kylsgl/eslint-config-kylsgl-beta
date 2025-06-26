@@ -62,6 +62,14 @@ ruleTester.run('no-unsafe-division', noUnsafeDivision, {
 		'function test() { const divisor = 1; if (divisor === 0) { return; } const result = 1 / divisor; }',
 		'function test() { const divisor = 1; if (divisor === 0) { throw new Error(); } const result = 1 / divisor; }',
 		{
+			code: 'const DivisorObj = { zero: 0, }; const result = 1 / DivisorObj.zero',
+			options: [{ ignorePascalCase: true }],
+		},
+		{
+			code: 'const DIVISOR_OBJ = { zero: 0, }; const result = 1 / DIVISOR_OBJ.zero',
+			options: [{ ignoreScreamingSnakeCase: true }],
+		},
+		{
 			code: 'const DivisorOne = 0; const result = 1 / DivisorOne',
 			options: [{ ignorePascalCase: true }],
 		},
