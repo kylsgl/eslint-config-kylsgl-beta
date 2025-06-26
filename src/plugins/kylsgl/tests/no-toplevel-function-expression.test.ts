@@ -25,6 +25,10 @@ ruleTester.run(
 				errors,
 			},
 		],
-		valid: ['function test(){}'],
+		valid: [
+			'const test = true',
+			'function test(){}',
+			'function test(){ const testInner = () => {}; }',
+		],
 	},
 );

@@ -67,10 +67,10 @@ function hasValidBinaryExpression(
 	divisorNode: NodeWithParent,
 	earlyExitGuard: boolean,
 ): boolean {
-	const isValidLeftNodeCheck: boolean =
-		isSameDivisorNode(testNode.right, divisorNode) &&
-		testNode.left.type === 'Literal' &&
-		testNode.left.value === 0;
+	// const isValidLeftNodeCheck: boolean =
+	// 	isSameDivisorNode(testNode.right, divisorNode) &&
+	// 	testNode.left.type === 'Literal' &&
+	// 	testNode.left.value === 0;
 
 	const isValidRightNodeCheck: boolean =
 		isSameDivisorNode(testNode.left, divisorNode) &&
@@ -81,7 +81,7 @@ function hasValidBinaryExpression(
 		earlyExitGuard ? VALID_GUARD_EARLY_OPERATORS : VALID_GUARD_OPERATORS
 	).has(testNode.operator);
 
-	return (isValidLeftNodeCheck || isValidRightNodeCheck) && isValidOperator;
+	return isValidRightNodeCheck && isValidOperator;
 }
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -166,9 +166,6 @@ function hasGuardEarly(
 	return false;
 }
 
-/**
- * Handle n
- */
 function hasGuard(node: NodeWithParent, divisorNode: NodeWithParent): boolean {
 	let currentNode: NodeWithParent = node;
 
@@ -200,34 +197,18 @@ function hasNonZeroInitializer(
 	return node.type === 'Identifier' && nonZeroInitializerNames.has(node.name);
 }
 
-function hasPascalCaseCasing(
+function hasRegExpMatch(
 	node: Node,
-	ignorePascalCase: boolean = false,
+	regExp: RegExp,
+	enabled: boolean = false,
 ): boolean {
-	if (ignorePascalCase) {
+	if (enabled) {
 		if (node.type === 'Identifier') {
-			return PASCAL_CASE_REGEXP.test(node.name);
+			return regExp.test(node.name);
 		}
 
 		if (node.type === 'MemberExpression' && node.object.type === 'Identifier') {
-			return PASCAL_CASE_REGEXP.test(node.object.name);
-		}
-	}
-
-	return false;
-}
-
-function hasScreamingSnakeCasing(
-	node: Node,
-	ignoreScreamingSnakeCase: boolean = false,
-): boolean {
-	if (ignoreScreamingSnakeCase) {
-		if (node.type === 'Identifier') {
-			return SCREAMING_SNAKE_CASE_REGEXP.test(node.name);
-		}
-
-		if (node.type === 'MemberExpression' && node.object.type === 'Identifier') {
-			return SCREAMING_SNAKE_CASE_REGEXP.test(node.object.name);
+			return regExp.test(node.object.name);
 		}
 	}
 
@@ -245,11 +226,15 @@ function isSafeDivision(
 		/**
 		 * Handle divisors with PascalCase
 		 */
-		hasPascalCaseCasing(node.right, ignorePascalCase) ||
+		hasRegExpMatch(node.right, PASCAL_CASE_REGEXP, ignorePascalCase) ||
 		/**
 		 * Handle divisors with SCREAMING_SNAKE_CASE
 		 */
-		hasScreamingSnakeCasing(node.right, ignoreScreamingSnakeCase) ||
+		hasRegExpMatch(
+			node.right,
+			SCREAMING_SNAKE_CASE_REGEXP,
+			ignoreScreamingSnakeCase,
+		) ||
 		/**
 		 * Handle constant variables initialized with a non-zero value
 		 */
@@ -378,3 +363,5 @@ const noUnsafeDivision: Rule.RuleModule = {
 };
 
 export default noUnsafeDivision;
+
+// const divisor = 0; if (divisor !== 0 || divisor > 0 || divisor < 0) { const result = 5 / divisor; }
