@@ -1,6 +1,13 @@
+/build
+/build-*
+/build_*
 /coverage
-/dist*
+/dist
+/dist-*
+/dist_*
 /node_modules
+/out
+/out-*
+/out_*
 LICENSE.md
-eslint.config.mjs
 pnpm-lock.yaml

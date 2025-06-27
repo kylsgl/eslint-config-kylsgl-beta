@@ -26,6 +26,5 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	},
-	"exclude": ["./dist*"],
-	"include": ["./src/**/*.ts"]
+	"include": ["./src"]
 }
