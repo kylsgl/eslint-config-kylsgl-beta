@@ -57,7 +57,7 @@ export const plugins: Plugins = {
 		{
 			files: FILES_GLOB_JS_TS_TEST,
 			plugins: {
-				vitest,
+				vitest: vitest as unknown as ESLint.Plugin,
 			},
 		},
 	],
