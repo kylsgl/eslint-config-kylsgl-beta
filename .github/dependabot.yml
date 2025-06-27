@@ -5,22 +5,6 @@ updates:
     directories:
       - '/'
     schedule:
-      interval: 'monthly'
-      day: 'sunday'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: 'npm'
-    directories:
-      - '/'
-    groups:
-      dependencies:
-        update-types:
-          - 'minor'
-          - 'patch'
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-    schedule:
-      interval: 'monthly'
+      interval: 'weekly'
       day: 'sunday'
     open-pull-requests-limit: 10
