@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.3
+
+### Patch Changes
+
+- update dependencies to the latest version by [@kylsgl](https://github.com/kylsgl) ([`08a49bb`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/08a49bb31c8dd5a9797479e87525ce44ac6dbb8e))
+
 ## 2.0.2
 
 ### Patch Changes
