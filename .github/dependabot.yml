@@ -11,12 +11,15 @@ updates:
   - package-ecosystem: 'npm'
     directories:
       - '/'
-    schedule:
-      interval: 'monthly'
-      day: 'sunday'
     groups:
       dependencies:
         update-types:
           - 'minor'
           - 'patch'
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    schedule:
+      interval: 'monthly'
+      day: 'sunday'
     open-pull-requests-limit: 10
