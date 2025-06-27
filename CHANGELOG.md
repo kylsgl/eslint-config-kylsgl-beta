@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.5
+
+### Patch Changes
+
+- go back to github-api by [@kylsgl](https://github.com/kylsgl) ([`9b717f4`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/9b717f4d264cfbb58e2ca6d57e94c728d0d52971))
+
 ## 2.0.4
 
 ### Patch Changes
