@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.6
+
+### Patch Changes
+
+- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque! by [@kylsgl](https://github.com/kylsgl) ([`6ac769d`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/6ac769d93241a719875ebcad4748c1545f30a2b0))
+
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque esse animi minus fugiat similique blanditiis quis ratione minima sequi, qui saepe nemo consequatur necessitatibus perferendis repellat laudantium? Sunt inventore eveniet nihil harum ipsam numquam est animi accusantium saepe voluptatem officiis, eos dolor, cupiditate aperiam non voluptatum eaque dolorem sapiente quia suscipit blanditiis omnis modi atque? Neque est harum ratione doloremque!
+
 ## 2.0.5
 
 ### Patch Changes
