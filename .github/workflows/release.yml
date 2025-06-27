@@ -42,7 +42,6 @@ jobs:
         uses: changesets/action@v1
         with:
           commit: 'chore: release eslint-config-kylsgl'
-          commitMode: github-api
           publish: pnpm release
           title: 'chore: release eslint-config-kylsgl'
         env:
