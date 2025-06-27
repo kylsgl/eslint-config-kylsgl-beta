@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -41,7 +41,7 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Report coverage
+      - name: Codecov
         uses: codecov/codecov-action@v5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

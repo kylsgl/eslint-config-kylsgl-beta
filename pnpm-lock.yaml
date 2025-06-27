@@ -73,8 +73,8 @@ importers:
         specifier: ^2.29.5
         version: 2.29.5
       '@kylsgl/changesets-changelog-github':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.3
+        version: 0.0.3
       '@types/estree':
         specifier: ^1.0.8
         version: 1.0.8
@@ -551,8 +551,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@kylsgl/changesets-changelog-github@0.0.2':
-    resolution: {integrity: sha512-2kVlnc1RP9Qy+i4ZUGlN6b5u7tl21kqNB4WI+Pmn5cCbUkcY8c5GLSjfKtjhR5a5Du2y9L8xypJw8mp3RPJ/MQ==}
+  '@kylsgl/changesets-changelog-github@0.0.3':
+    resolution: {integrity: sha512-NSGATzHwdciPfzHNcwb+Sxiwx9v/ogNMQ0Y0HZNSj9HxLGpgRUFxb2Dr/8cUvnAXNjc/Dxlep9JncT3cFYJFMw==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -1197,8 +1197,8 @@ packages:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
 
-  dotenv@16.6.0:
-    resolution: {integrity: sha512-Omf1L8paOy2VJhILjyhrhqwLIdstqm1BvcDPKg4NGAlkwEu9ODyrFbvk8UymUOMCT+HXo31jg1lArIrVAAhuGA==}
+  dotenv@17.0.0:
+    resolution: {integrity: sha512-A0BJ5lrpJVSfnMMXjmeO0xUnoxqsBHWCoqqTnGwGYVdnctqXXUEhJOO7LxmgxJon9tEZFGpe0xPRX0h2v3AANQ==}
     engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
@@ -3255,11 +3255,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@kylsgl/changesets-changelog-github@0.0.2':
+  '@kylsgl/changesets-changelog-github@0.0.3':
     dependencies:
       '@changesets/get-github-info': 0.6.0
       '@changesets/types': 6.1.0
-      dotenv: 16.6.0
+      dotenv: 17.0.0
     transitivePeerDependencies:
       - encoding
 
@@ -3908,7 +3908,7 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  dotenv@16.6.0: {}
+  dotenv@17.0.0: {}
 
   dunder-proto@1.0.1:
     dependencies:
