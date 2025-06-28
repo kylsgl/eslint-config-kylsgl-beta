@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.8
+
+### Patch Changes
+
+- [`4bcfe89`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/4bcfe896cff0c79cebfa395084c5e20083c2ae6a): cleanup - by [@kylsgl](https://github.com/kylsgl)
+
+- [`497ce9d`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/497ce9dd1758b02a51af570bdb48bbaef5078794): add codecov - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.7
 
 ### Patch Changes
