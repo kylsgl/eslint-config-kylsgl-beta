@@ -51,6 +51,10 @@ ruleTester.run('no-unsafe-division', noUnsafeDivision, {
 			code: 'const divisors = { zero: 0, }; if (divisors.zero === 0) { const result = 1 / divisors.zero; }',
 			errors,
 		},
+		{
+			code: 'const divisorObj = { zero: 0, }; const result = 1 / divisorObj.zero',
+			errors,
+		},
 	],
 	valid: [
 		'1 / 1',
