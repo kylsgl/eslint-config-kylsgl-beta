@@ -13,6 +13,20 @@
 		/>
 	</a>
 	<a
+		href="https://github.com/kylsgl/eslint-config-kylsgl-beta/actions/workflows/ci.yml"
+	>
+		<img
+			alt="CI Status"
+			src="https://img.shields.io/github/actions/workflow/status/kylsgl/eslint-config-kylsgl-beta/ci.yml?label=CI"
+		/>
+	</a>
+	<a href="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta">
+		<img
+			alt="Codecov Coverage"
+			src="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta/branch/main/graph/badge.svg?token=7PW768FR8S"
+		/>
+	</a>
+	<a
 		href="https://github.com/kylsgl/eslint-config-kylsgl-beta/blob/master/LICENSE"
 	>
 		<img

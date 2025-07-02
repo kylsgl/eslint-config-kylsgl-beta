@@ -10,4 +10,5 @@
 /out-*
 /out_*
 LICENSE.md
+eslint.config.mjs
 pnpm-lock.yaml
