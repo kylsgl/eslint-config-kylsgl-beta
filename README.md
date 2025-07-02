@@ -1,40 +1,24 @@
 <h1 align="center">eslint-config-kylsgl</h1>
 
 <p align="center">
-	My personal ESLint rules for JavaScript, TypeScript, and React, based on the
-	Airbnb JavaScript Style Guide.
+    My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.
 </p>
 
 <div align="center">
-	<a href="https://www.npmjs.com/package/eslint-config-kylsgl">
-		<img
-			alt="NPM Version"
-			src="https://img.shields.io/npm/v/eslint-config-kylsgl"
-		/>
-	</a>
-	<a
-		href="https://github.com/kylsgl/eslint-config-kylsgl-beta/actions/workflows/ci.yml"
-	>
-		<img
-			alt="CI Status"
-			src="https://img.shields.io/github/actions/workflow/status/kylsgl/eslint-config-kylsgl-beta/ci.yml?label=CI"
-		/>
-	</a>
-	<a href="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta">
-		<img
-			alt="Codecov Coverage"
-			src="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta/branch/main/graph/badge.svg?token=7PW768FR8S"
-		/>
-	</a>
-	<a
-		href="https://github.com/kylsgl/eslint-config-kylsgl-beta/blob/master/LICENSE"
-	>
-		<img
-			alt="GitHub License"
-			src="https://img.shields.io/github/license/kylsgl/eslint-config-kylsgl-beta"
-		/>
-	</a>
+    <a href="https://www.npmjs.com/package/eslint-config-kylsgl" style="text-decoration: none;">
+        <img alt="NPM Version" src="https://img.shields.io/npm/v/eslint-config-kylsgl" />
+    </a>
+    <a href="https://github.com/kylsgl/eslint-config-kylsgl-beta/actions/workflows/ci.yml" style="text-decoration: none;">
+        <img alt="CI Status" src="https://img.shields.io/github/actions/workflow/status/kylsgl/eslint-config-kylsgl-beta/ci.yml?label=CI" />
+    </a>
+    <a href="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta" style="text-decoration: none;">
+        <img alt="Codecov Coverage" src="https://codecov.io/github/kylsgl/eslint-config-kylsgl-beta/branch/main/graph/badge.svg?token=7PW768FR8S" />
+    </a>
+    <a href="https://github.com/kylsgl/eslint-config-kylsgl-beta/blob/master/LICENSE" style="text-decoration: none;">
+        <img alt="GitHub License" src="https://img.shields.io/github/license/kylsgl/eslint-config-kylsgl-beta" />
+    </a>
 </div>
+
 
 ## Installation
 
