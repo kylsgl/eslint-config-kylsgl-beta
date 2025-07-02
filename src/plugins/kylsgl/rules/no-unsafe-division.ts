@@ -67,10 +67,10 @@ function hasValidBinaryExpression(
 	divisorNode: NodeWithParent,
 	earlyExitGuard: boolean,
 ): boolean {
-	// const isValidLeftNodeCheck: boolean =
-	// 	isSameDivisorNode(testNode.right, divisorNode) &&
-	// 	testNode.left.type === 'Literal' &&
-	// 	testNode.left.value === 0;
+	const isValidLeftNodeCheck: boolean =
+		isSameDivisorNode(testNode.right, divisorNode) &&
+		testNode.left.type === 'Literal' &&
+		testNode.left.value === 0;
 
 	const isValidRightNodeCheck: boolean =
 		isSameDivisorNode(testNode.left, divisorNode) &&
@@ -81,7 +81,7 @@ function hasValidBinaryExpression(
 		earlyExitGuard ? VALID_GUARD_EARLY_OPERATORS : VALID_GUARD_OPERATORS
 	).has(testNode.operator);
 
-	return isValidRightNodeCheck && isValidOperator;
+	return (isValidLeftNodeCheck || isValidRightNodeCheck) && isValidOperator;
 }
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -363,5 +363,3 @@ const noUnsafeDivision: Rule.RuleModule = {
 };
 
 export default noUnsafeDivision;
-
-// const divisor = 0; if (divisor !== 0 || divisor > 0 || divisor < 0) { const result = 5 / divisor; }
