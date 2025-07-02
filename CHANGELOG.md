@@ -1,5 +1,21 @@
 # eslint-config-kylsgl
 
+## 2.0.8
+
+### Patch Changes
+
+- [`392f243`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/392f2434d9be1f4bf945f03efb6517fc79457fc0): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`c0c0685`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/c0c0685fa5502adc18180164aac3420dc5a614c2): update dependencies - by [@kylsgl](https://github.com/kylsgl)
+
+- [`e1abf7e`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/e1abf7e4dd47a211bbecb34c9e87cbe56b3d54e7): (no-unsafe-division) add left node checks for binary expressions - by [@dorei44](https://github.com/dorei44) in [#22](https://github.com/kylsgl/eslint-config-kylsgl-beta/pull/22)
+
+- [`4bcfe89`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/4bcfe896cff0c79cebfa395084c5e20083c2ae6a): cleanup - by [@kylsgl](https://github.com/kylsgl)
+
+- [`34e7f1e`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/34e7f1e977060e90c05567d9781a71baa683021e): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`497ce9d`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/497ce9dd1758b02a51af570bdb48bbaef5078794): add codecov - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.7
 
 ### Patch Changes
