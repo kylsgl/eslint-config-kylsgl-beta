@@ -51,7 +51,7 @@ ruleTester.run('no-unsafe-division', noUnsafeDivision, {
 		'const divisor = 1; let result = 1; result %= divisor',
 		'const divisor = 1; const result = divisor === 0 ? 1 / divisor : 0',
 		{
-			code: 'const divisorObj = { zero: 0, }; const result = 1 / divisorObj.zero',
+			code: 'const DivisorObj = { zero: 0, }; const result = 1 / DivisorObj.zero',
 			options: [{ ignorePascalCase: true }],
 		},
 		{
