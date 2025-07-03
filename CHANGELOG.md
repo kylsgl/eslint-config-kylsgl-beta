@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.9
+
+### Patch Changes
+
+- [`c3857c9`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/c3857c9caa4a25750d0d78ef6fc1e54b7284ed03): make sure to apply the rule `class-methods-use-this` on tests directory to include mocks - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.8
 
 ### Patch Changes
