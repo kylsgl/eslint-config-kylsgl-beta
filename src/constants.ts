@@ -7,7 +7,9 @@ export const FILES_GLOB_JS_TS: string[] = [
 	'**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
 ];
 
-export const FILES_GLOB_JS_TS_TEST: string[] = ['**/*.{spec,test}.{js,ts}'];
+export const FILES_GLOB_JS_TS_TEST: string[] = [
+	'**/*.{spec,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
+];
 
 export const FILES_GLOB_JSX: string[] = ['**/*.{jsx,tsx}'];
 

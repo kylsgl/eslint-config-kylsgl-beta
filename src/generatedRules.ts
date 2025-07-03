@@ -1667,13 +1667,12 @@ const rules: Rules = {
 			},
 		},
 		{
-			files: ['**/*.{spec,test}.{js,ts}'],
+			files: ['**/*.{spec,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
 			ignores: [
 				'{build,dist,out}{,-*,_*}/**',
 				'{coverage,node_modules,patches}/**',
 			],
 			rules: {
-				'class-methods-use-this': 'off',
 				'vitest/expect-expect': 'error',
 				'vitest/no-commented-out-tests': 'error',
 				'vitest/no-identical-title': 'error',
@@ -1683,6 +1682,14 @@ const rules: Rules = {
 				'vitest/valid-expect': 'error',
 				'vitest/valid-title': 'error',
 			},
+		},
+		{
+			files: ['**/{__tests__,test,tests}/**'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
+			rules: { 'class-methods-use-this': 'off' },
 		},
 	],
 	prettier: [

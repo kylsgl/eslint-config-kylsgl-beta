@@ -1,4 +1,3 @@
-import vitest from '@vitest/eslint-plugin';
 import { type Linter } from 'eslint';
 import packageJSON from 'eslint-plugin-package-json';
 import perfectionist from 'eslint-plugin-perfectionist';
@@ -8,11 +7,7 @@ import * as regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 
-import {
-	FILES_GLOB_JS_TS,
-	FILES_GLOB_JS_TS_TEST,
-	FILES_GLOB_PACKAGE_JSON,
-} from '../constants';
+import { FILES_GLOB_JS_TS, FILES_GLOB_PACKAGE_JSON } from '../constants';
 import { type RuleConfig } from '../types';
 import { airbnbConfig, airbnbStylisticConfig } from './airbnb';
 
@@ -171,15 +166,6 @@ const sonarJsConfig: RuleConfig = {
 	},
 };
 
-const testsConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS_TEST,
-	name: 'tests/base',
-	rules: {
-		...vitest.configs.recommended.rules,
-		'class-methods-use-this': 'off',
-	},
-};
-
 const unicornConfig: RuleConfig = {
 	files: FILES_GLOB_JS_TS,
 	name: 'unicorn/base',
@@ -216,6 +202,5 @@ export default [
 	promiseConfig,
 	regexpConfig,
 	sonarJsConfig,
-	testsConfig,
 	unicornConfig,
 ];

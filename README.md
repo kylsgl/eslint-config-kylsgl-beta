@@ -11,7 +11,6 @@
     <a href="https://github.com/kylsgl/eslint-config-kylsgl-beta/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/kylsgl/eslint-config-kylsgl-beta" /></a>
 </div>
 
-
 ## Installation
 
 ```shell

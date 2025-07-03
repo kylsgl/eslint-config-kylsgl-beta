@@ -5,10 +5,11 @@ import importTypescriptRules from './import-typescript';
 import prettierRules from './prettier';
 import reactRules from './react';
 import reactTypescriptRules from './react-typescript';
+import testsRules from './tests';
 import { typescriptRules, typescriptTypeCheckedRules } from './typescript';
 
 export const rules: Rules = {
-	base: [...baseRules, ...importRules],
+	base: [...baseRules, ...importRules, ...testsRules],
 	prettier: prettierRules,
 	react: reactRules,
 	reactTypescript: reactTypescriptRules,
