@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.10
+
+### Patch Changes
+
+- [`7ee4358`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/7ee4358b665c3d394bf72f42e4ac02682e46d740): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`18805e3`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/18805e3adb1a1385a889d6a7cf115d3c05a57006): rule adjustment - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.9
 
 ### Patch Changes
