@@ -148,11 +148,20 @@ const declarationConfig: RuleConfig = {
 	},
 };
 
+const promiseConfig: RuleConfig = {
+	files: FILES_GLOB_TS,
+	name: 'promise/typescript',
+	rules: {
+		// Rules that are already covered or causes conflitcs in the TypeScript config
+		'promise/catch-or-return': 'off',
+	},
+};
+
 const sonarJsConfig: RuleConfig = {
 	files: FILES_GLOB_TS,
 	name: 'sonarjs/typescript',
 	rules: {
-		// Rules that are already covered or causes conflitcs in the Typescript config
+		// Rules that are already covered or causes conflitcs in the TypeScript config
 		'sonarjs/argument-type': 'off',
 		'sonarjs/bitwise-operators': 'off',
 		'sonarjs/class-name': 'off',
@@ -201,6 +210,7 @@ export const typescriptTypeCheckedRules: readonly RuleConfig[] = [
 	...airbnbTypescriptConfig,
 	baseTypeCheckedConfig,
 	declarationConfig,
+	promiseConfig,
 	sonarJsConfig,
 	tsdocConfig,
 ];

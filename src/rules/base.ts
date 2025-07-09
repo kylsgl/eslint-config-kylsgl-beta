@@ -18,6 +18,28 @@ const baseConfig: RuleConfig = {
 		curly: ['error', 'all'],
 		'no-console': ['warn', { allow: ['error', 'info', 'warn'] }],
 		'no-empty-function': 'error',
+		'no-param-reassign': [
+			'error',
+			{
+				ignorePropertyModificationsFor: [
+					'acc', // for reduce accumulators
+					'accumulator', // for reduce accumulators
+					'e', // for e.returnvalue
+					'ctx', // for Koa routing
+					'context', // for Koa routing
+					'req', // for Express requests
+					'request', // for Express requests
+					'res', // for Express responses
+					'response', // for Express responses
+					'$scope', // for Angular 1 scopes
+					'staticContext', // for ReactRouter context
+				],
+				ignorePropertyModificationsForRegex: [
+					String.raw`^accumulator(_?\d+)$`, // for reduce accumulators such as 'accumulator1', 'accumulator_1', etc.
+				],
+				props: true,
+			},
+		],
 		'no-restricted-syntax': [
 			'error',
 			{
@@ -43,13 +65,7 @@ const kylsglConfig: RuleConfig = {
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
-		'kylsgl/no-unsafe-division': [
-			'error',
-			{
-				ignorePascalCase: true,
-				ignoreScreamingSnakeCase: true,
-			},
-		],
+		'kylsgl/no-unsafe-division': 'error',
 	},
 };
 
@@ -126,6 +142,7 @@ const sonarJsConfig: RuleConfig = {
 		...sonarjs.configs.recommended.rules,
 		// Rules that are already covered or causes conflitcs in the Airbnb config
 		'sonarjs/array-callback-without-return': 'off',
+		'sonarjs/aws-restricted-ip-admin-access': 'off', // Very slow rule
 		'sonarjs/block-scoped-var': 'off',
 		'sonarjs/call-argument-line': 'off',
 		'sonarjs/code-eval': 'off',
@@ -152,6 +169,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-parameter-reassignment': 'off',
 		'sonarjs/no-primitive-wrappers': 'off',
 		'sonarjs/no-same-line-conditional': 'off',
+		'sonarjs/no-skipped-tests': 'off',
 		'sonarjs/no-try-promise': 'off',
 		'sonarjs/no-undefined-argument': 'off',
 		'sonarjs/no-unenclosed-multiline-block': 'off',
@@ -161,6 +179,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/non-existent-operator': 'off',
 		'sonarjs/prefer-default-last': 'off',
 		'sonarjs/pseudo-random': 'off',
+		'sonarjs/stable-tests': 'off',
 		'sonarjs/todo-tag': 'off',
 		'sonarjs/void-use': 'off',
 	},

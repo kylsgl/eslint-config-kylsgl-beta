@@ -68,14 +68,14 @@ function hasValidBinaryExpression(
 	earlyExitGuard: boolean,
 ): boolean {
 	const isValidLeftNodeCheck: boolean =
-		isSameDivisorNode(testNode.right, divisorNode) &&
 		testNode.left.type === 'Literal' &&
-		testNode.left.value === 0;
+		(testNode.left.value === 0 || testNode.left.value === 0n) &&
+		isSameDivisorNode(testNode.right, divisorNode);
 
 	const isValidRightNodeCheck: boolean =
-		isSameDivisorNode(testNode.left, divisorNode) &&
 		testNode.right.type === 'Literal' &&
-		testNode.right.value === 0;
+		(testNode.right.value === 0 || testNode.right.value === 0n) &&
+		isSameDivisorNode(testNode.left, divisorNode);
 
 	const isValidOperator: boolean = (
 		earlyExitGuard ? VALID_GUARD_EARLY_OPERATORS : VALID_GUARD_OPERATORS
@@ -222,7 +222,18 @@ function isSafeDivision(
 	ignoreScreamingSnakeCase?: boolean,
 ): boolean {
 	return (
-		(node.right.type === 'Literal' && node.right.value !== 0) ||
+		/**
+		 * Handle literal 0 number
+		 */
+		(node.right.type === 'Literal' &&
+			typeof node.right.value === 'number' &&
+			node.right.value !== 0) ||
+		/**
+		 * Handle literal 0 big int
+		 */
+		(node.right.type === 'Literal' &&
+			typeof node.right.value === 'bigint' &&
+			node.right.value !== 0n) ||
 		/**
 		 * Handle divisors with PascalCase
 		 */
@@ -271,6 +282,11 @@ const noUnsafeDivision: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
 		const opts = context.options.at(0) as NoUnsafeDivisionOptions | undefined;
 
+		const ignorePascalCase: boolean = opts?.ignorePascalCase ?? true;
+
+		const ignoreScreamingSnakeCase: boolean =
+			opts?.ignoreScreamingSnakeCase ?? true;
+
 		/**
 		 * Constant variable names with values that are non-zero numbers
 		 */
@@ -285,8 +301,8 @@ const noUnsafeDivision: Rule.RuleModule = {
 					isSafeDivision(
 						node,
 						nonZeroConstantVariableNames,
-						opts?.ignorePascalCase,
-						opts?.ignoreScreamingSnakeCase,
+						ignorePascalCase,
+						ignoreScreamingSnakeCase,
 					)
 				) {
 					return;
@@ -305,8 +321,8 @@ const noUnsafeDivision: Rule.RuleModule = {
 					isSafeDivision(
 						node,
 						nonZeroConstantVariableNames,
-						opts?.ignorePascalCase,
-						opts?.ignoreScreamingSnakeCase,
+						ignorePascalCase,
+						ignoreScreamingSnakeCase,
 					)
 				) {
 					return;
@@ -328,8 +344,10 @@ const noUnsafeDivision: Rule.RuleModule = {
 					if (
 						variable.id.type === 'Identifier' &&
 						variable.init?.type === 'Literal' &&
-						variable.init.value !== 0 &&
-						typeof variable.init.value === 'number'
+						((typeof variable.init.value === 'number' &&
+							variable.init.value !== 0) ||
+							(typeof variable.init.value === 'bigint' &&
+								variable.init.value !== 0n))
 					) {
 						nonZeroConstantVariableNames.add(variable.id.name);
 					}
@@ -340,18 +358,18 @@ const noUnsafeDivision: Rule.RuleModule = {
 	meta: {
 		messages: {
 			noUnsafeDivision:
-				'Unsafe division is forbidden. Ensure that the divisor is non-zero.',
+				'Potential division by zero. Ensure that the divisor is non-zero.',
 		},
 		schema: [
 			{
 				additionalProperties: false,
 				properties: {
 					ignorePascalCase: {
-						default: false,
+						default: true,
 						type: 'boolean',
 					},
 					ignoreScreamingSnakeCase: {
-						default: false,
+						default: true,
 						type: 'boolean',
 					},
 				},

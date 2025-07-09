@@ -16,6 +16,7 @@ const baseConfig: RuleConfig = {
 				optionalDependencies: false,
 			},
 		],
+		'import-x/order': 'off',
 	},
 };
 
