@@ -45,9 +45,9 @@ const rules: RuleConfig = {
 					'spec/**', // mocha, rspec-like pattern
 					'**/__tests__/**', // jest pattern
 					'**/__mocks__/**', // jest pattern
-					'test.{js,jsx,ts,tsx}', // repos with a single test file
-					'test-*.{js,jsx,ts,tsx}', // repos with multiple top-level test files
-					'**/*{.,_}{test,spec}.{jsx,jsx,ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
+					'test.{ts,tsx}', // repos with a single test file
+					'test-*.{ts,tsx}', // repos with multiple top-level test files
+					'**/*{.,_}{test,spec}.{ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
 				],
 				optionalDependencies: false,
 			},

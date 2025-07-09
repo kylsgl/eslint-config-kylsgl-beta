@@ -142,9 +142,11 @@ const sonarJsConfig: RuleConfig = {
 		...sonarjs.configs.recommended.rules,
 		// Rules that are already covered or causes conflitcs in the Airbnb config
 		'sonarjs/array-callback-without-return': 'off',
+		'sonarjs/assertions-in-tests': 'off',
 		'sonarjs/aws-restricted-ip-admin-access': 'off', // Very slow rule
 		'sonarjs/block-scoped-var': 'off',
 		'sonarjs/call-argument-line': 'off',
+		'sonarjs/chai-determinate-assertion': 'off',
 		'sonarjs/code-eval': 'off',
 		'sonarjs/constructor-for-side-effects': 'off',
 		'sonarjs/different-types-comparison': 'off',
@@ -162,6 +164,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-hook-setter-in-body': 'off',
 		'sonarjs/no-identical-conditions': 'off',
 		'sonarjs/no-invalid-await': 'off',
+		'sonarjs/no-invalid-regexp': 'off',
 		'sonarjs/no-labels': 'off',
 		'sonarjs/no-nested-assignment': 'off',
 		'sonarjs/no-nested-functions': 'off',

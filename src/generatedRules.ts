@@ -382,7 +382,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
@@ -1203,7 +1203,7 @@ const rules: Rules = {
 				'sonarjs/array-callback-without-return': 'off',
 				'sonarjs/array-constructor': 'off',
 				'sonarjs/arrow-function-convention': 'off',
-				'sonarjs/assertions-in-tests': 'error',
+				'sonarjs/assertions-in-tests': 'off',
 				'sonarjs/aws-apigateway-public-api': 'error',
 				'sonarjs/aws-ec2-rds-dms-public': 'error',
 				'sonarjs/aws-ec2-unencrypted-ebs-volume': 'error',
@@ -1228,7 +1228,7 @@ const rules: Rules = {
 				'sonarjs/bool-param-default': 'off',
 				'sonarjs/call-argument-line': 'off',
 				'sonarjs/certificate-transparency': 'off',
-				'sonarjs/chai-determinate-assertion': 'error',
+				'sonarjs/chai-determinate-assertion': 'off',
 				'sonarjs/class-name': 'error',
 				'sonarjs/class-prototype': 'off',
 				'sonarjs/code-eval': 'off',
@@ -1349,7 +1349,7 @@ const rules: Rules = {
 				'sonarjs/no-internal-api-use': 'error',
 				'sonarjs/no-intrusive-permissions': 'error',
 				'sonarjs/no-invalid-await': 'off',
-				'sonarjs/no-invalid-regexp': 'error',
+				'sonarjs/no-invalid-regexp': 'off',
 				'sonarjs/no-invariant-returns': 'error',
 				'sonarjs/no-inverted-boolean-check': 'error',
 				'sonarjs/no-ip-forward': 'error',
@@ -2718,7 +2718,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
@@ -2784,6 +2784,7 @@ const rules: Rules = {
 				'sonarjs/no-use-of-empty-return-value': 'off',
 				'sonarjs/null-dereference': 'off',
 				'sonarjs/prefer-read-only-props': 'off',
+				'sonarjs/prefer-regexp-exec': 'off',
 				'sonarjs/unused-import': 'off',
 				'sonarjs/updated-const-var': 'off',
 				'tsdoc/syntax': 'warn',
@@ -3053,7 +3054,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
@@ -3122,6 +3123,7 @@ const rules: Rules = {
 				'sonarjs/no-use-of-empty-return-value': 'off',
 				'sonarjs/null-dereference': 'off',
 				'sonarjs/prefer-read-only-props': 'off',
+				'sonarjs/prefer-regexp-exec': 'off',
 				'sonarjs/unused-import': 'off',
 				'sonarjs/updated-const-var': 'off',
 				'tsdoc/syntax': 'warn',

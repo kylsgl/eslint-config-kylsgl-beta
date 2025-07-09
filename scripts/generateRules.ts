@@ -2,7 +2,6 @@ import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { type Linter } from 'eslint';
-// eslint-disable-next-line import-x/no-extraneous-dependencies
 import * as prettier from 'prettier';
 
 import { FILES_GLOB_IGNORES } from '../src/constants';

@@ -185,6 +185,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/no-use-of-empty-return-value': 'off',
 		'sonarjs/null-dereference': 'off',
 		'sonarjs/prefer-read-only-props': 'off',
+		'sonarjs/prefer-regexp-exec': 'off',
 		'sonarjs/unused-import': 'off',
 		'sonarjs/updated-const-var': 'off',
 	},

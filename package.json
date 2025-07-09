@@ -47,6 +47,7 @@
 		"generate:rules": "tsx ./scripts/generateRules.ts",
 		"lint": "eslint ./",
 		"lint:fix": "pnpm lint --fix",
+		"lint:measure": "tsx ./scripts/eslintMeasure.ts",
 		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
 		"release": "pnpm build && changeset publish",
 		"test": "tsc --noEmit && vitest --config ./configs/vitest/vitest.config --coverage"
