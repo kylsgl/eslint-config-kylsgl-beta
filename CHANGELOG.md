@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.11
+
+### Patch Changes
+
+- [`21896d8`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/21896d8fab91c1981ebce976ac8f0ca454bb7175): remove conflicting rules - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.10
 
 ### Patch Changes
