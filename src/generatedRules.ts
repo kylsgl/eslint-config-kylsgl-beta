@@ -1204,7 +1204,7 @@ const rules: Rules = {
 				'sonarjs/array-constructor': 'off',
 				'sonarjs/arrow-function-convention': 'off',
 				'sonarjs/assertions-in-tests': 'off',
-				'sonarjs/aws-apigateway-public-api': 'error',
+				'sonarjs/aws-apigateway-public-api': 'off',
 				'sonarjs/aws-ec2-rds-dms-public': 'error',
 				'sonarjs/aws-ec2-unencrypted-ebs-volume': 'error',
 				'sonarjs/aws-efs-unencrypted': 'error',
@@ -1252,7 +1252,7 @@ const rules: Rules = {
 				'sonarjs/different-types-comparison': 'off',
 				'sonarjs/disabled-auto-escaping': 'error',
 				'sonarjs/disabled-resource-integrity': 'error',
-				'sonarjs/disabled-timeout': 'error',
+				'sonarjs/disabled-timeout': 'off',
 				'sonarjs/dns-prefetching': 'off',
 				'sonarjs/duplicates-in-character-class': 'error',
 				'sonarjs/elseif-without-else': 'off',
@@ -1640,6 +1640,7 @@ const rules: Rules = {
 				'package-json/unique-dependencies': 'error',
 				'package-json/valid-author': 'error',
 				'package-json/valid-bin': 'error',
+				'package-json/valid-bundleDependencies': 'error',
 				'package-json/valid-name': 'error',
 				'package-json/valid-package-definition': [
 					'error',
@@ -1647,6 +1648,7 @@ const rules: Rules = {
 						ignoreProperties: [
 							'author',
 							'bin',
+							'bundleDependencies',
 							'name',
 							'repository-directory',
 							'scripts',

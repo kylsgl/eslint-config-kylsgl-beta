@@ -143,6 +143,7 @@ const sonarJsConfig: RuleConfig = {
 		// Rules that are already covered or causes conflitcs in the Airbnb config
 		'sonarjs/array-callback-without-return': 'off',
 		'sonarjs/assertions-in-tests': 'off',
+		'sonarjs/aws-apigateway-public-api': 'off', // Very slow rule
 		'sonarjs/aws-restricted-ip-admin-access': 'off', // Very slow rule
 		'sonarjs/block-scoped-var': 'off',
 		'sonarjs/call-argument-line': 'off',
@@ -150,6 +151,7 @@ const sonarJsConfig: RuleConfig = {
 		'sonarjs/code-eval': 'off',
 		'sonarjs/constructor-for-side-effects': 'off',
 		'sonarjs/different-types-comparison': 'off',
+		'sonarjs/disabled-timeout': 'off',
 		'sonarjs/for-loop-increment-sign': 'off',
 		'sonarjs/jsx-no-leaked-render': 'off',
 		'sonarjs/label-position': 'off',

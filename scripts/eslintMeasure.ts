@@ -11,7 +11,10 @@ async function eslintMeasure(): Promise<void> {
 
 	const duration: string = ((end - start) / 1_000).toFixed(2);
 
-	console.info(`⌛ ESLint took ${duration}s to finish`);
+	console.info(
+		'\u001B[32m%s\u001B[0m',
+		`⌛ESLint took ${duration}s to complete`,
+	);
 }
 
 await eslintMeasure();
