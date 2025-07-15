@@ -113,10 +113,3 @@ ruleTester.run('no-unsafe-division', noUnsafeDivision, {
 		'function test(divisor) { if (divisor >= 0 && divisor <= 0) { return 0; } return 1 / divisor; }',
 	],
 });
-
-// function test(divisor) {
-// 	if (divisor === 0n) {
-// 		return 0;
-// 	}
-// 	return 1n / divisor;
-// }
