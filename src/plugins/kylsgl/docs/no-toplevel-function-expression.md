@@ -7,11 +7,15 @@ Disallows defining function expressions at the top-level scope.
 ## ❌ Fail
 
 ```js
+const fn = () => {
+	// do something
+};
+
 const fn = function () {
 	// do something
 };
 
-const fn = () => {
+const fn = function fn() {
 	// do something
 };
 ```

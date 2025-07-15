@@ -69,7 +69,6 @@ export const plugins: Plugins = {
 				react,
 				'react-hooks': reactHooks,
 				'react-refresh': reactRefresh,
-				'testing-library': testingLibrary,
 			},
 		},
 		{

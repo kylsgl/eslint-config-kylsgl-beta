@@ -79,6 +79,37 @@ Rules for `eslint-plugin-kylsgl`
 | [no-toplevel-function-expression](src/plugins/kylsgl/docs/no-toplevel-function-expression.md) | Disallows defining function expressions at the top-level scope       | ✅  |     |     |
 | [no-unsafe-division](src/plugins/kylsgl/docs/no-unsafe-division.md)                           | Enforces divisor checks to prevent potential division by `0`         | ✅  |     |     |
 
+## Plugins
+
+This config uses the following plugins under the hood:
+
+### Base
+
+- `@stylistic/eslint-plugin`
+- `@vitest/eslint-plugin`
+- `eslint-plugin-import-x`
+- `eslint-plugin-n`
+- `eslint-plugin-package-json`
+- `eslint-plugin-perfectionist`
+- `eslint-plugin-promise`
+- `eslint-plugin-regexp`
+- `eslint-plugin-simple-import-sort`
+- `eslint-plugin-sonarjs`
+- `eslint-plugin-unicorn`
+
+### TypeScript
+
+- `eslint-plugin-tsdoc`
+- `typescript-eslint`
+
+### React
+
+- `eslint-plugin-jsx-a11y`
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-refresh`
+- `eslint-plugin-testing-library`
+
 ## License
 
 [MIT](https://github.com/kylsgl/eslint-config-kylsgl-beta/blob/master/LICENSE)
