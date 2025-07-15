@@ -2,9 +2,9 @@
 
 💼 This rule is enabled in the following configs: ✅ `base`.
 
-Enforces checks to prevent potential division by `0`.
+Enforces divisor checks to prevent potential division by `0`.
 
-## Fail ❌
+## ❌ Fail
 
 ```js
 1 / 0;
@@ -16,7 +16,7 @@ function divide(divisor) {
 }
 ```
 
-## Pass ✔️
+## ✔️ Pass
 
 ```js
 1 / 1;
@@ -24,7 +24,11 @@ function divide(divisor) {
 1 % 1;
 
 function divide(divisor) {
-	return divisor === 0 ? 0 : 1 / divisor;
+	if (typeof divisor !== 'number' || divisor === 0) {
+		return 0;
+	}
+
+	return 1 / divisor;
 }
 ```
 
