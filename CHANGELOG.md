@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.15
+
+### Patch Changes
+
+- [`a9a996c`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/a9a996cea0bb136c2196ac86aa99088a23f3e7c1): add browser globals - by [@kylsgl](https://github.com/kylsgl)
+
+- [`948fbec`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/948fbec78198515cd1e77742a31c0d23d0dc08bc): add globals - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.14
 
 ### Patch Changes
