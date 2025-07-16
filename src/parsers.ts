@@ -2,17 +2,13 @@ import { type Linter } from 'eslint';
 import packageJSON from 'eslint-plugin-package-json';
 import { parser } from 'typescript-eslint';
 
-import {
-	FILES_GLOB_JSX,
-	FILES_GLOB_PACKAGE_JSON,
-	FILES_GLOB_TS,
-} from './constants';
+import { FilesGlob } from './constants';
 import { type Parsers } from './types';
 
 const parsers: Parsers = {
 	base: [
 		{
-			files: FILES_GLOB_PACKAGE_JSON,
+			files: FilesGlob.PackageJSON,
 			languageOptions: {
 				parser: packageJSON.configs.recommended.languageOptions.parser,
 			},
@@ -20,7 +16,7 @@ const parsers: Parsers = {
 	],
 	react: [
 		{
-			files: FILES_GLOB_JSX,
+			files: FilesGlob.JSX,
 			languageOptions: {
 				parserOptions: {
 					ecmaFeatures: {
@@ -32,7 +28,7 @@ const parsers: Parsers = {
 	],
 	typescript: [
 		{
-			files: FILES_GLOB_TS,
+			files: FilesGlob.TS,
 			languageOptions: {
 				parser: parser as Linter.Parser,
 				parserOptions: {

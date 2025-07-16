@@ -1,8 +1,8 @@
-import { FILES_GLOB_JSX } from '../../../constants';
+import { FilesGlob } from '../../../constants';
 import { type RuleConfig } from '../../../types';
 
 const rules: RuleConfig = {
-	files: FILES_GLOB_JSX,
+	files: FilesGlob.JSX,
 	name: 'airbnb/react-hooks',
 	rules: {
 		// Verify the list of the dependencies for Hooks like useEffect and similar

@@ -20,21 +20,14 @@ import tsdoc from 'eslint-plugin-tsdoc';
 import unicorn from 'eslint-plugin-unicorn';
 import tsEslint from 'typescript-eslint';
 
-import {
-	FILES_GLOB_JS_TS,
-	FILES_GLOB_JS_TS_TEST,
-	FILES_GLOB_JSX,
-	FILES_GLOB_JSX_TEST,
-	FILES_GLOB_PACKAGE_JSON,
-	FILES_GLOB_TS,
-} from '../constants';
+import { FilesGlob } from '../constants';
 import { type Plugins } from '../types';
 import kylsgl from './kylsgl';
 
 export const plugins: Plugins = {
 	base: [
 		{
-			files: FILES_GLOB_JS_TS,
+			files: FilesGlob.JS,
 			plugins: {
 				'@stylistic': stylistic,
 				'import-x': importX as unknown as ESLint.Plugin,
@@ -49,13 +42,13 @@ export const plugins: Plugins = {
 			},
 		},
 		{
-			files: FILES_GLOB_PACKAGE_JSON,
+			files: FilesGlob.PackageJSON,
 			plugins: {
 				'package-json': packageJSON as ESLint.Plugin,
 			},
 		},
 		{
-			files: FILES_GLOB_JS_TS_TEST,
+			files: FilesGlob.JSTests,
 			plugins: {
 				vitest: vitest as unknown as ESLint.Plugin,
 			},
@@ -63,7 +56,7 @@ export const plugins: Plugins = {
 	],
 	react: [
 		{
-			files: FILES_GLOB_JSX,
+			files: FilesGlob.JSX,
 			plugins: {
 				'jsx-a11y': jsxA11y as ESLint.Plugin,
 				react,
@@ -72,7 +65,7 @@ export const plugins: Plugins = {
 			},
 		},
 		{
-			files: FILES_GLOB_JSX_TEST,
+			files: FilesGlob.JSTests,
 			plugins: {
 				'testing-library': testingLibrary,
 			},
@@ -80,7 +73,7 @@ export const plugins: Plugins = {
 	],
 	typescript: [
 		{
-			files: FILES_GLOB_TS,
+			files: FilesGlob.TS,
 			plugins: {
 				'@typescript-eslint': tsEslint.plugin as ESLint.Plugin,
 				tsdoc,

@@ -1,8 +1,8 @@
-import { FILES_GLOB_JS_TS } from '../../../constants';
+import { FilesGlob } from '../../../constants';
 import { type RuleConfig } from '../../../types';
 
 const rules: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'airbnb/stylistic/es6',
 	rules: {
 		// require parens in arrow function arguments

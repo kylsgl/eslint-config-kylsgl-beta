@@ -1,8 +1,8 @@
-import { FILES_GLOB_JS_TS } from '../../../constants';
+import { FilesGlob } from '../../../constants';
 import { type RuleConfig } from '../../../types';
 
 const rules: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'airbnb/es6',
 	rules: {
 		// enforces no braces where they can be omitted

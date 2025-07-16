@@ -1,9 +1,9 @@
-import { FILES_GLOB_JSX } from '../constants';
+import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
 import { airbnbReactTypescriptConfig } from './airbnb';
 
 const baseConfig: RuleConfig = {
-	files: FILES_GLOB_JSX,
+	files: FilesGlob.JSX,
 	name: 'react/base-typescript',
 	rules: {},
 };

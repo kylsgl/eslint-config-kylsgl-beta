@@ -77,11 +77,11 @@ Rules for `eslint-plugin-kylsgl`
 | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --- | --- | --- |
 | [no-default-params](src/plugins/kylsgl/docs/no-default-params.md)                             | Disallows assigning default values to function parameters parameters |     |     |     |
 | [no-toplevel-function-expression](src/plugins/kylsgl/docs/no-toplevel-function-expression.md) | Disallows defining function expressions at the top-level scope       | ✅  |     |     |
-| [no-unsafe-division](src/plugins/kylsgl/docs/no-unsafe-division.md)                           | Enforces divisor checks to prevent potential division by `0`         | ✅  |     |     |
+| [no-unsafe-division](src/plugins/kylsgl/docs/no-unsafe-division.md)                           | Enforces divisor checks to prevent potential division by zero        | ✅  |     |     |
 
 ## Plugins
 
-This config uses the following plugins under the hood:
+This config uses the following plugins:
 
 ### Base
 

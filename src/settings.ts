@@ -1,12 +1,12 @@
 import * as typescriptImportResolver from 'eslint-import-resolver-typescript';
 
-import { FILES_GLOB_JSX, FILES_GLOB_TS } from './constants';
+import { FilesGlob } from './constants';
 import { type Settings } from './types';
 
 const settings: Settings = {
 	base: [
 		{
-			files: FILES_GLOB_TS,
+			files: FilesGlob.TS,
 			settings: {
 				'import-x/resolver': {
 					node: {
@@ -18,7 +18,7 @@ const settings: Settings = {
 	],
 	react: [
 		{
-			files: FILES_GLOB_JSX,
+			files: FilesGlob.JSX,
 			settings: {
 				propWrapperFunctions: [
 					'exact', // https://www.npmjs.com/package/prop-types-exact
@@ -34,7 +34,7 @@ const settings: Settings = {
 	],
 	typescript: [
 		{
-			files: FILES_GLOB_TS,
+			files: FilesGlob.TS,
 			settings: {
 				'import-x/resolver': {
 					name: 'typescriptImportResolver',

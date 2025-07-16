@@ -1,9 +1,9 @@
-import { FILES_GLOB_TS } from '../../../constants';
+import { FilesGlob } from '../../../constants';
 import { type RuleConfig } from '../../../types';
 import baseStyleConfig from '../base/style';
 
 const rules: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'airbnb/typescript/style',
 	rules: {
 		'@typescript-eslint/naming-convention': [

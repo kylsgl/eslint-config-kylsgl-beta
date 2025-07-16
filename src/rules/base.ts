@@ -7,12 +7,12 @@ import * as regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 
-import { FILES_GLOB_JS_TS, FILES_GLOB_PACKAGE_JSON } from '../constants';
+import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
 import { airbnbConfig, airbnbStylisticConfig } from './airbnb';
 
 const baseConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'base',
 	rules: {
 		curly: ['error', 'all'],
@@ -61,7 +61,7 @@ const baseConfig: RuleConfig = {
 };
 
 const kylsglConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
@@ -70,7 +70,7 @@ const kylsglConfig: RuleConfig = {
 };
 
 const packageJSONConfig: RuleConfig = {
-	files: FILES_GLOB_PACKAGE_JSON,
+	files: FilesGlob.PackageJSON,
 	name: 'packageJSON/base',
 	rules: {
 		...packageJSON.configs.recommended.rules,
@@ -80,7 +80,7 @@ const packageJSONConfig: RuleConfig = {
 };
 
 const perfectionistConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'perfectionist/base',
 	rules: {
 		...perfectionist.configs['recommended-natural'].rules,
@@ -116,7 +116,7 @@ const perfectionistConfig: RuleConfig = {
 };
 
 const promiseConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'promise/base',
 	rules: {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -128,7 +128,7 @@ const promiseConfig: RuleConfig = {
 };
 
 const regexpConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'regexp/base',
 	rules: {
 		...regexp.configs['flat/recommended'].rules,
@@ -136,7 +136,7 @@ const regexpConfig: RuleConfig = {
 };
 
 const sonarJsConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'sonarjs/base',
 	rules: {
 		...sonarjs.configs.recommended.rules,
@@ -191,7 +191,7 @@ const sonarJsConfig: RuleConfig = {
 };
 
 const unicornConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'unicorn/base',
 	rules: {
 		...unicorn.configs.recommended.rules,

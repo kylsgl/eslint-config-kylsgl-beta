@@ -2,7 +2,7 @@
 
 💼 This rule is enabled in the following configs: ✅ `base`.
 
-Enforces divisor checks to prevent potential division by `0`.
+Enforces divisor checks to prevent potential division by zero.
 
 ## ❌ Fail
 

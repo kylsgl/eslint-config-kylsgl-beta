@@ -1,7 +1,7 @@
 import { type Linter } from 'eslint';
 import tsEslint from 'typescript-eslint';
 
-import { FILES_GLOB_TS } from '../constants';
+import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
 import { extractConfigRules } from '../utils';
 import { airbnbTypescriptConfig } from './airbnb';
@@ -107,7 +107,7 @@ const typescriptTypeCheckedRulesObj: RuleConfig['rules'] = {
 };
 
 const baseConfig: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'typescript/base',
 	rules: {
 		...extractConfigRules(tsEslint.configs.recommended as Linter.Config[]),
@@ -118,7 +118,7 @@ const baseConfig: RuleConfig = {
 };
 
 const baseTypeCheckedConfig: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'typescript/base-type-checked',
 	rules: {
 		...extractConfigRules(
@@ -149,7 +149,7 @@ const declarationConfig: RuleConfig = {
 };
 
 const promiseConfig: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'promise/typescript',
 	rules: {
 		// Rules that are already covered or causes conflitcs in the TypeScript config
@@ -158,7 +158,7 @@ const promiseConfig: RuleConfig = {
 };
 
 const sonarJsConfig: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'sonarjs/typescript',
 	rules: {
 		// Rules that are already covered or causes conflitcs in the TypeScript config
@@ -192,7 +192,7 @@ const sonarJsConfig: RuleConfig = {
 };
 
 const tsdocConfig: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'tsdoc/base',
 	rules: {
 		'tsdoc/syntax': 'warn',

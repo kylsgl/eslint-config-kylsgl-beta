@@ -1,8 +1,8 @@
-import { FILES_GLOB_JS_TS } from '../constants';
+import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
 
 const baseConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'import/base',
 	rules: {
 		'import-x/no-duplicates': ['error', { 'prefer-inline': true }],
@@ -21,7 +21,7 @@ const baseConfig: RuleConfig = {
 };
 
 const sortConfig: RuleConfig = {
-	files: FILES_GLOB_JS_TS,
+	files: FilesGlob.JS,
 	name: 'import/sort',
 	rules: {
 		'simple-import-sort/exports': 'error',

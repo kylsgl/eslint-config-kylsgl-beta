@@ -1,9 +1,9 @@
-import { FILES_GLOB_TS } from '../../../constants';
+import { FilesGlob } from '../../../constants';
 import { type RuleConfig } from '../../../types';
 import baseBestPracticesConfig from '../base/best-practices';
 
 const rules: RuleConfig = {
-	files: FILES_GLOB_TS,
+	files: FilesGlob.TS,
 	name: 'airbnb/typescript/best-practices',
 	rules: {
 		// Prefer typescript's noImplicitReturns

@@ -1,9 +1,9 @@
 import { type Linter } from 'eslint';
 
-import { FILES_GLOB_IGNORES } from './constants';
+import { FilesGlob } from './constants';
 
 const ignores: Linter.Config = {
-	ignores: FILES_GLOB_IGNORES,
+	ignores: FilesGlob.Ignores,
 };
 
 export default ignores;

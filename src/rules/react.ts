@@ -1,11 +1,11 @@
 import testingLibrary from 'eslint-plugin-testing-library';
 
-import { FILES_GLOB_JSX, FILES_GLOB_JSX_TEST } from '../constants';
+import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
 import { airbnbReactConfig } from './airbnb';
 
 const baseConfig: RuleConfig = {
-	files: FILES_GLOB_JSX,
+	files: FilesGlob.JSX,
 	name: 'react/base',
 	rules: {
 		'react-hooks/react-compiler': 'error',
@@ -41,7 +41,7 @@ const baseConfig: RuleConfig = {
 };
 
 const reactRefreshConfig: RuleConfig = {
-	files: FILES_GLOB_JSX,
+	files: FilesGlob.JSX,
 	name: 'react/refresh',
 	rules: {
 		'react-refresh/only-export-components': [
@@ -52,7 +52,7 @@ const reactRefreshConfig: RuleConfig = {
 };
 
 const reactTestsConfig: RuleConfig = {
-	files: FILES_GLOB_JSX_TEST,
+	files: FilesGlob.JSXTests,
 	name: 'react/tests',
 	rules: {
 		...testingLibrary.configs['flat/react'].rules,

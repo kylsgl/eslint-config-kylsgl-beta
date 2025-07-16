@@ -4,7 +4,7 @@ import path from 'node:path';
 import { type Linter } from 'eslint';
 import * as prettier from 'prettier';
 
-import { FILES_GLOB_IGNORES } from '../src/constants';
+import { FilesGlob } from '../src/constants';
 import { rules } from '../src/rules';
 
 const FILE_NAME = 'generatedRules.ts';
@@ -17,63 +17,63 @@ function mergeRules(
 	const configsArrCopy: ReadonlyArray<Readonly<Linter.Config>> =
 		structuredClone(configArr);
 
-	return Object.values(
-		configsArrCopy.reduce(
-			(
-				accumulator: Record<string, Linter.Config>,
-				{
+	const mappedRules: Record<string, Linter.Config> = configsArrCopy.reduce(
+		(
+			accumulator: Record<string, Linter.Config>,
+			{
+				files,
+				ignores = FilesGlob.Ignores,
+				languageOptions,
+				rules: configRules,
+				settings,
+			}: Linter.Config,
+		) => {
+			const configKey: string | undefined = files?.join('');
+
+			if (configKey !== undefined && configKey.length > 0) {
+				const configValue: Linter.Config = {
 					files,
-					ignores = FILES_GLOB_IGNORES,
+					ignores,
 					languageOptions,
 					rules: configRules,
 					settings,
-				}: Linter.Config,
-			) => {
-				const configKey: string | undefined = files?.join('');
+				};
 
-				if (configKey !== undefined && configKey.length > 0) {
-					const configValue: Linter.Config = {
-						files,
-						ignores,
-						languageOptions,
-						rules: configRules,
-						settings,
+				if (configKey in accumulator) {
+					const existingConfigValue: Linter.Config = accumulator[configKey];
+
+					configValue.ignores = [
+						...new Set<string>([
+							...(existingConfigValue.ignores ?? []),
+							...ignores,
+						]),
+					];
+
+					configValue.languageOptions = {
+						...existingConfigValue.languageOptions,
+						...languageOptions,
 					};
 
-					if (configKey in accumulator) {
-						const existingConfigValue: Linter.Config = accumulator[configKey];
+					configValue.rules = {
+						...existingConfigValue.rules,
+						...configRules,
+					};
 
-						configValue.ignores = [
-							...new Set<string>([
-								...(existingConfigValue.ignores ?? []),
-								...ignores,
-							]),
-						];
-
-						configValue.languageOptions = {
-							...existingConfigValue.languageOptions,
-							...languageOptions,
-						};
-
-						configValue.rules = {
-							...existingConfigValue.rules,
-							...configRules,
-						};
-
-						configValue.settings = {
-							...existingConfigValue.settings,
-							...settings,
-						};
-					}
-
-					accumulator[configKey] = configValue;
+					configValue.settings = {
+						...existingConfigValue.settings,
+						...settings,
+					};
 				}
 
-				return accumulator;
-			},
-			{},
-		),
+				accumulator[configKey] = configValue;
+			}
+
+			return accumulator;
+		},
+		{},
 	);
+
+	return Object.values(mappedRules);
 }
 
 const rulesValue: string = Object.entries(rules).reduce(
