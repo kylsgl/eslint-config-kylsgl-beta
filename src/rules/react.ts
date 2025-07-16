@@ -1,4 +1,5 @@
 import testingLibrary from 'eslint-plugin-testing-library';
+import globals from 'globals';
 
 import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
@@ -6,6 +7,9 @@ import { airbnbReactConfig } from './airbnb';
 
 const baseConfig: RuleConfig = {
 	files: FilesGlob.JSX,
+	languageOptions: {
+		globals: globals.browser,
+	},
 	name: 'react/base',
 	rules: {
 		'react-hooks/react-compiler': 'error',
