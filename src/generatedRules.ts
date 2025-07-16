@@ -1493,7 +1493,7 @@ const rules: Rules = {
 				'unicorn/empty-brace-spaces': 'error',
 				'unicorn/error-message': 'error',
 				'unicorn/escape-case': 'error',
-				'unicorn/expiring-todo-comments': 'error',
+				'unicorn/expiring-todo-comments': 'off',
 				'unicorn/explicit-length-check': 'error',
 				'unicorn/filename-case': 'off',
 				'unicorn/import-style': 'error',

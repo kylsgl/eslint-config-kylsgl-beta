@@ -195,6 +195,7 @@ const unicornConfig: RuleConfig = {
 	name: 'unicorn/base',
 	rules: {
 		...unicorn.configs.recommended.rules,
+		'unicorn/expiring-todo-comments': 'off',
 		'unicorn/filename-case': 'off',
 		'unicorn/no-array-callback-reference': 'off',
 		'unicorn/no-array-for-each': 'off',
