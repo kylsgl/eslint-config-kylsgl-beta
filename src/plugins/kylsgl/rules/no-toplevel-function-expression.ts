@@ -29,7 +29,7 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 					: scope;
 
 				const isTopLevel: boolean =
-					currentScope != null && SCOPE_TYPES.has(currentScope.type);
+					currentScope !== null && SCOPE_TYPES.has(currentScope.type);
 
 				if (!isTopLevel) {
 					return;
