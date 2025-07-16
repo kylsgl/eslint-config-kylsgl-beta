@@ -52,6 +52,10 @@ function mergeRules(
 					configValue.languageOptions = {
 						...existingConfigValue.languageOptions,
 						...languageOptions,
+						globals: {
+							...existingConfigValue.languageOptions?.globals,
+							...languageOptions?.globals,
+						},
 					};
 
 					configValue.rules = {

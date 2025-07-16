@@ -6,6 +6,7 @@ import promise from 'eslint-plugin-promise';
 import * as regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
 
 import { FilesGlob } from '../constants';
 import { type RuleConfig } from '../types';
@@ -13,6 +14,9 @@ import { airbnbConfig, airbnbStylisticConfig } from './airbnb';
 
 const baseConfig: RuleConfig = {
 	files: FilesGlob.JS,
+	languageOptions: {
+		globals: globals.builtin,
+	},
 	name: 'base',
 	rules: {
 		curly: ['error', 'all'],
@@ -67,6 +71,15 @@ const kylsglConfig: RuleConfig = {
 		'kylsgl/no-toplevel-function-expression': 'error',
 		'kylsgl/no-unsafe-division': 'error',
 	},
+};
+
+const nodeConfig: RuleConfig = {
+	files: FilesGlob.JS,
+	languageOptions: {
+		globals: globals.node,
+	},
+	name: 'node/base',
+	rules: {},
 };
 
 const packageJSONConfig: RuleConfig = {
@@ -132,6 +145,17 @@ const regexpConfig: RuleConfig = {
 	name: 'regexp/base',
 	rules: {
 		...regexp.configs['flat/recommended'].rules,
+	},
+};
+
+const serviceWorkerConfig: RuleConfig = {
+	files: ['**/service.worker.{js,ts}'],
+	languageOptions: {
+		globals: globals.serviceworker,
+	},
+	name: 'serviceWorker/base',
+	rules: {
+		'no-underscore-dangle': 'off',
 	},
 };
 
@@ -217,15 +241,30 @@ const unicornConfig: RuleConfig = {
 	},
 };
 
+const workerConfig: RuleConfig = {
+	files: ['**/*.worker.{js,ts}'],
+	ignores: ['**/service.worker.{js,ts}'],
+	languageOptions: {
+		globals: globals.worker,
+	},
+	name: 'worker/base',
+	rules: {
+		'no-underscore-dangle': 'off',
+	},
+};
+
 export default [
 	...airbnbConfig,
 	...airbnbStylisticConfig,
 	baseConfig,
 	kylsglConfig,
+	nodeConfig,
 	packageJSONConfig,
 	perfectionistConfig,
 	promiseConfig,
 	regexpConfig,
+	serviceWorkerConfig,
 	sonarJsConfig,
 	unicornConfig,
+	workerConfig,
 ];

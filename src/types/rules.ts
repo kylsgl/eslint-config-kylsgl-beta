@@ -3,6 +3,7 @@ import { type Linter } from 'eslint';
 export interface RuleConfig {
 	readonly files?: Array<string | string[]>;
 	readonly ignores?: string[];
+	readonly languageOptions?: Linter.LanguageOptions;
 	readonly name?: string;
 	readonly rules: Partial<Linter.RulesRecord>;
 }
