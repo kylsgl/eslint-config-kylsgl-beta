@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 2.0.13
+
+### Patch Changes
+
+- [`9d3ce08`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/9d3ce08a0ece7b292471b3168202762c4ba3eb33): prepare for stable release - by [@kylsgl](https://github.com/kylsgl)
+
+- [`fe11d62`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/fe11d6274864f1631d15afad9e48816271cd5dd8): use strict equality for checking current scope - by [@kylsgl](https://github.com/kylsgl)
+
+- [`b070680`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/b070680f1314404c259fda557d3dff0e0d0d9241): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.12
 
 ### Patch Changes
