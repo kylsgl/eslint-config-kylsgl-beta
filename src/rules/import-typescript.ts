@@ -9,7 +9,7 @@ const baseConfig: RuleConfig = {
 			'error',
 			{
 				devDependencies: [
-					'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
+					'**/{.storybook,__mocks__,__tests__,configs,electron,scripts,spec,test,tests}/**',
 					'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 				],
 				optionalDependencies: false,

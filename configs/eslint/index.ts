@@ -7,17 +7,7 @@ const config: readonly Linter.Config[] = [
 	...configs.typescriptTypeChecked,
 	...configs.prettier,
 	{
-		files: ['**/*.{js,jsx,mjs,ts,tsx,mts}'],
-		languageOptions: {
-			ecmaVersion: 'latest',
-			parserOptions: {
-				ecmaVersion: 'latest',
-			},
-			sourceType: 'module',
-		},
-	},
-	{
-		ignores: ['**/*.config.{js,jsx,mjs,ts,tsx,mts}', './src/generatedRules.ts'],
+		ignores: ['./eslint.config.mjs', './src/generatedRules.ts'],
 	},
 ];
 

@@ -73,6 +73,14 @@ const kylsglConfig: RuleConfig = {
 	},
 };
 
+const configsConfig: RuleConfig = {
+	files: ['**/configs/**', '**/*.config.{js,cjs,mjs,ts,cts,mts}'],
+	name: 'configs/base',
+	rules: {
+		'no-underscore-dangle': 'off',
+	},
+};
+
 const nodeConfig: RuleConfig = {
 	files: FilesGlob.JS,
 	languageOptions: {
@@ -153,8 +161,9 @@ const serviceWorkerConfig: RuleConfig = {
 	languageOptions: {
 		globals: globals.serviceworker,
 	},
-	name: 'serviceWorker/base',
+	name: 'service-worker/base',
 	rules: {
+		'no-restricted-globals': 'off',
 		'no-underscore-dangle': 'off',
 	},
 };
@@ -249,6 +258,7 @@ const workerConfig: RuleConfig = {
 	},
 	name: 'worker/base',
 	rules: {
+		'no-restricted-globals': 'off',
 		'no-underscore-dangle': 'off',
 	},
 };
@@ -257,6 +267,7 @@ export default [
 	...airbnbConfig,
 	...airbnbStylisticConfig,
 	baseConfig,
+	configsConfig,
 	kylsglConfig,
 	nodeConfig,
 	packageJSONConfig,

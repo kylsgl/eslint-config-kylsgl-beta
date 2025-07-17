@@ -526,7 +526,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,electron,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
@@ -1765,6 +1765,14 @@ const rules: Rules = {
 			},
 		},
 		{
+			files: ['**/configs/**', '**/*.config.{js,cjs,mjs,ts,cts,mts}'],
+			ignores: [
+				'{build,dist,out}{,-*,_*}/**',
+				'{coverage,node_modules,patches}/**',
+			],
+			rules: { 'no-underscore-dangle': 'off' },
+		},
+		{
 			files: ['**/package.json'],
 			ignores: [
 				'{build,dist,out}{,-*,_*}/**',
@@ -2108,7 +2116,7 @@ const rules: Rules = {
 					WritableStreamDefaultWriter: false,
 				},
 			},
-			rules: { 'no-underscore-dangle': 'off' },
+			rules: { 'no-restricted-globals': 'off', 'no-underscore-dangle': 'off' },
 		},
 		{
 			files: ['**/*.worker.{js,ts}'],
@@ -2424,7 +2432,7 @@ const rules: Rules = {
 					XMLHttpRequestUpload: false,
 				},
 			},
-			rules: { 'no-underscore-dangle': 'off' },
+			rules: { 'no-restricted-globals': 'off', 'no-underscore-dangle': 'off' },
 		},
 		{
 			files: ['**/*.{spec,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}'],
@@ -4666,7 +4674,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,electron,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
@@ -5003,7 +5011,7 @@ const rules: Rules = {
 					'error',
 					{
 						devDependencies: [
-							'**/{.storybook,__mocks__,__tests__,configs,scripts,spec,test,tests}/**',
+							'**/{.storybook,__mocks__,__tests__,configs,electron,scripts,spec,test,tests}/**',
 							'**/*.{config,spec,stories,test}.{ts,tsx,cts,mts}',
 						],
 						optionalDependencies: false,
