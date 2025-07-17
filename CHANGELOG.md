@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.16
+
+### Patch Changes
+
+- [`3cbbf0b`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/3cbbf0b7e9282db33934f28f3f41f30219a4f2a0): cleanup - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.15
 
 ### Patch Changes
