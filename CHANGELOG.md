@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.17
+
+### Patch Changes
+
+- [`4e08a47`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/4e08a475de78974d6817622a96ae414d6890a8e9): expand target worker extensions - by [@kylsgl](https://github.com/kylsgl)
+
+- [`fb25d07`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/fb25d07dc3a469af6e2039ef898f2ea8987a7007): merge rules for service workers and workers - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.16
 
 ### Patch Changes
