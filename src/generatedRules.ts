@@ -1816,7 +1816,7 @@ const rules: Rules = {
 			},
 		},
 		{
-			files: ['**/*.worker.{js,ts}'],
+			files: ['**/*.worker.{js,cjs,mjs,ts,cts,mts}'],
 			ignores: [
 				'{build,dist,out}{,-*,_*}/**',
 				'{coverage,node_modules,patches}/**',
