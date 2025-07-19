@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.18
+
+### Patch Changes
+
+- [`a016935`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/a0169350610f2ba7dc27636c33e3f3adfbe79915): separate globals for workers and service workers - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.17
 
 ### Patch Changes
