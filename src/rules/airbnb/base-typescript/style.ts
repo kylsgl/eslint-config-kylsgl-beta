@@ -21,7 +21,6 @@ const rules: RuleConfig = {
 				selector: 'typeLike',
 			},
 		],
-
 		'@typescript-eslint/no-array-constructor':
 			baseStyleConfig.rules['no-array-constructor'],
 		camelcase: 'off',

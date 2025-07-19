@@ -25,6 +25,26 @@ const typescriptRulesObj: RuleConfig['rules'] = {
 	'@typescript-eslint/explicit-module-boundary-types': 'error',
 	'@typescript-eslint/member-ordering': 'error',
 	'@typescript-eslint/method-signature-style': 'error',
+	'@typescript-eslint/naming-convention': [
+		'error',
+		{
+			format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+			selector: 'variable',
+		},
+		{
+			format: ['camelCase', 'PascalCase'],
+			selector: 'function',
+		},
+		{
+			format: ['PascalCase'],
+			selector: 'typeLike',
+		},
+		{
+			format: null,
+			modifiers: ['destructured'],
+			selector: 'variable',
+		},
+	],
 	'@typescript-eslint/no-empty-object-type': [
 		'error',
 		{ allowInterfaces: 'with-single-extends' },
