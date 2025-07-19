@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.19
+
+### Patch Changes
+
+- [`f12fa81`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/f12fa81d94ba7da722c5ef4d374cc1f249fb5aa5): full separate rules for workers and service worker - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.18
 
 ### Patch Changes
