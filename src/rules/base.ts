@@ -162,7 +162,10 @@ const serviceWorkerConfig: RuleConfig = {
 		globals: globals.serviceworker,
 	},
 	name: 'service-worker/base',
-	rules: {},
+	rules: {
+		'no-restricted-globals': 'off',
+		'no-underscore-dangle': 'off',
+	},
 };
 
 const sonarJsConfig: RuleConfig = {
@@ -249,6 +252,7 @@ const unicornConfig: RuleConfig = {
 
 const workerConfig: RuleConfig = {
 	files: ['**/*.worker.{js,cjs,mjs,ts,cts,mts}'],
+	ignores: ['**/service.worker.{js,cjs,mjs,ts,cts,mts}'],
 	languageOptions: {
 		globals: globals.worker,
 	},

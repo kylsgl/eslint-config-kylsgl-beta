@@ -2118,14 +2118,11 @@ const rules: Rules = {
 					WritableStreamDefaultWriter: false,
 				},
 			},
-			rules: {},
+			rules: { 'no-restricted-globals': 'off', 'no-underscore-dangle': 'off' },
 		},
 		{
 			files: ['**/*.worker.{js,cjs,mjs,ts,cts,mts}'],
-			ignores: [
-				'{build,dist,out}{,-*,_*}/**',
-				'{coverage,node_modules,patches}/**',
-			],
+			ignores: ['**/service.worker.{js,cjs,mjs,ts,cts,mts}'],
 			languageOptions: {
 				globals: {
 					AbortController: false,
