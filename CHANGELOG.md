@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.20
+
+### Patch Changes
+
+- [`6553bed`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/6553bed35f9f945601c11f7a50f5d31a16f25aa3): exclude destructured variables from naming convention checks - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.19
 
 ### Patch Changes
