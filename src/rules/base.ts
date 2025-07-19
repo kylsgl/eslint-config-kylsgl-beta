@@ -156,6 +156,15 @@ const regexpConfig: RuleConfig = {
 	},
 };
 
+const serviceWorkerConfig: RuleConfig = {
+	files: ['**/service.worker.{js,cjs,mjs,ts,cts,mts}'],
+	languageOptions: {
+		globals: globals.serviceworker,
+	},
+	name: 'service-worker/base',
+	rules: {},
+};
+
 const sonarJsConfig: RuleConfig = {
 	files: FilesGlob.JS,
 	name: 'sonarjs/base',
@@ -241,10 +250,7 @@ const unicornConfig: RuleConfig = {
 const workerConfig: RuleConfig = {
 	files: ['**/*.worker.{js,cjs,mjs,ts,cts,mts}'],
 	languageOptions: {
-		globals: {
-			...globals.serviceworker,
-			...globals.worker,
-		},
+		globals: globals.worker,
 	},
 	name: 'worker/base',
 	rules: {
@@ -264,6 +270,7 @@ export default [
 	perfectionistConfig,
 	promiseConfig,
 	regexpConfig,
+	serviceWorkerConfig,
 	sonarJsConfig,
 	unicornConfig,
 	workerConfig,
