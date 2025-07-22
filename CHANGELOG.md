@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.21
+
+### Patch Changes
+
+- [`803d304`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/803d304a25922156692a84ba709c8f2e64e28bc0): use terser to minify the build - by [@kylsgl](https://github.com/kylsgl)
+
+- [`f4a53cb`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/f4a53cb7bcecde3f1ccbb2ca8648f2f4bc300484): cleanup - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.20
 
 ### Patch Changes
