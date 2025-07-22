@@ -1,8 +1,37 @@
 import { defineConfig } from 'rollup';
 import { dts } from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
+import { minify } from 'terser';
 
 import packageJSON from '../../package.json' with { type: 'json' };
+
+function terserPlugin() {
+	return {
+		name: 'terser',
+		async renderChunk(code) {
+			const result = await minify(code, {
+				compress: {
+					passes: 2,
+					reduce_funcs: false,
+					unsafe: true,
+					unsafe_arrows: true,
+					unsafe_methods: true,
+					unsafe_proto: true,
+				},
+				ecma: 2_020,
+				mangle: {
+					module: true,
+					toplevel: true,
+				},
+			});
+
+			return {
+				code: result.code ?? code,
+				map: result.map,
+			};
+		},
+	};
+}
 
 export default defineConfig(() => {
 	const input = './src/index.ts';
@@ -19,13 +48,14 @@ export default defineConfig(() => {
 
 	const plugins = [
 		esbuild({
-			minify: true,
+			minify: false,
 			platform: 'node',
 			supported: {
 				'node-colon-prefix-import': true,
 			},
 			target: ['es2024', 'node22'],
 		}),
+		terserPlugin(),
 	];
 
 	return [
