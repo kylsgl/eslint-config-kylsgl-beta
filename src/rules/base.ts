@@ -233,6 +233,7 @@ const unicornConfig: RuleConfig = {
 		'unicorn/no-array-callback-reference': 'off',
 		'unicorn/no-array-for-each': 'off',
 		'unicorn/no-array-reduce': 'off',
+		'unicorn/no-array-reverse': 'off',
 		'unicorn/no-for-loop': 'off',
 		'unicorn/no-null': 'off',
 		'unicorn/numeric-separators-style': [

@@ -4,6 +4,7 @@ import {
 	type BinaryExpression,
 	type ConditionalExpression,
 	type IfStatement,
+	type LogicalExpression,
 	type Node,
 	type Statement,
 	type VariableDeclaration,
@@ -84,7 +85,29 @@ function hasValidBinaryExpression(
 	return (isValidLeftNodeCheck || isValidRightNodeCheck) && isValidOperator;
 }
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
+function hasValidLogicalExpression(
+	testNode: LogicalExpression,
+	earlyExitGuard: boolean,
+	isValidExpressionLeft: boolean,
+	isValidExpressionRight: boolean,
+): boolean {
+	switch (testNode.operator) {
+		case '&&': {
+			return earlyExitGuard
+				? isValidExpressionLeft && isValidExpressionRight
+				: isValidExpressionLeft || isValidExpressionRight;
+		}
+		case '||': {
+			return earlyExitGuard
+				? isValidExpressionLeft || isValidExpressionRight
+				: isValidExpressionLeft && isValidExpressionRight;
+		}
+		default: {
+			return false;
+		}
+	}
+}
+
 function hasValidIfStatement(
 	ifNode: ConditionalExpression | IfStatement,
 	testNode: Node,
@@ -121,19 +144,12 @@ function hasValidIfStatement(
 				isElseBlock,
 			);
 
-			if (testNode.operator === '&&') {
-				return earlyExitGuard
-					? isValidExpressionLeft && isValidExpressionRight
-					: isValidExpressionLeft || isValidExpressionRight;
-			}
-
-			if (testNode.operator === '||') {
-				return earlyExitGuard
-					? isValidExpressionLeft || isValidExpressionRight
-					: isValidExpressionLeft && isValidExpressionRight;
-			}
-
-			return false;
+			return hasValidLogicalExpression(
+				testNode,
+				earlyExitGuard,
+				isValidExpressionLeft,
+				isValidExpressionRight,
+			);
 		}
 		default: {
 			return false;
