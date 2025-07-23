@@ -43,7 +43,7 @@ export default [
 ];
 ```
 
-### TypeScript
+#### TypeScript
 
 This config disables some rules in favor of TypeScript's own type checking.
 
