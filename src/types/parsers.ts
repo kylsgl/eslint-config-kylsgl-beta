@@ -12,5 +12,5 @@ export interface ParserConfig {
 export interface Parsers {
 	readonly base: readonly ParserConfig[];
 	readonly react: readonly ParserConfig[];
-	readonly typescript: readonly ParserConfig[];
+	readonly typeScript: readonly ParserConfig[];
 }

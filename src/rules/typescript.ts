@@ -6,7 +6,7 @@ import { type RuleConfig } from '../types';
 import { extractConfigRules } from '../utils';
 import { airbnbTypescriptConfig } from './airbnb';
 
-const typescriptRulesObj: RuleConfig['rules'] = {
+const typeScriptRulesObj: RuleConfig['rules'] = {
 	'@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
 	'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 	'@typescript-eslint/consistent-type-imports': [
@@ -80,7 +80,7 @@ const typescriptRulesObj: RuleConfig['rules'] = {
 	'@typescript-eslint/prefer-for-of': 'off',
 };
 
-const typescriptTypeCheckedRulesObj: RuleConfig['rules'] = {
+const typeScriptTypeCheckedRulesObj: RuleConfig['rules'] = {
 	'@typescript-eslint/consistent-type-exports': [
 		'error',
 		{
@@ -133,7 +133,7 @@ const baseConfig: RuleConfig = {
 		...extractConfigRules(tsEslint.configs.recommended as Linter.Config[]),
 		...extractConfigRules(tsEslint.configs.strict as Linter.Config[]),
 		...extractConfigRules(tsEslint.configs.stylistic as Linter.Config[]),
-		...typescriptRulesObj,
+		...typeScriptRulesObj,
 	},
 };
 
@@ -150,8 +150,8 @@ const baseTypeCheckedConfig: RuleConfig = {
 		...extractConfigRules(
 			tsEslint.configs.stylisticTypeChecked as Linter.Config[],
 		),
-		...typescriptRulesObj,
-		...typescriptTypeCheckedRulesObj,
+		...typeScriptRulesObj,
+		...typeScriptTypeCheckedRulesObj,
 	},
 };
 
@@ -219,7 +219,7 @@ const tsdocConfig: RuleConfig = {
 	},
 };
 
-export const typescriptRules: readonly RuleConfig[] = [
+export const typeScriptRules: readonly RuleConfig[] = [
 	...airbnbTypescriptConfig,
 	baseConfig,
 	declarationConfig,
@@ -227,7 +227,7 @@ export const typescriptRules: readonly RuleConfig[] = [
 	tsdocConfig,
 ];
 
-export const typescriptTypeCheckedRules: readonly RuleConfig[] = [
+export const typeScriptTypeCheckedRules: readonly RuleConfig[] = [
 	...airbnbTypescriptConfig,
 	baseTypeCheckedConfig,
 	declarationConfig,

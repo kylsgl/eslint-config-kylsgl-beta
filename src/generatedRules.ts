@@ -4517,7 +4517,7 @@ const rules: Rules = {
 			},
 		},
 	],
-	reactTypescript: [
+	reactTypeScript: [
 		{
 			files: ['**/*.{jsx,tsx}'],
 			ignores: [
@@ -4535,7 +4535,7 @@ const rules: Rules = {
 			},
 		},
 	],
-	typescript: [
+	typeScript: [
 		{
 			files: ['**/*.{ts,tsx,cts,mts}'],
 			ignores: [
@@ -4784,7 +4784,7 @@ const rules: Rules = {
 			rules: { 'import-x/prefer-default-export': 'off' },
 		},
 	],
-	typescriptTypeChecked: [
+	typeScriptTypeChecked: [
 		{
 			files: ['**/*.{ts,tsx,cts,mts}'],
 			ignores: [

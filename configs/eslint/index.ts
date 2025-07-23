@@ -4,7 +4,7 @@ import { configs } from '../../src';
 
 const config: readonly Linter.Config[] = [
 	...configs.base,
-	...configs.typescriptTypeChecked,
+	...configs.typeScriptTypeChecked,
 	...configs.prettier,
 	{
 		ignores: ['./eslint.config.mjs', './src/generatedRules.ts'],

@@ -1,4 +1,4 @@
-import * as typescriptImportResolver from 'eslint-import-resolver-typescript';
+import * as typeScriptImportResolver from 'eslint-import-resolver-typescript';
 
 import { FilesGlob } from './constants';
 import { type Settings } from './types';
@@ -32,16 +32,16 @@ const settings: Settings = {
 			},
 		},
 	],
-	typescript: [
+	typeScript: [
 		{
 			files: FilesGlob.TS,
 			settings: {
 				'import-x/resolver': {
-					name: 'typescriptImportResolver',
+					name: 'typeScriptImportResolver',
 					node: {
 						extensions: ['.json', 'ts', 'tsx', 'cts', 'mts'],
 					},
-					resolver: typescriptImportResolver,
+					resolver: typeScriptImportResolver,
 				},
 			},
 		},

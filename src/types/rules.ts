@@ -12,7 +12,7 @@ export interface Rules {
 	readonly base: readonly RuleConfig[];
 	readonly prettier: readonly RuleConfig[];
 	readonly react: readonly RuleConfig[];
-	readonly reactTypescript: readonly RuleConfig[];
-	readonly typescript: readonly RuleConfig[];
-	readonly typescriptTypeChecked: readonly RuleConfig[];
+	readonly reactTypeScript: readonly RuleConfig[];
+	readonly typeScript: readonly RuleConfig[];
+	readonly typeScriptTypeChecked: readonly RuleConfig[];
 }

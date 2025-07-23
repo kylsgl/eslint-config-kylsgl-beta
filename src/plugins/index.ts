@@ -65,13 +65,13 @@ export const plugins: Plugins = {
 			},
 		},
 		{
-			files: FilesGlob.JSTests,
+			files: FilesGlob.JSXTests,
 			plugins: {
 				'testing-library': testingLibrary,
 			},
 		},
 	],
-	typescript: [
+	typeScript: [
 		{
 			files: FilesGlob.TS,
 			plugins: {

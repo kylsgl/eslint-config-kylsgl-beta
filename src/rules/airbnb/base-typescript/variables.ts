@@ -4,7 +4,6 @@ import baseVariablesConfig from '../base/variables';
 
 const rules: RuleConfig = {
 	files: FilesGlob.TS,
-
 	name: 'airbnb/typescript/variables',
 	rules: {
 		'@typescript-eslint/no-shadow': baseVariablesConfig.rules['no-shadow'],

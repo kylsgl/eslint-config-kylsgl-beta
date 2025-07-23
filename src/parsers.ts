@@ -26,7 +26,7 @@ const parsers: Parsers = {
 			},
 		},
 	],
-	typescript: [
+	typeScript: [
 		{
 			files: FilesGlob.TS,
 			languageOptions: {

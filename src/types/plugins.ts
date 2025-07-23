@@ -8,5 +8,5 @@ export interface PluginConfig {
 export interface Plugins {
 	readonly base: readonly PluginConfig[];
 	readonly react: readonly PluginConfig[];
-	readonly typescript: readonly PluginConfig[];
+	readonly typeScript: readonly PluginConfig[];
 }

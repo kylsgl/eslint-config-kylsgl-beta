@@ -9,6 +9,10 @@ function terserPlugin() {
 	return {
 		name: 'terser',
 		async renderChunk(code) {
+			const module = true;
+
+			const toplevel = true;
+
 			const result = await minify(code, {
 				compress: {
 					passes: 2,
@@ -20,9 +24,11 @@ function terserPlugin() {
 				},
 				ecma: 2_020,
 				mangle: {
-					module: true,
-					toplevel: true,
+					module,
+					toplevel,
 				},
+				module,
+				toplevel,
 			});
 
 			return {

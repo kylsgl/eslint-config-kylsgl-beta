@@ -6,5 +6,5 @@ export interface SettingConfig {
 export interface Settings {
 	readonly base: readonly SettingConfig[];
 	readonly react: readonly SettingConfig[];
-	readonly typescript: readonly SettingConfig[];
+	readonly typeScript: readonly SettingConfig[];
 }

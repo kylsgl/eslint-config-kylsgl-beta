@@ -33,7 +33,7 @@ import { configs } from 'eslint-config-kylsgl';
 
 export default [
 	...configs.base,
-	...configs.typescriptTypeChecked,
+	...configs.typeScriptTypeChecked,
 	...configs.prettier,
 	{
 		rules: {
@@ -63,6 +63,17 @@ This config disables some rules in favor of TypeScript's own type checking.
 	}
 }
 ```
+
+## Configs
+
+| Name                    | Description                                        |
+| ----------------------- | -------------------------------------------------- |
+| `base`                  | Base rules                                         |
+| `prettier`              | Compatibility rules for Prettier                   |
+| `react`                 | Base rules for React                               |
+| `reactTypeScript`       | TypeScript rules for React                         |
+| `typeScript`            | Base rules for TypeScript                          |
+| `typeScriptTypeChecked` | Base rules for TypeScript with type-checking rules |
 
 ## Rules
 

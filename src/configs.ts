@@ -20,18 +20,18 @@ const configs: Configs = {
 		...settings.react,
 		...rules.react,
 	],
-	reactTypescript: rules.reactTypescript,
-	typescript: [
-		...plugins.typescript,
-		...parsers.typescript,
-		...settings.typescript,
-		...rules.typescript,
+	reactTypeScript: rules.reactTypeScript,
+	typeScript: [
+		...plugins.typeScript,
+		...parsers.typeScript,
+		...settings.typeScript,
+		...rules.typeScript,
 	],
-	typescriptTypeChecked: [
-		...plugins.typescript,
-		...parsers.typescript,
-		...settings.typescript,
-		...rules.typescriptTypeChecked,
+	typeScriptTypeChecked: [
+		...plugins.typeScript,
+		...parsers.typeScript,
+		...settings.typeScript,
+		...rules.typeScriptTypeChecked,
 	],
 };
 
