@@ -1797,6 +1797,7 @@ const rules: Rules = {
 				'package-json/valid-author': 'error',
 				'package-json/valid-bin': 'error',
 				'package-json/valid-bundleDependencies': 'error',
+				'package-json/valid-config': 'error',
 				'package-json/valid-license': 'error',
 				'package-json/valid-name': 'error',
 				'package-json/valid-package-definition': [
@@ -1806,6 +1807,7 @@ const rules: Rules = {
 							'author',
 							'bin',
 							'bundleDependencies',
+							'config',
 							'license',
 							'name',
 							'repository-directory',
