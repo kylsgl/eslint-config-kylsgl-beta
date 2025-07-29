@@ -1,6 +1,6 @@
 {
 	"name": "eslint-config-kylsgl",
-	"version": "2.0.22",
+	"version": "2.0.23",
 	"description": "My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.",
 	"keywords": [
 		"eslint",
