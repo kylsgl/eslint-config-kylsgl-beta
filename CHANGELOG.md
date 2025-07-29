@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.23
+
+### Patch Changes
+
+- [`1a55feb`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/1a55feb6ae157f05a042014d9bb00c56cae7e299): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`d788901`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/d78890124e9a6916c519f7539cf1e6552ecaf4fc): remove globalReturn checks - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.22
 
 ### Patch Changes
