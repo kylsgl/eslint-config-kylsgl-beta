@@ -17,11 +17,11 @@ ruleTester.run(
 				errors,
 			},
 			{
-				code: 'const test = function(){}',
+				code: 'const test = function() {}',
 				errors,
 			},
 			{
-				code: 'const test = function test(){}',
+				code: 'const test = function test() {}',
 				errors,
 			},
 		],

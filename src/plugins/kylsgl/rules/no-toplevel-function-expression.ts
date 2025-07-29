@@ -10,10 +10,6 @@ const SCOPE_TYPES: ReadonlySet<string> = new Set(['global', 'module']);
 
 const noTopLevelFunctionExpression: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.NodeListener {
-		const hasGlobalReturn: boolean =
-			context.languageOptions.parserOptions?.ecmaFeatures?.globalReturn ===
-			true;
-
 		return {
 			VariableDeclarator: (
 				node: Rule.NodeParentExtension & VariableDeclarator,
@@ -22,14 +18,9 @@ const noTopLevelFunctionExpression: Rule.RuleModule = {
 					return;
 				}
 
-				const scope: Scope.Scope | null = context.sourceCode.getScope(node);
+				const scope: Scope.Scope = context.sourceCode.getScope(node);
 
-				const currentScope: Scope.Scope | null | undefined = hasGlobalReturn
-					? scope.upper
-					: scope;
-
-				const isTopLevel: boolean =
-					currentScope !== null && SCOPE_TYPES.has(currentScope.type);
+				const isTopLevel: boolean = SCOPE_TYPES.has(scope.type);
 
 				if (!isTopLevel) {
 					return;
