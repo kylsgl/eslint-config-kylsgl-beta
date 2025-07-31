@@ -1,7 +1,7 @@
 <h1 align="center">eslint-config-kylsgl</h1>
 
 <p align="center">
-    My personal ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.
+    ESLint rules for JavaScript, TypeScript, and React, based on the Airbnb JavaScript Style Guide.
 </p>
 
 <div align="center">

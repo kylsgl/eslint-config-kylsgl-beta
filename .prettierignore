@@ -1,3 +1,4 @@
+/.husky
 /build
 /build-*
 /build_*
@@ -9,6 +10,7 @@
 /out
 /out-*
 /out_*
-LICENSE.md
+.prettierignore
 eslint.config.mjs
 pnpm-lock.yaml
+LICENSE.md

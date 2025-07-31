@@ -1798,6 +1798,7 @@ const rules: Rules = {
 				'package-json/valid-bin': 'error',
 				'package-json/valid-bundleDependencies': 'error',
 				'package-json/valid-config': 'error',
+				'package-json/valid-cpu': 'error',
 				'package-json/valid-license': 'error',
 				'package-json/valid-name': 'error',
 				'package-json/valid-package-definition': [
@@ -1805,14 +1806,15 @@ const rules: Rules = {
 					{
 						ignoreProperties: [
 							'author',
-							'bin',
 							'bundleDependencies',
 							'config',
+							'cpu',
 							'license',
-							'name',
-							'repository-directory',
 							'scripts',
 							'type',
+							'bin',
+							'name',
+							'repository-directory',
 							'version',
 						],
 					},
