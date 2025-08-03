@@ -3,7 +3,7 @@ import { dts } from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 import { minify } from 'terser';
 
-import packageJSON from '../../package.json' with { type: 'json' };
+import packageJSON from './package.json' with { type: 'json' };
 
 function terserPlugin() {
 	return {

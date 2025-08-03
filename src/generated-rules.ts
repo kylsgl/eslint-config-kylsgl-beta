@@ -1639,7 +1639,10 @@ const rules: Rules = {
 				'unicorn/escape-case': 'error',
 				'unicorn/expiring-todo-comments': 'off',
 				'unicorn/explicit-length-check': 'error',
-				'unicorn/filename-case': 'off',
+				'unicorn/filename-case': [
+					'error',
+					{ cases: { kebabCase: true, pascalCase: true } },
+				],
 				'unicorn/import-style': 'error',
 				'unicorn/new-for-builtins': 'error',
 				'unicorn/no-abusive-eslint-disable': 'error',
@@ -1774,7 +1777,10 @@ const rules: Rules = {
 				'{build,dist,out}{,-*,_*}/**',
 				'{coverage,node_modules,patches}/**',
 			],
-			rules: { 'no-underscore-dangle': 'off' },
+			rules: {
+				'no-template-curly-in-string': 'off',
+				'no-underscore-dangle': 'off',
+			},
 		},
 		{
 			files: ['**/package.json'],

@@ -1,4 +1,4 @@
-import rules from './generatedRules';
+import rules from './generated-rules';
 import ignores from './ignores';
 import parsers from './parsers';
 import { plugins } from './plugins';

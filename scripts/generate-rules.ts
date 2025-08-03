@@ -7,7 +7,7 @@ import * as prettier from 'prettier';
 import { FilesGlob } from '../src/constants';
 import { rules } from '../src/rules';
 
-const FILE_NAME = 'generatedRules.ts';
+const FILE_NAME = 'generated-rules.ts';
 
 const SAVE_PATH = './src/';
 

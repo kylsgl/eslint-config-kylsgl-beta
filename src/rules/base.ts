@@ -64,20 +64,21 @@ const baseConfig: RuleConfig = {
 	},
 };
 
+const configsConfig: RuleConfig = {
+	files: ['**/configs/**', '**/*.config.{js,cjs,mjs,ts,cts,mts}'],
+	name: 'configs/base',
+	rules: {
+		'no-template-curly-in-string': 'off',
+		'no-underscore-dangle': 'off',
+	},
+};
+
 const kylsglConfig: RuleConfig = {
 	files: FilesGlob.JS,
 	name: 'kylsgl/base',
 	rules: {
 		'kylsgl/no-toplevel-function-expression': 'error',
 		'kylsgl/no-unsafe-division': 'error',
-	},
-};
-
-const configsConfig: RuleConfig = {
-	files: ['**/configs/**', '**/*.config.{js,cjs,mjs,ts,cts,mts}'],
-	name: 'configs/base',
-	rules: {
-		'no-underscore-dangle': 'off',
 	},
 };
 
@@ -229,11 +230,19 @@ const unicornConfig: RuleConfig = {
 	rules: {
 		...unicorn.configs.recommended.rules,
 		'unicorn/expiring-todo-comments': 'off',
-		'unicorn/filename-case': 'off',
+		'unicorn/filename-case': [
+			'error',
+			{
+				cases: {
+					kebabCase: true,
+					pascalCase: true,
+				},
+			},
+		],
 		'unicorn/no-array-callback-reference': 'off',
 		'unicorn/no-array-for-each': 'off',
 		'unicorn/no-array-reduce': 'off',
-		'unicorn/no-array-reverse': 'off',
+		'unicorn/no-array-reverse': 'off', // Already covered by 'sonarjs/no-misleading-array-reverse', which also supports 'sort' method
 		'unicorn/no-for-loop': 'off',
 		'unicorn/no-null': 'off',
 		'unicorn/numeric-separators-style': [

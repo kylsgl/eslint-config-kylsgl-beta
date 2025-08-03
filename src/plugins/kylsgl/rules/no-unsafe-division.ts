@@ -213,11 +213,7 @@ function hasNonZeroInitializer(
 	return node.type === 'Identifier' && nonZeroInitializerNames.has(node.name);
 }
 
-function hasRegExpMatch(
-	node: Node,
-	regExp: RegExp,
-	enabled: boolean = false,
-): boolean {
+function hasRegExpMatch(node: Node, regExp: RegExp, enabled: boolean): boolean {
 	if (enabled) {
 		if (node.type === 'Identifier') {
 			return regExp.test(node.name);
@@ -234,8 +230,8 @@ function hasRegExpMatch(
 function isSafeDivision(
 	node: AssignmentExpression | BinaryExpression,
 	nonZeroInitializerNames: Set<string>,
-	ignorePascalCase?: boolean,
-	ignoreScreamingSnakeCase?: boolean,
+	ignorePascalCase: boolean,
+	ignoreScreamingSnakeCase: boolean,
 ): boolean {
 	return (
 		/**

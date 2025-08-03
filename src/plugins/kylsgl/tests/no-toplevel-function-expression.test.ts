@@ -1,7 +1,7 @@
 import { type RuleTester } from 'eslint';
 
 import noTopLevelFunctionExpression from '../rules/no-toplevel-function-expression';
-import ruleTester from './ruleTester';
+import ruleTester from './rule-tester';
 
 const errors: RuleTester.TestCaseError[] = [
 	{ messageId: 'noTopLevelFunctionExpression' },

@@ -1,7 +1,7 @@
 import { type RuleTester } from 'eslint';
 
 import noDefaultParams from '../rules/no-default-params';
-import ruleTester from './ruleTester';
+import ruleTester from './rule-tester';
 
 const errors: RuleTester.TestCaseError[] = [{ messageId: 'noDefaultParams' }];
 

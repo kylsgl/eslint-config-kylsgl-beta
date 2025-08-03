@@ -41,16 +41,16 @@
 		"./CHANGELOG.md"
 	],
 	"scripts": {
-		"build": "pnpm generate:rules && rollup --config ./configs/app/rollup.config.mjs",
-		"build:eslint": "pnpm build && rollup --config ./configs/eslint/rollup.config.mjs",
+		"build": "pnpm generate:rules && rollup --config ./rollup.config.mjs",
+		"build:eslint": "pnpm build && rollup --config ./eslint-config/rollup.config.mjs",
 		"format": "prettier --write .",
-		"generate:rules": "tsx ./scripts/generateRules.ts",
+		"generate:rules": "tsx ./scripts/generate-rules.ts",
 		"lint": "eslint ./",
 		"lint:fix": "pnpm lint --fix",
-		"lint:measure": "tsx ./scripts/eslintMeasure.ts",
+		"lint:measure": "tsx ./scripts/eslint-measure.ts",
 		"precommit": "pnpm lint:fix && pnpm format && pnpm test",
 		"release": "pnpm build && changeset publish",
-		"test": "tsc --noEmit && vitest --config ./configs/vitest/vitest.config --coverage"
+		"test": "tsc --noEmit && vitest --coverage"
 	},
 	"dependencies": {
 		"@stylistic/eslint-plugin": "^5.2.2",
@@ -66,7 +66,7 @@
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "6.0.0-rc.1",
 		"eslint-plugin-react-refresh": "^0.4.20",
-		"eslint-plugin-regexp": "^2.9.0",
+		"eslint-plugin-regexp": "^2.9.1",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sonarjs": "^3.0.4",
 		"eslint-plugin-testing-library": "^7.6.3",
@@ -83,14 +83,14 @@
 		"@vitest/coverage-v8": "^3.2.4",
 		"eslint": "^9.32.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.2",
+		"lint-staged": "^16.1.4",
 		"prettier": "^3.6.2",
 		"rollup": "^4.46.2",
 		"rollup-plugin-dts": "^6.2.1",
 		"rollup-plugin-esbuild": "^6.2.1",
 		"terser": "^5.43.1",
 		"tsx": "^4.20.3",
-		"typescript": "^5.8.3",
+		"typescript": "^5.9.2",
 		"vitest": "^3.2.4"
 	},
 	"engines": {
