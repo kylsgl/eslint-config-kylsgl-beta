@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.25
+
+### Patch Changes
+
+- [`45424fa`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/45424fa639aef407d963c3fc9264c3a62ac29847): Ignore file names wrapped in square brackets - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.24
 
 ### Patch Changes
