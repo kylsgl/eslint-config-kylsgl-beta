@@ -620,7 +620,7 @@ const rules$4 = {
             newIsCapExceptions: []
           }
         ],
-        "no-alert": "warn",
+        "no-alert": "error",
         "no-array-constructor": "error",
         "no-async-promise-executor": "error",
         "no-await-in-loop": "error",

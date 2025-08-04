@@ -88,8 +88,7 @@ const typeScriptTypeCheckedRulesObj: RuleConfig['rules'] = {
 		},
 	],
 	'@typescript-eslint/no-unnecessary-qualifier': 'error',
-	'@typescript-eslint/no-unnecessary-type-conversion': 'error',
-	// TODO: RE-CHECK
+	// TODO: enable? currently breaks alot of stuff
 	'@typescript-eslint/no-unnecessary-type-parameters': 'off',
 	'@typescript-eslint/prefer-nullish-coalescing': [
 		'error',
