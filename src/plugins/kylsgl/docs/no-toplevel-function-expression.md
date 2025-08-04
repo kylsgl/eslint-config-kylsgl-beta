@@ -1,4 +1,4 @@
-# kylsgl/no-toplevel-function-expression
+# kylsgl/no-top-level-function-expression
 
 💼 This rule is enabled in the following configs: ✅ `base`.
 

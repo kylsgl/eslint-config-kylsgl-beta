@@ -7,7 +7,7 @@ import noUnsafeDivision from './rules/no-unsafe-division';
 const kylsgl: ESLint.Plugin = {
 	rules: {
 		'no-default-params': noDefaultParams,
-		'no-toplevel-function-expression': noTopLevelFunctionExpression,
+		'no-top-level-function-expression': noTopLevelFunctionExpression,
 		'no-unsafe-division': noUnsafeDivision,
 	},
 };

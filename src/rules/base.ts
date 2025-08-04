@@ -22,28 +22,28 @@ const baseConfig: RuleConfig = {
 		curly: ['error', 'all'],
 		'no-console': ['warn', { allow: ['error', 'info', 'warn'] }],
 		'no-empty-function': 'error',
-		'no-param-reassign': [
-			'error',
-			{
-				ignorePropertyModificationsFor: [
-					'acc', // for reduce accumulators
-					'accumulator', // for reduce accumulators
-					'e', // for e.returnvalue
-					'ctx', // for Koa routing
-					'context', // for Koa routing
-					'req', // for Express requests
-					'request', // for Express requests
-					'res', // for Express responses
-					'response', // for Express responses
-					'$scope', // for Angular 1 scopes
-					'staticContext', // for ReactRouter context
-				],
-				ignorePropertyModificationsForRegex: [
-					String.raw`^accumulator(_?\d+)$`, // for reduce accumulators such as 'accumulator1', 'accumulator_1', etc.
-				],
-				props: true,
-			},
-		],
+		// 'no-param-reassign': [
+		// 	'error',
+		// 	{
+		// 		ignorePropertyModificationsFor: [
+		// 			'acc', // for reduce accumulators
+		// 			'accumulator', // for reduce accumulators
+		// 			'e', // for e.returnvalue
+		// 			'ctx', // for Koa routing
+		// 			'context', // for Koa routing
+		// 			'req', // for Express requests
+		// 			'request', // for Express requests
+		// 			'res', // for Express responses
+		// 			'response', // for Express responses
+		// 			'$scope', // for Angular 1 scopes
+		// 			'staticContext', // for ReactRouter context
+		// 		],
+		// 		ignorePropertyModificationsForRegex: [
+		// 			String.raw`^accumulator(_?\d+)$`, // for reduce accumulators such as 'accumulator1', 'accumulator_1', etc.
+		// 		],
+		// 		props: true,
+		// 	},
+		// ],
 		'no-restricted-syntax': [
 			'error',
 			{
@@ -77,7 +77,7 @@ const kylsglConfig: RuleConfig = {
 	files: FilesGlob.JS,
 	name: 'kylsgl/base',
 	rules: {
-		'kylsgl/no-toplevel-function-expression': 'error',
+		'kylsgl/no-top-level-function-expression': 'error',
 		'kylsgl/no-unsafe-division': 'error',
 	},
 };

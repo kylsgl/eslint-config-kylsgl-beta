@@ -560,7 +560,7 @@ const rules: Rules = {
 				'import-x/prefer-default-export': 'error',
 				'import-x/unambiguous': 'off',
 				'init-declarations': 'off',
-				'kylsgl/no-toplevel-function-expression': 'error',
+				'kylsgl/no-top-level-function-expression': 'error',
 				'kylsgl/no-unsafe-division': 'error',
 				'logical-assignment-operators': [
 					'off',
@@ -703,7 +703,6 @@ const rules: Rules = {
 							'$scope',
 							'staticContext',
 						],
-						ignorePropertyModificationsForRegex: ['^accumulator(_?\\d+)$'],
 						props: true,
 					},
 				],
