@@ -1595,7 +1595,10 @@ const rules$4 = {
         "unicorn/explicit-length-check": "error",
         "unicorn/filename-case": [
           "error",
-          { cases: { kebabCase: true, pascalCase: true } }
+          {
+            cases: { kebabCase: true, pascalCase: true },
+            ignore: ["\\[[^\\]]{1,100}\\]\\.(js|jsx|ts|tsx)$"]
+          }
         ],
         "unicorn/import-style": "error",
         "unicorn/new-for-builtins": "error",

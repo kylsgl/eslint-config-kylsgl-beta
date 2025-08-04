@@ -237,6 +237,9 @@ const unicornConfig: RuleConfig = {
 					kebabCase: true,
 					pascalCase: true,
 				},
+				ignore: [
+					String.raw`\[[^\]]{1,100}\]\.(js|jsx|ts|tsx)$`, // Ignore file names wrapped in square brackets
+				],
 			},
 		],
 		'unicorn/no-array-callback-reference': 'off',
