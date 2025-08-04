@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 2.0.24
+
+### Patch Changes
+
+- [`86c7e11`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/86c7e114c2c5d119a7a80264b5650996507d8ea4): cleanup - by [@kylsgl](https://github.com/kylsgl)
+
+- [`32fb1c1`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/32fb1c1a356999aa254e74a62c81472a2beab7eb): restructure files - by [@kylsgl](https://github.com/kylsgl)
+
+- [`a08c8bf`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/a08c8bf33bb9c661c6b3b5d5dd28162676b19b18): add lint-staged - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.23
 
 ### Patch Changes
