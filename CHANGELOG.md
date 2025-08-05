@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.26
+
+### Patch Changes
+
+- [`ac35fcb`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/ac35fcb2e38ebc2346cc4a9c0debcc04947762d4): handle reassignment to react refs - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.25
 
 ### Patch Changes
