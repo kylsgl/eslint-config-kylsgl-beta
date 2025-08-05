@@ -4218,6 +4218,26 @@ const rules: Rules = {
 				'jsx-a11y/scope': 'error',
 				'jsx-a11y/tabindex-no-positive': 'error',
 				'jsx-quotes': ['error', 'prefer-double'],
+				'no-param-reassign': [
+					'error',
+					{
+						ignorePropertyModificationsFor: [
+							'acc',
+							'accumulator',
+							'e',
+							'ctx',
+							'context',
+							'req',
+							'request',
+							'res',
+							'response',
+							'$scope',
+							'staticContext',
+						],
+						ignorePropertyModificationsForRegex: ['^ref$', '\\w+Ref$'],
+						props: true,
+					},
+				],
 				'no-underscore-dangle': [
 					'error',
 					{

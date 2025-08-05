@@ -12,6 +12,29 @@ const baseConfig: RuleConfig = {
 	},
 	name: 'react/base',
 	rules: {
+		'no-param-reassign': [
+			'error',
+			{
+				ignorePropertyModificationsFor: [
+					'acc', // for reduce accumulators
+					'accumulator', // for reduce accumulators
+					'e', // for e.returnvalue
+					'ctx', // for Koa routing
+					'context', // for Koa routing
+					'req', // for Express requests
+					'request', // for Express requests
+					'res', // for Express responses
+					'response', // for Express responses
+					'$scope', // for Angular 1 scopes
+					'staticContext', // for ReactRouter context
+				],
+				ignorePropertyModificationsForRegex: [
+					'^ref$', // for params that is named "ref"
+					String.raw`\w+Ref$`, // for params that ends with "Ref"
+				],
+				props: true,
+			},
+		],
 		'react-hooks/react-compiler': 'error',
 		'react/checked-requires-onchange-or-readonly': 'error',
 		// 'react/jsx-props-no-spreading': [
