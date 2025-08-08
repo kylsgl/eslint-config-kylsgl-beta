@@ -1762,8 +1762,12 @@ const rules$4 = {
         "package-json/valid-bundleDependencies": "error",
         "package-json/valid-config": "error",
         "package-json/valid-cpu": "error",
+        "package-json/valid-dependencies": "error",
+        "package-json/valid-description": "error",
+        "package-json/valid-devDependencies": "error",
         "package-json/valid-license": "error",
         "package-json/valid-name": "error",
+        "package-json/valid-optionalDependencies": "error",
         "package-json/valid-package-definition": [
           "error",
           {
@@ -1772,7 +1776,12 @@ const rules$4 = {
               "bundleDependencies",
               "config",
               "cpu",
+              "dependencies",
+              "description",
+              "devDependencies",
               "license",
+              "optionalDependencies",
+              "peerDependencies",
               "scripts",
               "type",
               "bin",
@@ -1782,6 +1791,7 @@ const rules$4 = {
             ]
           }
         ],
+        "package-json/valid-peerDependencies": "error",
         "package-json/valid-repository-directory": "error",
         "package-json/valid-scripts": "error",
         "package-json/valid-type": "error",

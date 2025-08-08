@@ -1,6 +1,6 @@
 import { type Linter } from 'eslint';
 
-import { configs } from '../src';
+import { configs } from '../../src';
 
 const config: readonly Linter.Config[] = [
 	...configs.base,

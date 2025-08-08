@@ -1,14 +1,14 @@
 import { defineConfig } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 
-import packageJSON from '../package.json' with { type: 'json' };
+import packageJSON from '../../package.json' with { type: 'json' };
 
 export default defineConfig(() => ({
 	external: [
 		...Object.keys(packageJSON.dependencies),
 		...Object.keys(packageJSON.devDependencies),
 	],
-	input: './eslint-config/index.ts',
+	input: './scripts/eslint-config/index.ts',
 	output: {
 		file: './eslint.config.mjs',
 		format: 'esm',

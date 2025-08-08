@@ -98,8 +98,6 @@ const typeScriptTypeCheckedRulesObj: RuleConfig['rules'] = {
 		},
 	],
 	'@typescript-eslint/prefer-readonly': 'error',
-	// TODO: RE-CHECK
-	// '@typescript-eslint/prefer-readonly-parameter-types': 'error',
 	'@typescript-eslint/promise-function-async': 'error',
 	'@typescript-eslint/restrict-template-expressions': [
 		'error',
