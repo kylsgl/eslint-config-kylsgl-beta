@@ -1734,7 +1734,9 @@ const rules$4 = {
         "{build,dist,out}{,-*,_*}/**",
         "{coverage,node_modules,patches}/**"
       ],
+      languageOptions: { globals: {} },
       rules: {
+        "import-x/extensions": "off",
         "no-template-curly-in-string": "off",
         "no-underscore-dangle": "off"
       }

@@ -28,7 +28,10 @@ function mergeRules(
 				settings,
 			}: Linter.Config,
 		) => {
-			const configKey: string | undefined = files?.join('');
+			const configKey: string | undefined = files
+				?.flat()
+				.sort((a: string, b: string): number => a.localeCompare(b))
+				.join('');
 
 			if (configKey !== undefined && configKey.length > 0) {
 				const configValue: Linter.Config = {

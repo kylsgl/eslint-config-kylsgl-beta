@@ -20,6 +20,14 @@ const baseConfig: RuleConfig = {
 	},
 };
 
+const configsConfig: RuleConfig = {
+	files: ['**/configs/**', '**/*.config.{js,cjs,mjs,ts,cts,mts}'],
+	name: 'import/config',
+	rules: {
+		'import-x/extensions': 'off',
+	},
+};
+
 const preferDefaultExportExclusionConfig: RuleConfig = {
 	files: [
 		'**/constants.{js,cjs,mjs,ts,cts,mts}',
@@ -43,4 +51,9 @@ const sortConfig: RuleConfig = {
 	},
 };
 
-export default [baseConfig, preferDefaultExportExclusionConfig, sortConfig];
+export default [
+	baseConfig,
+	configsConfig,
+	preferDefaultExportExclusionConfig,
+	sortConfig,
+];
