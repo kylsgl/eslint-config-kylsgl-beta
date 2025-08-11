@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.31
+
+### Patch Changes
+
+- [`3aad093`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/3aad0938feae667dd2907f423f5c100d07976391): disable import extension in configs - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.30
 
 ### Patch Changes
