@@ -24,7 +24,7 @@ const preferDefaultExportExclusionConfig: RuleConfig = {
 	files: [
 		'**/constants.{js,ts}',
 		'**/enums.{js,ts}',
-		'**/index.{js,d.ts,ts}',
+		'**/index.{js,ts}',
 		'**/schemas.{js,ts}',
 		'**/utils.{js,ts}',
 	],

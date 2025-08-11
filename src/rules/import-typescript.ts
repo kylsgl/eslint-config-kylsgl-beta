@@ -19,13 +19,7 @@ const baseConfig: RuleConfig = {
 };
 
 const preferDefaultExportExclusionConfig: RuleConfig = {
-	files: [
-		'**/constants.ts',
-		'**/enums.ts',
-		'**/index.{d.ts,ts}',
-		'**/schemas.ts',
-		'**/utils.ts',
-	],
+	files: ['**/*.d.ts'],
 	name: 'import/prefer-default-export-exclusion-typescript',
 	rules: {
 		'import-x/prefer-default-export': 'off',

@@ -2421,7 +2421,7 @@ const rules$4 = {
       files: [
         "**/constants.{js,ts}",
         "**/enums.{js,ts}",
-        "**/index.{js,d.ts,ts}",
+        "**/index.{js,ts}",
         "**/schemas.{js,ts}",
         "**/utils.{js,ts}"
       ],
@@ -3161,28 +3161,16 @@ const rules$4 = {
         "{build,dist,out}{,-*,_*}/**",
         "{coverage,node_modules,patches}/**"
       ],
+      languageOptions: { globals: {} },
       rules: {
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/naming-convention": "off",
+        "import-x/prefer-default-export": "off",
         "no-template-curly-in-string": "off",
         "no-underscore-dangle": "off",
         "no-var": "off",
         "vars-on-top": "off"
       }
-    },
-    {
-      files: [
-        "**/constants.ts",
-        "**/enums.ts",
-        "**/index.{d.ts,ts}",
-        "**/schemas.ts",
-        "**/utils.ts"
-      ],
-      ignores: [
-        "{build,dist,out}{,-*,_*}/**",
-        "{coverage,node_modules,patches}/**"
-      ],
-      rules: { "import-x/prefer-default-export": "off" }
     }
   ]
 };
