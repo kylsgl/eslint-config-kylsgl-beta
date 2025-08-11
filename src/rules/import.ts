@@ -11,7 +11,7 @@ const baseConfig: RuleConfig = {
 			{
 				devDependencies: [
 					'**/{.storybook,__mocks__,__tests__,configs,electron,scripts,spec,test,tests}/**',
-					'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
+					'**/*.{config,spec,stories,test}.{js,jsx,cjs,mjs,cjs,mjs,ts,cts,mts,tsx,cts,mts}',
 				],
 				optionalDependencies: false,
 			},
@@ -22,11 +22,11 @@ const baseConfig: RuleConfig = {
 
 const preferDefaultExportExclusionConfig: RuleConfig = {
 	files: [
-		'**/constants.{js,ts}',
-		'**/enums.{js,ts}',
-		'**/index.{js,ts}',
-		'**/schemas.{js,ts}',
-		'**/utils.{js,ts}',
+		'**/constants.{js,cjs,mjs,ts,cts,mts}',
+		'**/enums.{js,cjs,mjs,ts,cts,mts}',
+		'**/index.{js,cjs,mjs,ts,cts,mts}',
+		'**/schemas.{js,cjs,mjs,ts,cts,mts}',
+		'**/utils.{js,cjs,mjs,ts,cts,mts}',
 	],
 	name: 'import/prefer-default-export-exclusion',
 	rules: {
