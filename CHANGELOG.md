@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.29
+
+### Patch Changes
+
+- [`870fe13`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/870fe1368694cb3b62315f55a2551082939ac597): exclude .d.ts files from prefer default export - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.28
 
 ### Patch Changes
