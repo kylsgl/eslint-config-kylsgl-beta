@@ -1,5 +1,11 @@
 # eslint-config-kylsgl
 
+## 2.0.30
+
+### Patch Changes
+
+- [`0daa2d6`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/0daa2d638de9a6001efa0b84302c6986ea5f165d): expand prefer defautl export exclusion extensions - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.29
 
 ### Patch Changes
