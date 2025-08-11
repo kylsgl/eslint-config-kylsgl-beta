@@ -1,5 +1,13 @@
 # eslint-config-kylsgl
 
+## 2.0.28
+
+### Patch Changes
+
+- [`96ca877`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/96ca87700bd0a0d43d17d5ea7cf3ad0b651c946c): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`ccdbe2d`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/ccdbe2d7b321e94d2a9d21691de289cbfc4f7d0e): add JS to preferDefaultExportExclusionConfig - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.27
 
 ### Patch Changes
