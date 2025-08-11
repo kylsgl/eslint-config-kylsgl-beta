@@ -2418,6 +2418,20 @@ const rules$4 = {
       rules: { "no-restricted-globals": "off", "no-underscore-dangle": "off" }
     },
     {
+      files: [
+        "**/constants.{js,ts}",
+        "**/enums.{js,ts}",
+        "**/index.{js,d.ts,ts}",
+        "**/schemas.{js,ts}",
+        "**/utils.{js,ts}"
+      ],
+      ignores: [
+        "{build,dist,out}{,-*,_*}/**",
+        "{coverage,node_modules,patches}/**"
+      ],
+      rules: { "import-x/prefer-default-export": "off" }
+    },
+    {
       files: ["**/*.{spec,test}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"],
       ignores: [
         "{build,dist,out}{,-*,_*}/**",

@@ -20,6 +20,20 @@ const baseConfig: RuleConfig = {
 	},
 };
 
+const preferDefaultExportExclusionConfig: RuleConfig = {
+	files: [
+		'**/constants.{js,ts}',
+		'**/enums.{js,ts}',
+		'**/index.{js,d.ts,ts}',
+		'**/schemas.{js,ts}',
+		'**/utils.{js,ts}',
+	],
+	name: 'import/prefer-default-export-exclusion',
+	rules: {
+		'import-x/prefer-default-export': 'off',
+	},
+};
+
 const sortConfig: RuleConfig = {
 	files: FilesGlob.JS,
 	name: 'import/sort',
@@ -29,4 +43,4 @@ const sortConfig: RuleConfig = {
 	},
 };
 
-export default [baseConfig, sortConfig];
+export default [baseConfig, preferDefaultExportExclusionConfig, sortConfig];
