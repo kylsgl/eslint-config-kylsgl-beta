@@ -1,6 +1,6 @@
 import { type RuleTester } from 'eslint';
 
-import noUnsafeDivision from '../rules/no-unsafe-division';
+import noUnsafeDivision from '../no-unsafe-division';
 import ruleTester from './rule-tester';
 
 const errors: RuleTester.TestCaseError[] = [{ messageId: 'noUnsafeDivision' }];

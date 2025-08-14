@@ -1,6 +1,6 @@
 import { type RuleTester } from 'eslint';
 
-import noTopLevelFunctionExpression from '../rules/no-top-level-function-expression';
+import noTopLevelFunctionExpression from '../no-top-level-function-expression';
 import ruleTester from './rule-tester';
 
 const errors: RuleTester.TestCaseError[] = [

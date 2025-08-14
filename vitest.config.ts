@@ -4,13 +4,12 @@ export default defineConfig({
 	test: {
 		coverage: {
 			all: false,
-			provider: 'v8',
+			provider: 'istanbul',
 		},
 		environment: 'node',
 		globals: true,
-		include: ['**/{__mocks__,__tests__,spec,tests}/**/*.{spec,test}.ts'],
 		reporters: 'verbose',
-		testTimeout: 2e4,
+		testTimeout: 15e3,
 		watch: false,
 	},
 });
