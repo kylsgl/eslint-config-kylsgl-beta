@@ -1,5 +1,15 @@
 # eslint-config-kylsgl
 
+## 2.0.33
+
+### Patch Changes
+
+- [`2e96d3f`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/2e96d3f8a33b7c9408bb0d80e6a8a7f3641792b6): expose plugins - by [@kylsgl](https://github.com/kylsgl)
+
+- [`5183836`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/518383631edc8904d2cb6a00d451301637e7e29c): bump deps - by [@kylsgl](https://github.com/kylsgl)
+
+- [`63ae710`](https://github.com/kylsgl/eslint-config-kylsgl-beta/commit/63ae7105053cba311359b84c4e3d459b1b944adb): remove dependabot.yml - by [@kylsgl](https://github.com/kylsgl)
+
 ## 2.0.32
 
 ### Patch Changes
