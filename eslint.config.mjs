@@ -1767,6 +1767,7 @@ const rules$4 = {
         "package-json/valid-dependencies": "error",
         "package-json/valid-description": "error",
         "package-json/valid-devDependencies": "error",
+        "package-json/valid-exports": "error",
         "package-json/valid-license": "error",
         "package-json/valid-name": "error",
         "package-json/valid-optionalDependencies": "error",
@@ -1781,6 +1782,7 @@ const rules$4 = {
               "dependencies",
               "description",
               "devDependencies",
+              "exports",
               "license",
               "optionalDependencies",
               "peerDependencies",
@@ -3520,32 +3522,48 @@ const kylsgl = {
 };
 
 const plugins = {
+  "@stylistic": stylistic,
+  "@typescript-eslint": tsEslint.plugin,
+  "import-x": importX,
+  kylsgl,
+  n,
+  "package-json": packageJSON,
+  perfectionist,
+  promise,
+  regexp,
+  "simple-import-sort": simpleImportSort,
+  sonarjs,
+  tsdoc,
+  unicorn,
+  vitest
+};
+const internalPlugins = {
   base: [
     {
       files: FilesGlob.JS,
       plugins: {
-        "@stylistic": stylistic,
-        "import-x": importX,
-        kylsgl,
-        n,
-        perfectionist,
-        promise,
-        regexp,
-        "simple-import-sort": simpleImportSort,
-        sonarjs,
-        unicorn
+        "@stylistic": plugins["@stylistic"],
+        "import-x": plugins["import-x"],
+        kylsgl: plugins.kylsgl,
+        n: plugins.n,
+        perfectionist: plugins.perfectionist,
+        promise: plugins.promise,
+        regexp: plugins.regexp,
+        "simple-import-sort": plugins["simple-import-sort"],
+        sonarjs: plugins.sonarjs,
+        unicorn: plugins.unicorn
       }
     },
     {
       files: FilesGlob.PackageJSON,
       plugins: {
-        "package-json": packageJSON
+        "package-json": plugins["package-json"]
       }
     },
     {
       files: FilesGlob.JSTests,
       plugins: {
-        vitest
+        vitest: plugins.vitest
       }
     }
   ],
@@ -3553,8 +3571,8 @@ const plugins = {
     {
       files: FilesGlob.TS,
       plugins: {
-        "@typescript-eslint": tsEslint.plugin,
-        tsdoc
+        "@typescript-eslint": plugins["@typescript-eslint"],
+        tsdoc: plugins.tsdoc
       }
     }
   ]
@@ -3591,7 +3609,7 @@ const settings = {
 
 const configs = {
   base: [
-    ...plugins.base,
+    ...internalPlugins.base,
     ...parsers.base,
     ...settings.base,
     ...rules$4.base,
@@ -3599,7 +3617,7 @@ const configs = {
   ],
   prettier: rules$4.prettier,
   typeScriptTypeChecked: [
-    ...plugins.typeScript,
+    ...internalPlugins.typeScript,
     ...parsers.typeScript,
     ...settings.typeScript,
     ...rules$4.typeScriptTypeChecked

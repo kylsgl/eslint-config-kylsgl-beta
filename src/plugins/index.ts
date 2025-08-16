@@ -21,36 +21,58 @@ import unicorn from 'eslint-plugin-unicorn';
 import tsEslint from 'typescript-eslint';
 
 import { FilesGlob } from '../constants';
-import { type Plugins } from '../types';
+import { type InternalPlugins, type Plugins } from '../types';
 import kylsgl from './kylsgl';
 
 export const plugins: Plugins = {
+	'@stylistic': stylistic,
+	'@typescript-eslint': tsEslint.plugin as ESLint.Plugin,
+	'import-x': importX as unknown as ESLint.Plugin,
+	'jsx-a11y': jsxA11y as ESLint.Plugin,
+	kylsgl,
+	n,
+	'package-json': packageJSON as ESLint.Plugin,
+	perfectionist,
+	promise: promise as ESLint.Plugin,
+	react,
+	'react-hooks': reactHooks,
+	'react-refresh': reactRefresh,
+	regexp,
+	'simple-import-sort': simpleImportSort,
+	sonarjs,
+	'testing-library': testingLibrary,
+	tsdoc,
+	unicorn,
+	vitest: vitest as unknown as ESLint.Plugin,
+};
+
+export const internalPlugins: InternalPlugins = {
 	base: [
 		{
 			files: FilesGlob.JS,
 			plugins: {
-				'@stylistic': stylistic,
-				'import-x': importX as unknown as ESLint.Plugin,
-				kylsgl,
-				n,
-				perfectionist,
-				promise: promise as ESLint.Plugin,
-				regexp,
-				'simple-import-sort': simpleImportSort,
-				sonarjs,
-				unicorn,
+				'@stylistic': plugins['@stylistic'],
+				'import-x': plugins['import-x'],
+				kylsgl: plugins.kylsgl,
+				n: plugins.n,
+				perfectionist: plugins.perfectionist,
+				promise: plugins.promise,
+				regexp: plugins.regexp,
+				'simple-import-sort': plugins['simple-import-sort'],
+				sonarjs: plugins.sonarjs,
+				unicorn: plugins.unicorn,
 			},
 		},
 		{
 			files: FilesGlob.PackageJSON,
 			plugins: {
-				'package-json': packageJSON as ESLint.Plugin,
+				'package-json': plugins['package-json'],
 			},
 		},
 		{
 			files: FilesGlob.JSTests,
 			plugins: {
-				vitest: vitest as unknown as ESLint.Plugin,
+				vitest: plugins.vitest,
 			},
 		},
 	],
@@ -58,16 +80,16 @@ export const plugins: Plugins = {
 		{
 			files: FilesGlob.JSX,
 			plugins: {
-				'jsx-a11y': jsxA11y as ESLint.Plugin,
-				react,
-				'react-hooks': reactHooks,
-				'react-refresh': reactRefresh,
+				'jsx-a11y': plugins['jsx-a11y'],
+				react: plugins.react,
+				'react-hooks': plugins['react-hooks'],
+				'react-refresh': plugins['react-refresh'],
 			},
 		},
 		{
 			files: FilesGlob.JSXTests,
 			plugins: {
-				'testing-library': testingLibrary,
+				'testing-library': plugins['testing-library'],
 			},
 		},
 	],
@@ -75,8 +97,8 @@ export const plugins: Plugins = {
 		{
 			files: FilesGlob.TS,
 			plugins: {
-				'@typescript-eslint': tsEslint.plugin as ESLint.Plugin,
-				tsdoc,
+				'@typescript-eslint': plugins['@typescript-eslint'],
+				tsdoc: plugins.tsdoc,
 			},
 		},
 	],
